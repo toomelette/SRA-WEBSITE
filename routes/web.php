@@ -40,6 +40,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 	/** MENU **/
 	Route::resource('menu', 'MenuController');
+
+
+	/** NEWS **/
+	Route::get('/news/view_file/{slug}', 'NewsController@viewFile')->name('news.view_file');
+	Route::resource('news', 'NewsController');
 	
 });
 

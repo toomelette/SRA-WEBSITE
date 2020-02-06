@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => 'D:\swep_storage',
+            'root' => 'F:/sra_website_storage',
         ],
         
         'public' => [

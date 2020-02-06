@@ -4,11 +4,10 @@ namespace App\Core\Helpers;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 
 class __dynamic{
-
-
 
 
 
