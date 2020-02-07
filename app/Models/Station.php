@@ -3,22 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Kyslik\ColumnSortable\Sortable;
+
+class Station extends Model{
 
 
-class News extends Model{
-
-
-    use Sortable;
-
-    protected $table = 'news';
+    protected $table = 'stations';
 
     protected $dates = ['created_at', 'updated_at'];
     
 	public $timestamps = false;
-
-    public $sortable = ['title', 'content', 'updated_at'];
-
 
 
 
@@ -26,12 +19,8 @@ class News extends Model{
     protected $attributes = [
 
         'slug' => '',
-        'news_id' => '',
-        'type' => '',
-        'file_location' => '',
-        'url' => '',
-        'title' => '',
-        'content' => '',
+        'station_id' => '',
+        'name' => '',
         'created_at' => null,
         'updated_at' => null,
         'ip_created' => '',
@@ -44,5 +33,11 @@ class News extends Model{
 
 
 
-    
+    public function official() {
+        return $this->hasMany('App\Models\Official','station_id','station_id');
+    }
+
+
+
+
 }

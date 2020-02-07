@@ -1,6 +1,6 @@
 <?php
 
-  $table_sessions = [ Session::get('NEWS_UPDATE_SUCCESS_SLUG') ];
+  $table_sessions = [ Session::get('ANNOUNCEMENT_UPDATE_SUCCESS_SLUG') ];
 
   $appended_requests = [
                         'q'=> Request::get('q'),
@@ -20,19 +20,19 @@
 @section('content')
     
   <section class="content-header">
-      <h1>News List</h1>
+      <h1>Announcement List</h1>
   </section>
 
   <section class="content">
     
     {{-- Form Start --}}
-    <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('dashboard.news.index') }}">
+    <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('dashboard.announcement.index') }}">
 
     <div class="box box-solid" id="pjax-container" style="overflow-x:auto;">
 
       {{-- Table Search --}}        
       <div class="box-header with-border">
-        {!! __html::table_search(route('dashboard.news.index')) !!}
+        {!! __html::table_search(route('dashboard.announcement.index')) !!}
       </div>
 
     {{-- Form End --}}  
@@ -48,13 +48,13 @@
             <th>@sortablelink('updated_at', 'Last Updated')</th>
             <th style="width: 150px">Action</th>
           </tr>
-          @foreach($news as $data) 
+          @foreach($announcements as $data) 
             <tr {!! __html::table_highlighter($data->slug, $table_sessions) !!} >
               <td id="mid-vert"> 
                 @if($data->type == "FILE")
 
                   @if(Storage::disk('local')->exists($data->file_location))
-                    <a href="{{ route('dashboard.news.view_file', $data->slug) }}" class="btn btn-sm btn-success" target="_blank">
+                    <a href="{{ route('dashboard.announcement.view_file', $data->slug) }}" class="btn btn-sm btn-success" target="_blank">
                       <i class="fa fa-file-pdf-o"></i>
                     </a>
                   @else
@@ -79,12 +79,12 @@
               <td id="mid-vert">{{ $data->updated_at->diffForHumans() }}</td>
               <td id="mid-vert">
                 <div class="btn-group">
-                  <a type="button" class="btn btn-default" id="show_button" href="{{ route('dashboard.news.show', $data->slug) }}">
+                  <a type="button" class="btn btn-default" id="show_button" href="{{ route('dashboard.announcement.show', $data->slug) }}">
                     <i class="fa fa-eye"></i>
                   </a>
-                  <a type="button" class="btn btn-default" id="edit_button" href="{{ route('dashboard.news.edit', $data->slug) }}">
+                  <a type="button" class="btn btn-default" id="edit_button" href="{{ route('dashboard.announcement.edit', $data->slug) }}">
                     <i class="fa fa-pencil"></i></a>
-                  <a type="button" class="btn btn-default" id="delete_button" data-action="delete" data-url="{{ route('dashboard.news.destroy', $data->slug) }}">
+                  <a type="button" class="btn btn-default" id="delete_button" data-action="delete" data-url="{{ route('dashboard.announcement.destroy', $data->slug) }}">
                     <i class="fa fa-trash"></i>
                   </a>
                 </div>
@@ -94,15 +94,15 @@
           </table>
       </div>
 
-      @if($news->isEmpty())
+      @if($announcements->isEmpty())
         <div style="padding :5px;">
           <center><h4>No Records found!</h4></center>
         </div>
       @endif
 
       <div class="box-footer">
-        {!! __html::table_counter($news) !!}
-        {!! $news->appends($appended_requests)->render('vendor.pagination.bootstrap-4')!!}
+        {!! __html::table_counter($announcements) !!}
+        {!! $announcements->appends($appended_requests)->render('vendor.pagination.bootstrap-4')!!}
       </div>
 
     </div>
@@ -117,7 +117,7 @@
 
 @section('modals')
 
-  {!! __html::modal_delete('news_delete') !!}
+  {!! __html::modal_delete('announcement_delete') !!}
 
 @endsection 
 
@@ -130,16 +130,16 @@
   <script type="text/javascript">
 
     {{-- CALL CONFIRM DELETE MODAL --}}
-    {!! __js::button_modal_confirm_delete_caller('news_delete') !!}
+    {!! __js::button_modal_confirm_delete_caller('announcement_delete') !!}
 
     {{-- UPDATE TOAST --}}
-    @if(Session::has('NEWS_UPDATE_SUCCESS'))
-      {!! __js::toast(Session::get('NEWS_UPDATE_SUCCESS')) !!}
+    @if(Session::has('ANNOUNCEMENT_UPDATE_SUCCESS'))
+      {!! __js::toast(Session::get('ANNOUNCEMENT_UPDATE_SUCCESS')) !!}
     @endif
 
     {{-- DELETE TOAST --}}
-    @if(Session::has('NEWS_DELETE_SUCCESS'))
-      {!! __js::toast(Session::get('NEWS_DELETE_SUCCESS')) !!}
+    @if(Session::has('ANNOUNCEMENT_DELETE_SUCCESS'))
+      {!! __js::toast(Session::get('ANNOUNCEMENT_DELETE_SUCCESS')) !!}
     @endif
 
   </script>

@@ -45,6 +45,20 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** NEWS **/
 	Route::get('/news/view_file/{slug}', 'NewsController@viewFile')->name('news.view_file');
 	Route::resource('news', 'NewsController');
+
+
+	/** ANNOUNCEMENTS **/
+	Route::get('/announcement/view_file/{slug}', 'AnnouncementController@viewFile')->name('announcement.view_file');
+	Route::resource('announcement', 'AnnouncementController');
+
+
+	/** OFFICES **/
+	Route::resource('office', 'OfficeController');
+
+
+	/** OFFICIALS **/
+	Route::get('/official/view_avatar/{slug}', 'OfficialController@viewAvatar')->name('official.view_avatar');
+	Route::resource('official', 'OfficialController');
 	
 });
 
@@ -54,9 +68,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 
 /** Testing **/
-Route::get('/dashboard/test', function(){
+// Route::get('/dashboard/test', function(){
 
-	//return dd(Illuminate\Support\Str::random(16));
+// 	return dd(Illuminate\Support\Str::random(16));
 
-});
+// });
 

@@ -175,13 +175,45 @@ class __js{
 		        ],
 		        initialPreviewAsData: true,
 		        initialPreviewConfig: [
-		            {type: "pdf", size: "100%", width: "100%", key: 1},
+		            {type: "pdf", width: "100%", key: 1},
 		        ],
 		      }); 
 			  $(".kv-file-remove").hide();
 	  ';
 
     }
+
+
+
+
+
+
+
+    public static function img_upload($id, $theme, $url){
+
+      return '$("#'. $id .'").fileinput({
+		        theme: "'. $theme .'",
+		        allowedFileExtensions: ["jpg", "jpeg", "png"],
+    			maxFileCount: 1,
+		        showUpload: false,
+		        showCaption: false,
+		        overwriteInitial: true,
+		        fileType: "jpg",
+		        browseClass: "btn btn-primary btn-md",
+		        initialPreview: [
+		            "'. $url .'",
+		        ],
+		        initialPreviewAsData: true,
+		        initialPreviewFileType: "image",
+		        initialPreviewConfig: [
+		            {caption: "avatar.jpg", width: "100%", url: "'. $url .'", key: 1},
+		        ],
+		      }); 
+			  $(".kv-file-remove").hide();
+	  ';
+
+    }
+
 
 
 

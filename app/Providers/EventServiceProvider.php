@@ -33,7 +33,9 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\ProfileSubscriber',
         'App\Core\Subscribers\MenuSubscriber',
         'App\Core\Subscribers\NewsSubscriber',
-        
+        'App\Core\Subscribers\AnnouncementSubscriber',
+        'App\Core\Subscribers\OfficeSubscriber',
+        'App\Core\Subscribers\OfficialSubscriber',
         
     ];
 

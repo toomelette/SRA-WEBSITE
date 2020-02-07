@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
 
-class News extends Model{
+class Announcement extends Model{
 
 
-    use Sortable;
+	use Sortable;
 
-    protected $table = 'news';
+    protected $table = 'announcements';
 
     protected $dates = ['created_at', 'updated_at'];
     
@@ -21,12 +21,10 @@ class News extends Model{
 
 
 
-
-
     protected $attributes = [
 
         'slug' => '',
-        'news_id' => '',
+        'announcement_id' => '',
         'type' => '',
         'file_location' => '',
         'url' => '',
@@ -40,8 +38,6 @@ class News extends Model{
         'user_updated' => '',
 
     ];
-
-
 
 
     

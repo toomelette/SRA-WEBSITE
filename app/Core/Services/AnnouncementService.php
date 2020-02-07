@@ -3,20 +3,20 @@
 namespace App\Core\Services;
 
 use File;
-use App\Core\Interfaces\NewsInterface;
+use App\Core\Interfaces\AnnouncementInterface;
 use App\Core\BaseClasses\BaseService;
 
 
-class NewsService extends BaseService{
+class AnnouncementService extends BaseService{
 
 
-    protected $news_repo;
+    protected $announcement_repo;
 
 
 
-    public function __construct(NewsInterface $news_repo){
+    public function __construct(AnnouncementInterface $announcement_repo){
 
-        $this->news_repo = $news_repo;
+        $this->announcement_repo = $announcement_repo;
         parent::__construct();
 
     }
@@ -27,10 +27,10 @@ class NewsService extends BaseService{
 
     public function fetch($request){
 
-        $news = $this->news_repo->fetch($request);
+        $announcements = $this->announcement_repo->fetch($request);
 
         $request->flash();
-        return view('dashboard.news.index')->with('news', $news);
+        return view('dashboard.announcement.index')->with('announcements', $announcements);
 
     }
 
@@ -46,7 +46,7 @@ class NewsService extends BaseService{
         if ($request->type == "FILE") {
 
             $filename = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.pdf');
-            $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
+            $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/ANNOUNCEMENTS';
 
             if(!is_null($request->file('doc_file'))){
                 $request->file('doc_file')->storeAs($dir, $filename);
@@ -56,9 +56,9 @@ class NewsService extends BaseService{
         
         }
 
-        $news = $this->news_repo->store($request, $file_location);
+        $announcement = $this->announcement_repo->store($request, $file_location);
         
-        $this->event->fire('news.store');
+        $this->event->fire('announcement.store');
         return redirect()->back();
 
     }
@@ -71,11 +71,11 @@ class NewsService extends BaseService{
 
     public function viewFile($slug){
 
-        $news = $this->news_repo->findBySlug($slug);
+        $announcement = $this->announcement_repo->findBySlug($slug);
 
-        if(!empty($news->file_location)){
+        if(!empty($announcement->file_location)){
 
-            $path = $this->__static->archive_dir() .'/'. $news->file_location;
+            $path = $this->__static->archive_dir() .'/'. $announcement->file_location;
 
             if (!File::exists($path)) { return "Cannot Detect File!"; }
 
@@ -101,8 +101,8 @@ class NewsService extends BaseService{
 
     public function edit($slug){
 
-        $news = $this->news_repo->findbySlug($slug);
-        return view('dashboard.news.edit')->with('news', $news);
+        $announcement = $this->announcement_repo->findbySlug($slug);
+        return view('dashboard.announcement.edit')->with('announcement', $announcement);
 
     }
 
@@ -113,8 +113,8 @@ class NewsService extends BaseService{
 
     public function show($slug){
 
-        $news = $this->news_repo->findbySlug($slug);
-        return view('dashboard.news.show')->with('news', $news);
+        $announcement = $this->announcement_repo->findbySlug($slug);
+        return view('dashboard.announcement.show')->with('announcement', $announcement);
 
     }
 
@@ -125,12 +125,12 @@ class NewsService extends BaseService{
 
     public function update($request, $slug){
 
-        $news = $this->news_repo->findbySlug($slug);
+        $announcement = $this->announcement_repo->findbySlug($slug);
         
         $new_filename = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.pdf');
-        $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
+        $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/ANNOUNCEMENTS';
 
-        $old_file_location = $news->file_location;
+        $old_file_location = $announcement->file_location;
         $new_file_location = $dir .'/'. $new_filename;
 
         $file_location = $old_file_location;
@@ -148,14 +148,14 @@ class NewsService extends BaseService{
                 $file_location = $new_file_location;
 
             // if title has change
-            }elseif($request->title != $news->title && $this->storage->disk('local')->exists($old_file_location)){
+            }elseif($request->title != $announcement->title && $this->storage->disk('local')->exists($old_file_location)){
                 $this->storage->disk('local')->move($old_file_location, $new_file_location);
                 $file_location = $new_file_location;
             }
             
         }elseif($request->type == "URL"){
 
-            if(isset($news->file_location)){
+            if(isset($announcement->file_location)){
 
                 if ($this->storage->disk('local')->exists($old_file_location)) {
                     $this->storage->disk('local')->delete($old_file_location);
@@ -165,10 +165,10 @@ class NewsService extends BaseService{
 
         }
 
-        $news = $this->news_repo->update($request, $file_location, $news);
+        $announcement = $this->announcement_repo->update($request, $file_location, $announcement);
 
-        $this->event->fire('news.update', $news);
-        return redirect()->route('dashboard.news.index');
+        $this->event->fire('announcement.update', $announcement);
+        return redirect()->route('dashboard.announcement.index');
 
     }
 
@@ -179,19 +179,19 @@ class NewsService extends BaseService{
 
     public function destroy($slug){
 
-        $news = $this->news_repo->findbySlug($slug);
+        $announcement = $this->announcement_repo->findbySlug($slug);
 
-        if(!is_null($news->file_location)){
+        if(!is_null($announcement->file_location)){
 
-            if ($this->storage->disk('local')->exists($news->file_location)) {
-                $this->storage->disk('local')->delete($news->file_location);
+            if ($this->storage->disk('local')->exists($announcement->file_location)) {
+                $this->storage->disk('local')->delete($announcement->file_location);
             }
 
         }
 
-        $news = $this->news_repo->destroy($news);
+        $announcement = $this->announcement_repo->destroy($announcement);
 
-        $this->event->fire('news.destroy', $news);
+        $this->event->fire('announcement.destroy', $announcement);
         return redirect()->back();
 
     }
