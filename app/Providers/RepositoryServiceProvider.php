@@ -35,6 +35,15 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\StationInterface', 'App\Core\Repositories\StationRepository');
 
 		$this->app->bind('App\Core\Interfaces\OfficialInterface', 'App\Core\Repositories\OfficialRepository');
+
+		$this->app->bind('App\Core\Interfaces\AdministratorInterface', 'App\Core\Repositories\AdministratorRepository');
+
+		$this->app->bind('App\Core\Interfaces\HistoricalDataInterface', 'App\Core\Repositories\HistoricalDataRepository');
+
+		$this->app->bind('App\Core\Interfaces\ApplicationFormInterface', 'App\Core\Repositories\ApplicationFormRepository');
+
+		$this->app->bind('App\Core\Interfaces\SMSFormInterface', 'App\Core\Repositories\SMSFormRepository');
+		
 		
 		
 	}

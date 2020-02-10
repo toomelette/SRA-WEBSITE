@@ -7,30 +7,33 @@
     <div class="box box-solid">
         
       <div class="box-header with-border">
-        <h2 class="box-title">Add Office</h2>
+        <h2 class="box-title">Add SMS Form</h2>
         <div class="pull-right">
             <code>Fields with asterisks(*) are required</code>
         </div> 
       </div>
       
-      <form method="POST" autocomplete="off" action="{{ route('dashboard.office.store') }}">
+      <form method="POST" autocomplete="off" action="{{ route('dashboard.sms_form.store') }}" enctype="multipart/form-data">
 
         <div class="box-body">
           <div class="col-md-12">
                   
-            @csrf    
+            @csrf   
 
+            {!! __form::file(
+              '5', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
+            ) !!} 
+           
             {!! __form::textbox(
-              '2', 'seq_no', 'text', 'Sequence No. *', 'Sequence No.', old('seq_no'), $errors->has('seq_no'), $errors->first('seq_no'), ''
+              '7', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), ''
             ) !!}
-
+           
             {!! __form::textbox(
-              '4', 'name', 'text', 'Name *', 'Name', old('name'), $errors->has('name'), $errors->first('name'), ''
+              '7', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), ''
             ) !!}
 
           </div>
         </div>
-
 
         <div class="box-footer">
           <button type="submit" class="btn btn-default">Save <i class="fa fa-fw fa-save"></i></button>
@@ -51,9 +54,11 @@
 
   <script type="text/javascript">
 
-    @if(Session::has('OFFICE_CREATE_SUCCESS'))
-      {!! __js::toast(Session::get('OFFICE_CREATE_SUCCESS')) !!}
+    @if(Session::has('SMS_FORM_CREATE_SUCCESS'))
+      {!! __js::toast(Session::get('SMS_FORM_CREATE_SUCCESS')) !!}
     @endif
+
+    {!! __js::pdf_upload('doc_file', 'fa', '') !!}
 
   </script>
     

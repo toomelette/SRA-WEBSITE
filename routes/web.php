@@ -59,6 +59,27 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** OFFICIALS **/
 	Route::get('/official/view_avatar/{slug}', 'OfficialController@viewAvatar')->name('official.view_avatar');
 	Route::resource('official', 'OfficialController');
+
+
+	/** ADMINISTRATORS **/
+	Route::get('/administrator/view_avatar/{slug}', 'AdministratorController@viewAvatar')->name('administrator.view_avatar');
+	Route::resource('administrator', 'AdministratorController');
+
+
+	/** Historical Data **/
+	Route::get('/historical_data/view_file/{slug}', 'HistoricalDataController@viewFile')->name('historical_data.view_file');
+	Route::resource('historical_data', 'HistoricalDataController');
+
+
+	/** Application Forms **/
+	Route::get('/application_form/view_file/{slug}', 'ApplicationFormController@viewFile')->name('application_form.view_file');
+	Route::resource('application_form', 'ApplicationFormController');
+
+
+	/** SMS Forms **/
+	Route::get('/sms_form/view_file/{slug}', 'SMSFormController@viewFile')->name('sms_form.view_file');
+	Route::resource('sms_form', 'SMSFormController');
+	
 	
 });
 

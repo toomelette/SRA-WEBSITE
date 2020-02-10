@@ -20,7 +20,6 @@
                   
             @csrf    
 
-
             {!! __form::file(
               '4', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
             ) !!} 

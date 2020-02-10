@@ -36,6 +36,10 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\AnnouncementSubscriber',
         'App\Core\Subscribers\OfficeSubscriber',
         'App\Core\Subscribers\OfficialSubscriber',
+        'App\Core\Subscribers\AdministratorSubscriber',
+        'App\Core\Subscribers\HistoricalDataSubscriber',
+        'App\Core\Subscribers\ApplicationFormSubscriber',
+        'App\Core\Subscribers\SMSFormSubscriber',
         
     ];
 

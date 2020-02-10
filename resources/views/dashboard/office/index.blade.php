@@ -42,15 +42,14 @@
       <div class="box-body no-padding">
         <table class="table table-hover">
           <tr>
-            <th style="width: 150px">@sortablelink('seq_no', 'Sequence No.')</th>
-            <th style="width: 700px">@sortablelink('name', 'Name')</th>
-            <th style="width: 120px"></th>
+            <th>@sortablelink('seq_no', 'Sequence No.')</th>
+            <th>@sortablelink('name', 'Name')</th>
+            <th style="width: 150px">Action</th>
           </tr>
           @foreach($offices as $data) 
             <tr {!! __html::table_highlighter($data->slug, $table_sessions) !!} >
               <td id="mid-vert">{{ $data->seq_no }}</td>
               <td id="mid-vert">{{ $data->name }}</td>
-              <td id="mid-vert"><i class="fa {{ $data->icon }}"></i></td>
               <td id="mid-vert">
                 <div class="btn-group">
                   <a type="button" class="btn btn-default" id="edit_button" href="{{ route('dashboard.office.edit', $data->slug) }}">

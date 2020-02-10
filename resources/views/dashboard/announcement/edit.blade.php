@@ -123,12 +123,6 @@
       CKEDITOR.replace('editor');
     });
 
-
-    @if(Session::has('ANNOUNCEMENT_CREATE_SUCCESS'))
-      {!! __js::toast(Session::get('ANNOUNCEMENT_CREATE_SUCCESS')) !!}
-    @endif
-
-
   </script>
     
 @endsection

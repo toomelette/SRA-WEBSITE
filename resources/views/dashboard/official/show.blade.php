@@ -13,13 +13,13 @@
         </div> 
       </div>
 
-        <div class="box-body box-profile" style="padding:70px;">
+        <div class="box-body box-profile" style="padding:20px;">
 
           <div class="col-md-3">
             
             @if(isset($official->file_location) && $official->file_location != "")
 
-              <img class="profile-user-img img-responsive img-circle" src="{{ route('dashboard.official.view_avatar', $official->slug) }}" alt="User profile picture" style="width:250px;">
+              <img class="profile-user-img img-responsive img-circle" src="{{ route('dashboard.official.view_avatar', $official->slug) }}" alt="User profile picture" style="width:200px;">
 
             @else
 

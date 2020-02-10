@@ -25,11 +25,11 @@
             @csrf    
 
             {!! __form::textbox(
-              '3', 'seq_no', 'text', 'Sequence No. *', 'Sequence No.', old('seq_no') ? old('seq_no') : $office->seq_no, $errors->has('seq_no'), $errors->first('seq_no'), ''
+              '2', 'seq_no', 'text', 'Sequence No. *', 'Sequence No.', old('seq_no') ? old('seq_no') : $office->seq_no, $errors->has('seq_no'), $errors->first('seq_no'), ''
             ) !!}
 
             {!! __form::textbox(
-              '9', 'name', 'text', 'Name *', 'Name', old('name') ? old('name') : $office->name, $errors->has('name'), $errors->first('name'), ''
+              '4', 'name', 'text', 'Name *', 'Name', old('name') ? old('name') : $office->name, $errors->has('name'), $errors->first('name'), ''
             ) !!}
 
           </div>
