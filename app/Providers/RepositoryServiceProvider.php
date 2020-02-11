@@ -49,6 +49,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\VarietyDataInterface', 'App\Core\Repositories\VarietyDataRepository');
 
 		$this->app->bind('App\Core\Interfaces\ResearchInterface', 'App\Core\Repositories\ResearchRepository');
+
+		$this->app->bind('App\Core\Interfaces\TradersDirectoryInterface', 'App\Core\Repositories\TradersDirectoryRepository');
 		
 		
 		

@@ -88,6 +88,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 	/** Researches **/
 	Route::resource('research', 'ResearchController');
+
+
+	/** Traders Directory **/
+	Route::get('/traders_directory/view_file/{slug}', 'TradersDirectoryController@viewFile')->name('traders_directory.view_file');
+	Route::resource('traders_directory', 'TradersDirectoryController');
 	
 	
 });
