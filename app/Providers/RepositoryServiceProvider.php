@@ -43,6 +43,12 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\ApplicationFormInterface', 'App\Core\Repositories\ApplicationFormRepository');
 
 		$this->app->bind('App\Core\Interfaces\SMSFormInterface', 'App\Core\Repositories\SMSFormRepository');
+
+		$this->app->bind('App\Core\Interfaces\VarietyInterface', 'App\Core\Repositories\VarietyRepository');
+
+		$this->app->bind('App\Core\Interfaces\VarietyDataInterface', 'App\Core\Repositories\VarietyDataRepository');
+
+		$this->app->bind('App\Core\Interfaces\ResearchInterface', 'App\Core\Repositories\ResearchRepository');
 		
 		
 		

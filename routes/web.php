@@ -79,6 +79,15 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** SMS Forms **/
 	Route::get('/sms_form/view_file/{slug}', 'SMSFormController@viewFile')->name('sms_form.view_file');
 	Route::resource('sms_form', 'SMSFormController');
+
+
+	/** Variety **/
+	Route::get('/variety/view_img/{slug}', 'VarietyController@viewImg')->name('variety.view_img');
+	Route::resource('variety', 'VarietyController');
+
+
+	/** Researches **/
+	Route::resource('research', 'ResearchController');
 	
 	
 });
