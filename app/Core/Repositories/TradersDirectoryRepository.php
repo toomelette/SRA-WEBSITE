@@ -56,7 +56,8 @@ class TradersDirectoryRepository extends BaseRepository implements TradersDirect
 
         $traders_directory = new TradersDirectory;
         $traders_directory->slug = $this->str->random(16);
-        $traders_directory->trader_dir_id = $this->getTraderDirIdInc();
+        $traders_directory->traders_dir_id = $this->getTradersDirIdInc();
+        $traders_directory->traders_dir_cat_id = $request->traders_dir_cat_id;
         $traders_directory->title = $request->title;
         $traders_directory->description = $request->description;
         $traders_directory->file_location = $file_location;
@@ -77,7 +78,8 @@ class TradersDirectoryRepository extends BaseRepository implements TradersDirect
 
 
     public function update($request, $file_location, $traders_directory){
-
+        
+        $traders_directory->traders_dir_cat_id = $request->traders_dir_cat_id;
         $traders_directory->title = $request->title;
         $traders_directory->description = $request->description;
         $traders_directory->file_location = $file_location;
@@ -151,16 +153,16 @@ class TradersDirectoryRepository extends BaseRepository implements TradersDirect
 
 
 
-    public function getTraderDirIdInc(){
+    public function getTradersDirIdInc(){
 
-        $id = 'TDF10001';
+        $id = 'TD10001';
 
-        $traders_directory = $this->traders_directory->select('trader_dir_id')->orderBy('trader_dir_id', 'desc')->first();
+        $traders_directory = $this->traders_directory->select('traders_dir_id')->orderBy('traders_dir_id', 'desc')->first();
 
         if($traders_directory != null){
 
-            if($traders_directory->traders_directory_id != null){
-                $num = str_replace('TD', '', $traders_directory->traders_directory_id) + 1;
+            if($traders_directory->traders_dir_id != null){
+                $num = str_replace('TD', '', $traders_directory->traders_dir_id) + 1;
                 $id = 'TD' . $num;
             }
         

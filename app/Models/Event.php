@@ -5,29 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class TradersDirectory extends Model{
+
+class Event extends Model{
 
 
 
-    use Sortable;
+	use Sortable;
 
-    protected $table = 'traders_directory';
+    protected $table = 'events';
 
-    protected $dates = ['created_at', 'updated_at'];
+    protected $dates = ['date_to', 'date_from', 'created_at', 'updated_at'];
     
 	public $timestamps = false;
 
-
+    public $sortable = ['title', 'date_to', 'date_from'];
 
 
 
     protected $attributes = [
 
         'slug' => '',
-        'traders_dir_id' => '',
-        'traders_dir_cat_id' => '',
+        'event_id' => '',
+        'station_id' => '',
         'title' => '',
         'description' => '',
+        'date_from' => null,
+        'date_to' => null,
         'file_location' => '',
         'created_at' => null,
         'updated_at' => null,
@@ -37,16 +40,12 @@ class TradersDirectory extends Model{
         'user_updated' => '',
 
     ];
-    
-    
 
 
-    public function tradersDirectoryCategory() {
-        return $this->belongsTo('App\Models\TradersDirectoryCategory','traders_dir_cat_id','traders_dir_cat_id');
+
+    public function station() {
+        return $this->belongsTo('App\Models\Station','station_id','station_id');
     }
-
-
-
 
 
 

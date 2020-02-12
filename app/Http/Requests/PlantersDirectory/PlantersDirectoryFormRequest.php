@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\TradersDirectory;
+namespace App\Http\Requests\PlantersDirectory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TradersDirectoryFormRequest extends FormRequest{
+class PlantersDirectoryFormRequest extends FormRequest{
 
     
 
@@ -20,16 +20,13 @@ class TradersDirectoryFormRequest extends FormRequest{
         return [
             
             'doc_file' => 'nullable|mimes:pdf|max:50000',
-            'traders_dir_cat_id' => 'required|max:11|string',
+            'planters_dir_cat_id' => 'required|max:11|string',
             'title' => 'required|max:255|string',
             'description' => 'required|max:255|string',
             
         ];
     
     }
-
-    
-
 
 
 }

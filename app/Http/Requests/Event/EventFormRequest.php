@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\TradersDirectory;
+namespace App\Http\Requests\Event;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TradersDirectoryFormRequest extends FormRequest{
+class EventFormRequest extends FormRequest{
 
     
 
@@ -20,15 +20,15 @@ class TradersDirectoryFormRequest extends FormRequest{
         return [
             
             'doc_file' => 'nullable|mimes:pdf|max:50000',
-            'traders_dir_cat_id' => 'required|max:11|string',
-            'title' => 'required|max:255|string',
+            'station_id' => 'required|max:11|string',
+            'title' => 'required|max:90|string',
             'description' => 'required|max:255|string',
+            'date_from' => 'required|date_format:"m/d/Y"',
+            'date_to' => 'required|date_format:"m/d/Y"',
             
         ];
     
     }
-
-    
 
 
 

@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class TradersDirectory extends Model{
+
+class PlantersDirectory extends Model{
 
 
 
     use Sortable;
 
-    protected $table = 'traders_directory';
+    protected $table = 'planters_directory';
 
     protected $dates = ['created_at', 'updated_at'];
     
@@ -20,12 +21,11 @@ class TradersDirectory extends Model{
 
 
 
-
     protected $attributes = [
 
         'slug' => '',
-        'traders_dir_id' => '',
-        'traders_dir_cat_id' => '',
+        'planters_dir_id' => '',
+        'planters_dir_cat_id' => '',
         'title' => '',
         'description' => '',
         'file_location' => '',
@@ -41,12 +41,9 @@ class TradersDirectory extends Model{
     
 
 
-    public function tradersDirectoryCategory() {
-        return $this->belongsTo('App\Models\TradersDirectoryCategory','traders_dir_cat_id','traders_dir_cat_id');
+    public function plantersDirectoryCategory() {
+        return $this->belongsTo('App\Models\PlantersDirectoryCategory','planters_dir_cat_id','planters_dir_cat_id');
     }
-
-
-
 
 
 

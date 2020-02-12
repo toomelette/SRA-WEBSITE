@@ -89,7 +89,7 @@ class NewsService extends BaseService{
 
         }
 
-        return "Cannot Detect File!";;
+        return "Cannot Detect File!";
         
 
     }

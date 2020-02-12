@@ -35,7 +35,19 @@ class ViewComposerServiceProvider extends ServiceProvider{
 
         // STATIONS
         View::composer(['dashboard.official.create', 
-                        'dashboard.official.edit'], 'App\Core\ViewComposers\StationComposer');
+                        'dashboard.official.edit',
+                        'dashboard.event.create',
+                        'dashboard.event.edit',], 'App\Core\ViewComposers\StationComposer');
+        
+
+        // TRADER DIRECTORY CATEGORY
+        View::composer(['dashboard.traders_directory.create', 
+                        'dashboard.traders_directory.edit'], 'App\Core\ViewComposers\TradersDirectoryCategoryComposer');
+        
+
+        // PLANTER DIRECTORY CATEGORY
+        View::composer(['dashboard.planters_directory.create', 
+                        'dashboard.planters_directory.edit'], 'App\Core\ViewComposers\PlantersDirectoryCategoryComposer');
 
         
     }

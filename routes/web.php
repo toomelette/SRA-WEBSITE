@@ -93,6 +93,16 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Traders Directory **/
 	Route::get('/traders_directory/view_file/{slug}', 'TradersDirectoryController@viewFile')->name('traders_directory.view_file');
 	Route::resource('traders_directory', 'TradersDirectoryController');
+
+
+	/** Planters Directory **/
+	Route::get('/planters_directory/view_file/{slug}', 'PlantersDirectoryController@viewFile')->name('planters_directory.view_file');
+	Route::resource('planters_directory', 'PlantersDirectoryController');
+
+
+	/** Events **/
+	Route::get('/event/view_file/{slug}', 'EventController@viewFile')->name('event.view_file');
+	Route::resource('event', 'EventController');
 	
 	
 });

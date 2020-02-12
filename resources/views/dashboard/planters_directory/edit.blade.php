@@ -7,15 +7,15 @@
     <div class="box box-solid">
         
       <div class="box-header with-border">
-        <h2 class="box-title">Edit Traders Directory</h2>
+        <h2 class="box-title">Edit Planters Directory</h2>
         <div class="pull-right">
             <code>Fields with asterisks(*) are required</code>
             &nbsp;
-            {!! __html::back_button(['dashboard.traders_directory.index']) !!}
+            {!! __html::back_button(['dashboard.planters_directory.index']) !!}
         </div> 
       </div>
       
-      <form method="POST" autocomplete="off" action="{{ route('dashboard.traders_directory.update', $traders_directory->slug) }}" enctype="multipart/form-data">
+      <form method="POST" autocomplete="off" action="{{ route('dashboard.planters_directory.update', $planters_directory->slug) }}" enctype="multipart/form-data">
 
         <div class="box-body">
           <div class="col-md-12">
@@ -29,15 +29,15 @@
             ) !!} 
 
             {!! __form::select_dynamic(
-              '7', 'traders_dir_cat_id', 'Category *', old('traders_dir_cat_id') ? old('traders_dir_cat_id') : $traders_directory->traders_dir_cat_id, $global_traders_directory_categories_all, 'traders_dir_cat_id', 'name', $errors->has('traders_dir_cat_id'), $errors->first('traders_dir_cat_id'), 'select2', ''
+              '7', 'planters_dir_cat_id', 'Category *', old('planters_dir_cat_id') ? old('planters_dir_cat_id') : $planters_directory->planters_dir_cat_id, $global_planters_directory_categories_all, 'planters_dir_cat_id', 'name', $errors->has('planters_dir_cat_id'), $errors->first('planters_dir_cat_id'), 'select2', ''
             ) !!}
            
             {!! __form::textbox(
-              '7', 'title', 'text', 'Title *', 'Title', old('title') ? old('title') : $traders_directory->title, $errors->has('title'), $errors->first('title'), ''
+              '7', 'title', 'text', 'Title *', 'Title', old('title') ? old('title') : $planters_directory->title, $errors->has('title'), $errors->first('title'), ''
             ) !!}
            
             {!! __form::textbox(
-              '7', 'description', 'text', 'Description *', 'Description', old('description') ? old('description') : $traders_directory->description, $errors->has('description'), $errors->first('description'), ''
+              '7', 'description', 'text', 'Description *', 'Description', old('description') ? old('description') : $planters_directory->description, $errors->has('description'), $errors->first('description'), ''
             ) !!}
 
           </div>
@@ -62,7 +62,7 @@
 
   <script type="text/javascript">
 
-    {!! __js::pdf_upload('doc_file', 'fa', route('dashboard.traders_directory.view_file', $traders_directory->slug)) !!}
+    {!! __js::pdf_upload('doc_file', 'fa', route('dashboard.planters_directory.view_file', $planters_directory->slug)) !!}
 
   </script>
     
