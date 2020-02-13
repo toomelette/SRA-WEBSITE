@@ -103,6 +103,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Events **/
 	Route::get('/event/view_file/{slug}', 'EventController@viewFile')->name('event.view_file');
 	Route::resource('event', 'EventController');
+
+
+	/** Industry Statistic **/
+	Route::get('/industry_statistic/view_file/{slug}', 'IndustryStatisticController@viewFile')->name('industry_statistic.view_file');
+	Route::resource('industry_statistic', 'IndustryStatisticController');
 	
 	
 });

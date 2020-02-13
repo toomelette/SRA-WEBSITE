@@ -59,6 +59,12 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\PlantersDirectoryCategoryInterface', 'App\Core\Repositories\PlantersDirectoryCategoryRepository');
 
 		$this->app->bind('App\Core\Interfaces\EventInterface', 'App\Core\Repositories\EventRepository');
+
+		$this->app->bind('App\Core\Interfaces\CropYearInterface', 'App\Core\Repositories\CropYearRepository');
+
+		$this->app->bind('App\Core\Interfaces\IndustryStatisticInterface', 'App\Core\Repositories\IndustryStatisticRepository');
+
+		$this->app->bind('App\Core\Interfaces\IndustryStatisticsCategoryInterface', 'App\Core\Repositories\IndustryStatisticsCategoryRepository');
 		
 		
 		

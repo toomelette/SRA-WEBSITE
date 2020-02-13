@@ -48,6 +48,16 @@ class ViewComposerServiceProvider extends ServiceProvider{
         // PLANTER DIRECTORY CATEGORY
         View::composer(['dashboard.planters_directory.create', 
                         'dashboard.planters_directory.edit'], 'App\Core\ViewComposers\PlantersDirectoryCategoryComposer');
+        
+
+        // CROP YEAR
+        View::composer(['dashboard.industry_statistic.create', 
+                        'dashboard.industry_statistic.edit'], 'App\Core\ViewComposers\CropYearComposer');
+        
+
+        // INDUSTRY STATISTICS
+        View::composer(['dashboard.industry_statistic.create', 
+                        'dashboard.industry_statistic.edit'], 'App\Core\ViewComposers\IndustryStatisticsCategoryComposer');
 
         
     }
