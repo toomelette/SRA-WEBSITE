@@ -108,6 +108,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Industry Statistic **/
 	Route::get('/industry_statistic/view_file/{slug}', 'IndustryStatisticController@viewFile')->name('industry_statistic.view_file');
 	Route::resource('industry_statistic', 'IndustryStatisticController');
+
+
+	/** POLICIES **/
+	Route::get('/policy/view_file/{slug}', 'PolicyController@viewFile')->name('policy.view_file');
+	Route::resource('policy', 'PolicyController');
 	
 	
 });

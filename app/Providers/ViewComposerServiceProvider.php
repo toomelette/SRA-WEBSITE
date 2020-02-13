@@ -52,12 +52,20 @@ class ViewComposerServiceProvider extends ServiceProvider{
 
         // CROP YEAR
         View::composer(['dashboard.industry_statistic.create', 
-                        'dashboard.industry_statistic.edit'], 'App\Core\ViewComposers\CropYearComposer');
+                        'dashboard.industry_statistic.edit',
+                        'dashboard.policy.create',
+                        'dashboard.policy.edit'], 'App\Core\ViewComposers\CropYearComposer');
         
 
         // INDUSTRY STATISTICS
         View::composer(['dashboard.industry_statistic.create', 
                         'dashboard.industry_statistic.edit'], 'App\Core\ViewComposers\IndustryStatisticsCategoryComposer');
+        
+
+        // POLICY CATEGORY
+        View::composer(['dashboard.policy.create', 
+                        'dashboard.policy.edit'], 'App\Core\ViewComposers\PolicyCategoryComposer');
+
 
         
     }

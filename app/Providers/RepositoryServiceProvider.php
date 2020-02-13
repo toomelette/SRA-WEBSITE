@@ -65,6 +65,10 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\IndustryStatisticInterface', 'App\Core\Repositories\IndustryStatisticRepository');
 
 		$this->app->bind('App\Core\Interfaces\IndustryStatisticsCategoryInterface', 'App\Core\Repositories\IndustryStatisticsCategoryRepository');
+
+		$this->app->bind('App\Core\Interfaces\PolicyInterface', 'App\Core\Repositories\PolicyRepository');
+
+		$this->app->bind('App\Core\Interfaces\PolicyCategoryInterface', 'App\Core\Repositories\PolicyCategoryRepository');
 		
 		
 		

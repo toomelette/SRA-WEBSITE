@@ -46,6 +46,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\PlantersDirectorySubscriber',
         'App\Core\Subscribers\EventSubscriber',
         'App\Core\Subscribers\IndustryStatisticSubscriber',
+        'App\Core\Subscribers\PolicySubscriber',
         
     ];
 

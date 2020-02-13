@@ -28,5 +28,12 @@ class CropYear extends Model{
         return $this->hasMany('App\Models\IndustryStatistic','crop_year_id','crop_year_id');
     }
     
+    
+
+
+    public function policy() {
+        return $this->hasMany('App\Models\Policy','crop_year_id','crop_year_id');
+    }
+    
 
 }
