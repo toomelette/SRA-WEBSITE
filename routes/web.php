@@ -113,6 +113,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** POLICIES **/
 	Route::get('/policy/view_file/{slug}', 'PolicyController@viewFile')->name('policy.view_file');
 	Route::resource('policy', 'PolicyController');
+
+
+	/** Expired Import Clearance **/
+	Route::get('/expired_import_clearance/view_file/{slug}', 'ExpiredImportClearanceController@viewFile')->name('expired_import_clearance.view_file');
+	Route::resource('expired_import_clearance', 'ExpiredImportClearanceController');
 	
 	
 });

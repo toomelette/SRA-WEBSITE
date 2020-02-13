@@ -65,6 +65,11 @@ class ViewComposerServiceProvider extends ServiceProvider{
         // POLICY CATEGORY
         View::composer(['dashboard.policy.create', 
                         'dashboard.policy.edit'], 'App\Core\ViewComposers\PolicyCategoryComposer');
+        
+
+        // Expired Import Clearance Category
+        View::composer(['dashboard.expired_import_clearance.create', 
+                        'dashboard.expired_import_clearance.edit'], 'App\Core\ViewComposers\ExpiredImportClearanceCategoryComposer');
 
 
         

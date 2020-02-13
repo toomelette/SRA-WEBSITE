@@ -69,6 +69,10 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\PolicyInterface', 'App\Core\Repositories\PolicyRepository');
 
 		$this->app->bind('App\Core\Interfaces\PolicyCategoryInterface', 'App\Core\Repositories\PolicyCategoryRepository');
+
+		$this->app->bind('App\Core\Interfaces\ExpiredImportClearanceInterface', 'App\Core\Repositories\ExpiredImportClearanceRepository');
+
+		$this->app->bind('App\Core\Interfaces\ExpiredImportClearanceCategoryInterface', 'App\Core\Repositories\ExpiredImportClearanceCategoryRepository');
 		
 		
 		
