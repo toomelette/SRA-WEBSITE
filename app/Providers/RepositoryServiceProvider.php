@@ -81,6 +81,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\BlockFarmInterface', 'App\Core\Repositories\BlockFarmRepository');
 
 		$this->app->bind('App\Core\Interfaces\BioenergyInterface', 'App\Core\Repositories\BioenergyRepository');
+
+		$this->app->bind('App\Core\Interfaces\CropEstimateInterface', 'App\Core\Repositories\CropEstimateRepository');
 		
 		
 		

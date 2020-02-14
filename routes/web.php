@@ -132,15 +132,21 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	
 
 
-	/** SIDA Programs **/
+	/** Block Farms **/
 	Route::get('/block_farm/view_file/{slug}', 'BlockFarmController@viewFile')->name('block_farm.view_file');
 	Route::resource('block_farm', 'BlockFarmController');
 	
 
 
-	/** SIDA Programs **/
+	/** BIOENERGY **/
 	Route::get('/bioenergy/view_file/{slug}', 'BioenergyController@viewFile')->name('bioenergy.view_file');
 	Route::resource('bioenergy', 'BioenergyController');
+	
+
+
+	/** Crop Estimates **/
+	Route::get('/crop_estimate/view_file/{slug}', 'CropEstimateController@viewFile')->name('crop_estimate.view_file');
+	Route::resource('crop_estimate', 'CropEstimateController');
 	
 	
 	

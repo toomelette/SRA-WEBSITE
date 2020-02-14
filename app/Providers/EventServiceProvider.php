@@ -52,6 +52,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\SIDAProgramSubscriber',
         'App\Core\Subscribers\BlockFarmSubscriber',
         'App\Core\Subscribers\BioenergySubscriber',
+        'App\Core\Subscribers\CropEstimateSubscriber',
         
     ];
 
