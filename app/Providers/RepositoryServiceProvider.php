@@ -77,6 +77,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\MillingScheduleInterface', 'App\Core\Repositories\MillingScheduleRepository');
 
 		$this->app->bind('App\Core\Interfaces\SIDAProgramInterface', 'App\Core\Repositories\SIDAProgramRepository');
+
+		$this->app->bind('App\Core\Interfaces\BlockFarmInterface', 'App\Core\Repositories\BlockFarmRepository');
 		
 		
 		

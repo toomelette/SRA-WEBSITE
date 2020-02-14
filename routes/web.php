@@ -130,6 +130,19 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/sida_program/view_file/{slug}', 'SIDAProgramController@viewFile')->name('sida_program.view_file');
 	Route::resource('sida_program', 'SIDAProgramController');
 	
+
+
+	/** SIDA Programs **/
+	Route::get('/block_farm/view_file/{slug}', 'BlockFarmController@viewFile')->name('block_farm.view_file');
+	Route::resource('block_farm', 'BlockFarmController');
+	
+
+
+	/** SIDA Programs **/
+	Route::get('/bioenergy/view_file/{slug}', 'BioenergyController@viewFile')->name('bioenergy.view_file');
+	Route::resource('bioenergy', 'BioenergyController');
+	
+	
 	
 });
 
