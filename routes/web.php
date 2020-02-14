@@ -124,6 +124,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/milling_schedule/view_file/{slug}', 'MillingScheduleController@viewFile')->name('milling_schedule.view_file');
 	Route::resource('milling_schedule', 'MillingScheduleController');
 	
+
+
+	/** SIDA Programs **/
+	Route::get('/sida_program/view_file/{slug}', 'SIDAProgramController@viewFile')->name('sida_program.view_file');
+	Route::resource('sida_program', 'SIDAProgramController');
 	
 	
 });

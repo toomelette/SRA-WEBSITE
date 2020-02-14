@@ -75,6 +75,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\ExpiredImportClearanceCategoryInterface', 'App\Core\Repositories\ExpiredImportClearanceCategoryRepository');
 
 		$this->app->bind('App\Core\Interfaces\MillingScheduleInterface', 'App\Core\Repositories\MillingScheduleRepository');
+
+		$this->app->bind('App\Core\Interfaces\SIDAProgramInterface', 'App\Core\Repositories\SIDAProgramRepository');
 		
 		
 		

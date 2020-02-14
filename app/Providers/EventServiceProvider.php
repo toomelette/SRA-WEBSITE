@@ -49,6 +49,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\PolicySubscriber',
         'App\Core\Subscribers\ExpiredImportClearanceSubscriber',
         'App\Core\Subscribers\MillingScheduleSubscriber',
+        'App\Core\Subscribers\SIDAProgramSubscriber',
         
     ];
 
