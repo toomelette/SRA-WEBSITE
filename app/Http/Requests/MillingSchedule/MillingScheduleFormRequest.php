@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\ExpiredImportClearance;
+namespace App\Http\Requests\MillingSchedule;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExpiredImportClearanceFormRequest extends FormRequest{
+class MillingScheduleFormRequest extends FormRequest{
 
     
 
@@ -20,9 +20,7 @@ class ExpiredImportClearanceFormRequest extends FormRequest{
         return [
             
             'doc_file' => 'nullable|mimes:pdf|max:50000',
-            'expired_import_clearance_cat_id' => 'required|max:11|string',
             'title' => 'required|max:255|string',
-            'year' => 'required|max:2100|int',
             
         ];
     

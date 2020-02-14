@@ -118,6 +118,12 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Expired Import Clearance **/
 	Route::get('/expired_import_clearance/view_file/{slug}', 'ExpiredImportClearanceController@viewFile')->name('expired_import_clearance.view_file');
 	Route::resource('expired_import_clearance', 'ExpiredImportClearanceController');
+
+
+	/** Milling Schedule **/
+	Route::get('/milling_schedule/view_file/{slug}', 'MillingScheduleController@viewFile')->name('milling_schedule.view_file');
+	Route::resource('milling_schedule', 'MillingScheduleController');
+	
 	
 	
 });

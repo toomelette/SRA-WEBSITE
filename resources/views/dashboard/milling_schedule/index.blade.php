@@ -1,6 +1,6 @@
 <?php
 
-  $table_sessions = [ Session::get('EXPIRED_IMPORT_CLEARANCE_UPDATE_SUCCESS_SLUG') ];
+  $table_sessions = [ Session::get('MILLING_SCHEDULE_UPDATE_SUCCESS_SLUG') ];
 
   $appended_requests = [
                         'q'=> Request::get('q'),
@@ -20,19 +20,19 @@
 @section('content')
     
   <section class="content-header">
-      <h1>Expired Import Clearance List</h1>
+      <h1>Milling Schedule List</h1>
   </section>
 
   <section class="content">
     
     {{-- Form Start --}}
-    <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('dashboard.expired_import_clearance.index') }}">
+    <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('dashboard.milling_schedule.index') }}">
 
     <div class="box box-solid" id="pjax-container" style="overflow-x:auto;">
 
       {{-- Table Search --}}        
       <div class="box-header with-border">
-        {!! __html::table_search(route('dashboard.expired_import_clearance.index')) !!}
+        {!! __html::table_search(route('dashboard.milling_schedule.index')) !!}
       </div>
 
     {{-- Form End --}}  
@@ -43,30 +43,26 @@
         <table class="table table-hover">
           <tr>
             <th style="width: 100px">Attachment</th>
-            <th>@sortablelink('expiredImportClearanceCategory.name', 'Category')</th>
             <th>@sortablelink('title', 'Title')</th>
-            <th>@sortablelink('year', 'Year')</th>
             <th style="width: 150px">Action</th>
           </tr>
-          @foreach($expired_import_clearances as $data) 
+          @foreach($milling_schedules as $data) 
             <tr {!! __html::table_highlighter($data->slug, $table_sessions) !!} >
               <td id="mid-vert"> 
                 @if(Storage::disk('local')->exists($data->file_location))
-                  <a href="{{ route('dashboard.expired_import_clearance.view_file', $data->slug) }}" class="btn btn-sm btn-success" target="_blank">
+                  <a href="{{ route('dashboard.milling_schedule.view_file', $data->slug) }}" class="btn btn-sm btn-success" target="_blank">
                     <i class="fa fa-file-pdf-o"></i>
                   </a>
                 @else
                   <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-exclamation-circle"></i></a>
                 @endif
               </td>
-              <td id="mid-vert">{{ optional($data->expiredImportClearanceCategory)->name }}</td>
               <td id="mid-vert">{{ $data->title }}</td>
-              <td id="mid-vert">{{ $data->year }}</td>
               <td id="mid-vert">
                 <div class="btn-group">
-                  <a type="button" class="btn btn-default" id="edit_button" href="{{ route('dashboard.expired_import_clearance.edit', $data->slug) }}">
+                  <a type="button" class="btn btn-default" id="edit_button" href="{{ route('dashboard.milling_schedule.edit', $data->slug) }}">
                     <i class="fa fa-pencil"></i></a>
-                  <a type="button" class="btn btn-default" id="delete_button" data-action="delete" data-url="{{ route('dashboard.expired_import_clearance.destroy', $data->slug) }}">
+                  <a type="button" class="btn btn-default" id="delete_button" data-action="delete" data-url="{{ route('dashboard.milling_schedule.destroy', $data->slug) }}">
                     <i class="fa fa-trash"></i>
                   </a>
                 </div>
@@ -76,15 +72,15 @@
           </table>
       </div>
 
-      @if($expired_import_clearances->isEmpty())
+      @if($milling_schedules->isEmpty())
         <div style="padding :5px;">
           <center><h4>No Records found!</h4></center>
         </div>
       @endif
 
       <div class="box-footer">
-        {!! __html::table_counter($expired_import_clearances) !!}
-        {!! $expired_import_clearances->appends($appended_requests)->render('vendor.pagination.bootstrap-4')!!}
+        {!! __html::table_counter($milling_schedules) !!}
+        {!! $milling_schedules->appends($appended_requests)->render('vendor.pagination.bootstrap-4')!!}
       </div>
 
     </div>
@@ -99,7 +95,7 @@
 
 @section('modals')
 
-  {!! __html::modal_delete('expired_import_clearance_delete') !!}
+  {!! __html::modal_delete('milling_schedule_delete') !!}
 
 @endsection 
 
@@ -112,16 +108,16 @@
   <script type="text/javascript">
 
     {{-- CALL CONFIRM DELETE MODAL --}}
-    {!! __js::button_modal_confirm_delete_caller('expired_import_clearance_delete') !!}
+    {!! __js::button_modal_confirm_delete_caller('milling_schedule_delete') !!}
 
     {{-- UPDATE TOAST --}}
-    @if(Session::has('EXPIRED_IMPORT_CLEARANCE_UPDATE_SUCCESS'))
-      {!! __js::toast(Session::get('EXPIRED_IMPORT_CLEARANCE_UPDATE_SUCCESS')) !!}
+    @if(Session::has('MILLING_SCHEDULE_UPDATE_SUCCESS'))
+      {!! __js::toast(Session::get('MILLING_SCHEDULE_UPDATE_SUCCESS')) !!}
     @endif
 
     {{-- DELETE TOAST --}}
-    @if(Session::has('EXPIRED_IMPORT_CLEARANCE_DELETE_SUCCESS'))
-      {!! __js::toast(Session::get('EXPIRED_IMPORT_CLEARANCE_DELETE_SUCCESS')) !!}
+    @if(Session::has('MILLING_SCHEDULE_DELETE_SUCCESS'))
+      {!! __js::toast(Session::get('MILLING_SCHEDULE_DELETE_SUCCESS')) !!}
     @endif
 
   </script>
