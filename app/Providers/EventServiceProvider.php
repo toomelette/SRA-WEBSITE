@@ -53,6 +53,8 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\BlockFarmSubscriber',
         'App\Core\Subscribers\BioenergySubscriber',
         'App\Core\Subscribers\CropEstimateSubscriber',
+        'App\Core\Subscribers\ProvinceSubscriber',
+        'App\Core\Subscribers\MillDistrictSubscriber',
         
     ];
 

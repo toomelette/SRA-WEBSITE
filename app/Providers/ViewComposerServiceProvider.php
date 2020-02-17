@@ -70,6 +70,18 @@ class ViewComposerServiceProvider extends ServiceProvider{
         // Expired Import Clearance Category
         View::composer(['dashboard.expired_import_clearance.create', 
                         'dashboard.expired_import_clearance.edit'], 'App\Core\ViewComposers\ExpiredImportClearanceCategoryComposer');
+        
+
+        // Province
+        View::composer(['dashboard.sida_program.create', 
+                        'dashboard.sida_program.edit', 
+                        'dashboard.mill_district.create', 
+                        'dashboard.mill_district.edit'], 'App\Core\ViewComposers\ProvinceComposer');
+        
+
+        // Mill District
+        View::composer(['dashboard.sida_program.create', 
+                        'dashboard.sida_program.edit'], 'App\Core\ViewComposers\MillDistrictComposer');
 
 
         

@@ -148,6 +148,16 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/crop_estimate/view_file/{slug}', 'CropEstimateController@viewFile')->name('crop_estimate.view_file');
 	Route::resource('crop_estimate', 'CropEstimateController');
 	
+
+
+	/** Province **/
+	Route::resource('province', 'ProvinceController');
+	
+
+
+	/** Mill Districts **/
+	Route::resource('mill_district', 'MillDistrictController');
+	
 	
 	
 });
