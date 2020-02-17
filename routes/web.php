@@ -158,6 +158,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Mill Districts **/
 	Route::resource('mill_district', 'MillDistrictController');
 	
+
+
+	/** SIDA Program Categories **/
+	Route::resource('sida_program_category', 'SIDAProgramCategoryController');
+	
 	
 	
 });

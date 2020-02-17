@@ -87,6 +87,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\ProvinceInterface', 'App\Core\Repositories\ProvinceRepository');
 
 		$this->app->bind('App\Core\Interfaces\MillDistrictInterface', 'App\Core\Repositories\MillDistrictRepository');
+
+		$this->app->bind('App\Core\Interfaces\SIDAProgramCategoryInterface', 'App\Core\Repositories\SIDAProgramCategoryRepository');
 		
 		
 		

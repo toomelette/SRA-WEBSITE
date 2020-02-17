@@ -82,6 +82,11 @@ class ViewComposerServiceProvider extends ServiceProvider{
         // Mill District
         View::composer(['dashboard.sida_program.create', 
                         'dashboard.sida_program.edit'], 'App\Core\ViewComposers\MillDistrictComposer');
+        
+
+        // SIDA Program Category
+        View::composer(['dashboard.sida_program.create', 
+                        'dashboard.sida_program.edit'], 'App\Core\ViewComposers\SIDAProgramCategoryComposer');
 
 
         
