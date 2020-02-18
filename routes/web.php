@@ -144,6 +144,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/invitation_to_bid/view_file/{slug}/{type}', 'InvitationToBidController@viewFile')->name('invitation_to_bid.view_file');
 	Route::resource('invitation_to_bid', 'InvitationToBidController');
 	
+	/**Supplemental Bid **/
+	Route::get('/supplemental_bid/view_file/{slug}', 'SupplementalBidController@viewFile')->name('supplemental_bid.view_file');
+	Route::resource('supplemental_bid', 'SupplementalBidController');
+	
 });
 
 

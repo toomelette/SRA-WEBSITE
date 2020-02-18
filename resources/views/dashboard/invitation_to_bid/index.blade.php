@@ -55,16 +55,12 @@
                   <a href="{{ route('dashboard.invitation_to_bid.view_file', [$data->slug, 'ITB']) }}" class="btn btn-sm btn-success" target="_blank">
                     ITB
                   </a>
-                @else
-                  <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-exclamation-circle"></i></a>
                 @endif
 
                 @if(Storage::disk('local')->exists($data->file_location_pbd))
                   <a href="{{ route('dashboard.invitation_to_bid.view_file', [$data->slug, 'PBD']) }}" class="btn btn-sm btn-success" target="_blank">
                     PBD
                   </a>
-                @else
-                  <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-exclamation-circle"></i></a>
                 @endif
 
               </td>

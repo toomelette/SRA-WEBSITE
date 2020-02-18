@@ -98,6 +98,9 @@ class RepositoryServiceProvider extends ServiceProvider {
 		
 		$this->app->bind('App\Core\Interfaces\InvitationToBidInterface', 'App\Core\Repositories\InvitationToBidRepository');
 		
+		$this->app->bind('App\Core\Interfaces\SupplementalBidInterface', 'App\Core\Repositories\SupplementalBidRepository');
+		
+		
 		
 		
 	}
