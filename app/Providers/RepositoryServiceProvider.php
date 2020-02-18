@@ -91,6 +91,9 @@ class RepositoryServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Core\Interfaces\SIDAProgramCategoryInterface', 'App\Core\Repositories\SIDAProgramCategoryRepository');
 
 		$this->app->bind('App\Core\Interfaces\SIDAGuidelineInterface', 'App\Core\Repositories\SIDAGuidelineRepository');
+
+		$this->app->bind('App\Core\Interfaces\SIDALawInterface', 'App\Core\Repositories\SIDALawRepository');
+		
 		
 		
 		

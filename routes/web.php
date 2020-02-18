@@ -169,6 +169,12 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/sida_guideline/view_file/{slug}', 'SIDAGuidelineController@viewFile')->name('sida_guideline.view_file');
 	Route::resource('sida_guideline', 'SIDAGuidelineController');
 	
+
+
+	/** SIDA Law **/
+	Route::get('/sida_law/view_file/{slug}', 'SIDALawController@viewFile')->name('sida_law.view_file');
+	Route::resource('sida_law', 'SIDALawController');
+	
 	
 	
 });
