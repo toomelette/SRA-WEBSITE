@@ -96,7 +96,7 @@ class RepositoryServiceProvider extends ServiceProvider {
 
 		$this->app->bind('App\Core\Interfaces\SIDAFundUtilizationInterface', 'App\Core\Repositories\SIDAFundUtilizationRepository');
 		
-		
+		$this->app->bind('App\Core\Interfaces\InvitationToBidInterface', 'App\Core\Repositories\InvitationToBidRepository');
 		
 		
 		

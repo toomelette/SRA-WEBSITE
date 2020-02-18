@@ -59,6 +59,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\SIDAGuidelineSubscriber',
         'App\Core\Subscribers\SIDALawSubscriber',
         'App\Core\Subscribers\SIDAFundUtilizationSubscriber',
+        'App\Core\Subscribers\InvitationToBidSubscriber',
         
     ];
 

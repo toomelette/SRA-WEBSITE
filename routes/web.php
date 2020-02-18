@@ -140,6 +140,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/sida_fund_utilization/view_file/{slug}', 'SIDAFundUtilizationController@viewFile')->name('sida_fund_utilization.view_file');
 	Route::resource('sida_fund_utilization', 'SIDAFundUtilizationController');
 	
+	/** Invitation to Bid **/
+	Route::get('/invitation_to_bid/view_file/{slug}/{type}', 'InvitationToBidController@viewFile')->name('invitation_to_bid.view_file');
+	Route::resource('invitation_to_bid', 'InvitationToBidController');
+	
 });
 
 
