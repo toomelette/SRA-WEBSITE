@@ -163,6 +163,12 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** SIDA Program Categories **/
 	Route::resource('sida_program_category', 'SIDAProgramCategoryController');
 	
+
+
+	/** SIDA Guidelines **/
+	Route::get('/sida_guideline/view_file/{slug}', 'SIDAGuidelineController@viewFile')->name('sida_guideline.view_file');
+	Route::resource('sida_guideline', 'SIDAGuidelineController');
+	
 	
 	
 });

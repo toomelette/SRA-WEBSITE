@@ -5,28 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-
-class SidaProgramCategory extends Model{
+class SIDAGuideline extends Model{
 
 
 
 	use Sortable;
 
-    protected $table = 'sida_program_categories';
+    protected $table = 'sida_guidelines';
 
     protected $dates = ['created_at', 'updated_at'];
     
 	public $timestamps = false;
 
-    public $sortable = ['name'];
+    public $sortable = ['title', 'year', 'description'];
 
 
 
     protected $attributes = [
 
         'slug' => '',
-        'sida_program_cat_id' => '',
-        'name' => '',
+        'sida_guideline_id' => '',
+        'title' => '',
+        'year' => null,
+        'description' => '',
+        'file_location' => '',
         'created_at' => null,
         'updated_at' => null,
         'ip_created' => '',
@@ -35,14 +37,6 @@ class SidaProgramCategory extends Model{
         'user_updated' => '',
 
     ];
-
-
-
-     /** Relationships **/
-
-    public function sidaProgram() {
-        return $this->hasMany('App\Models\SIDAProgram','sida_program_cat_id','sida_program_cat_id');
-    }
 
 
     

@@ -33,7 +33,7 @@
             ) !!}
            
             {!! __form::textbox(
-              '4', 'year', 'text', 'Year *', 'Year', old('year') ? old('year') : $expired_import_clearance->year, $errors->has('year'), $errors->first('year'), ''
+              '4', 'year', 'number', 'Year *', 'Year', old('year') ? old('year') : $expired_import_clearance->year, $errors->has('year'), $errors->first('year'), ''
             ) !!}
            
             {!! __form::textbox(

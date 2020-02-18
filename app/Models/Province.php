@@ -29,13 +29,22 @@ class Province extends Model{
         'user_updated' => '',
 
     ];
-    
-    
 
+
+
+
+     /** Relationships **/
+
+    public function sidaProgram() {
+        return $this->hasMany('App\Models\SIDAProgram','province_id','province_id');
+    }
+    
+    
 
     public function millDistrict() {
         return $this->hasMany('App\Models\MillDistrict','province_id','province_id');
     }
+
 
 
     

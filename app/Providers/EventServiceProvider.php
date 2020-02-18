@@ -56,6 +56,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\ProvinceSubscriber',
         'App\Core\Subscribers\MillDistrictSubscriber',
         'App\Core\Subscribers\SIDAProgramCategorySubscriber',
+        'App\Core\Subscribers\SIDAGuidelineSubscriber',
         
     ];
 

@@ -7,13 +7,13 @@
     <div class="box box-solid">
         
       <div class="box-header with-border">
-        <h2 class="box-title">Add Expired Import Clearance</h2>
+        <h2 class="box-title">Add SIDA Guideline</h2>
         <div class="pull-right">
             <code>Fields with asterisks(*) are required</code>
         </div> 
       </div>
       
-      <form method="POST" autocomplete="off" action="{{ route('dashboard.expired_import_clearance.store') }}" enctype="multipart/form-data">
+      <form method="POST" autocomplete="off" action="{{ route('dashboard.sida_guideline.store') }}" enctype="multipart/form-data">
 
         <div class="box-body">
           <div class="col-md-12">
@@ -23,9 +23,9 @@
             {!! __form::file(
               '4', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
             ) !!} 
-
-            {!! __form::select_dynamic(
-              '4', 'expired_import_clearance_cat_id', 'Category *', old('expired_import_clearance_cat_id'), $global_expired_import_clearance_categories_all, 'expired_import_clearance_cat_id', 'name', $errors->has('expired_import_clearance_cat_id'), $errors->first('expired_import_clearance_cat_id'), '', ''
+           
+            {!! __form::textbox(
+              '4', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), ''
             ) !!}
            
             {!! __form::textbox(
@@ -33,7 +33,7 @@
             ) !!}
            
             {!! __form::textbox(
-              '8', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), ''
+              '8', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), ''
             ) !!}
 
           </div>
@@ -58,8 +58,8 @@
 
   <script type="text/javascript">
 
-    @if(Session::has('EXPIRED_IMPORT_CLEARANCE_CREATE_SUCCESS'))
-      {!! __js::toast(Session::get('EXPIRED_IMPORT_CLEARANCE_CREATE_SUCCESS')) !!}
+    @if(Session::has('SIDA_GUIDELINE_CREATE_SUCCESS'))
+      {!! __js::toast(Session::get('SIDA_GUIDELINE_CREATE_SUCCESS')) !!}
     @endif
 
     {!! __js::pdf_upload('doc_file', 'fa', '') !!}

@@ -57,6 +57,10 @@ class SIDAProgramRepository extends BaseRepository implements SIDAProgramInterfa
         $sida_program = new SIDAProgram;
         $sida_program->slug = $this->str->random(16);
         $sida_program->sida_program_id = $this->getSidaProgramIdInc();
+        $sida_program->province_id = $request->province_id;
+        $sida_program->mill_district_id = $request->mill_district_id;
+        $sida_program->sida_program_cat_id = $request->sida_program_cat_id;
+        $sida_program->year = $request->year;
         $sida_program->title = $request->title;
         $sida_program->file_location = $file_location;
         $sida_program->created_at = $this->carbon->now();
@@ -77,6 +81,10 @@ class SIDAProgramRepository extends BaseRepository implements SIDAProgramInterfa
 
     public function update($request, $file_location, $sida_program){
 
+        $sida_program->province_id = $request->province_id;
+        $sida_program->mill_district_id = $request->mill_district_id;
+        $sida_program->sida_program_cat_id = $request->sida_program_cat_id;
+        $sida_program->year = $request->year;
         $sida_program->title = $request->title;
         $sida_program->file_location = $file_location;
         $sida_program->updated_at = $this->carbon->now();
@@ -136,7 +144,8 @@ class SIDAProgramRepository extends BaseRepository implements SIDAProgramInterfa
 
     public function populate($model, $entries){
 
-        return $model->select('file_location', 'title', 'slug')
+        return $model->select('file_location', 'title', 'province_id', 'mill_district_id', 'sida_program_cat_id', 'year', 'slug')
+                     ->with('province', 'millDistrict', 'sidaProgramCategory')
                      ->sortable()
                      ->orderBy('updated_at', 'desc')
                      ->paginate($entries);

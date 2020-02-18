@@ -31,6 +31,14 @@
             {!! __form::select_dynamic(
               '4', 'mill_district_id', 'Mill District *', old('mill_district_id'), $global_mill_districts_all, 'mill_district_id', 'name', $errors->has('mill_district_id'), $errors->first('mill_district_id'), 'select2', ''
             ) !!}
+
+            {!! __form::select_dynamic(
+              '4', 'sida_program_cat_id', 'Program Category *', old('sida_program_cat_id'), $global_sida_program_categories_all, 'sida_program_cat_id', 'name', $errors->has('sida_program_cat_id'), $errors->first('sida_program_cat_id'), 'select2', ''
+            ) !!}
+
+            {!! __form::textbox(
+              '4', 'year', 'number', 'Year *', 'Year', old('year'), $errors->has('year'), $errors->first('year'), ''
+            ) !!}
            
             {!! __form::textbox(
               '8', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), ''

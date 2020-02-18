@@ -30,12 +30,23 @@ class MillDistrict extends Model{
         'user_updated' => '',
 
     ];
-    
-    
 
+
+
+
+
+     /** Relationships **/
+
+    public function sidaProgram() {
+        return $this->hasMany('App\Models\SIDAProgram','mill_district_id','mill_district_id');
+    }
+    
+    
 
     public function province() {
         return $this->belongsTo('App\Models\Province','province_id','province_id');
     }
+
+
     
 }

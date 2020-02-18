@@ -27,7 +27,7 @@ class ExpiredImportClearance extends Model{
         'expired_import_clearance_id' => '',
         'expired_import_clearance_cat_id' => '',
         'title' => '',
-        'year' => '',
+        'year' => null,
         'file_location' => '',
         'created_at' => null,
         'updated_at' => null,

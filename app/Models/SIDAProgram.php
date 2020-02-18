@@ -26,6 +26,10 @@ class SIDAProgram extends Model{
 
         'slug' => '',
         'sida_program_id' => '',
+        'province_id' => '',
+        'mill_district_id' => '',
+        'sida_program_cat_id' => '',
+        'year' => null,
         'title' => '',
         'file_location' => '',
         'created_at' => null,
@@ -36,6 +40,27 @@ class SIDAProgram extends Model{
         'user_updated' => '',
 
     ];
+
+
+
+
+    /** Relationships **/
+
+    public function province() {
+        return $this->belongsTo('App\Models\Province','province_id','province_id');
+    }
+
+
+
+    public function millDistrict() {
+        return $this->belongsTo('App\Models\MillDistrict','mill_district_id','mill_district_id');
+    }
+
+
+
+    public function sidaProgramCategory() {
+        return $this->belongsTo('App\Models\SIDAProgramCategory','sida_program_cat_id','sida_program_cat_id');
+    }
 
 
 
