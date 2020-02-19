@@ -47,7 +47,7 @@ class NoticeOfAwardSubscriber extends BaseSubscriber{
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:findBySlug:'. $notice_of_award->slug .'');
 
-        $this->session->flash('NOTICE_OF_AWARD_UPDATE_SUCCESS', 'The Invitation to Bid has been successfully updated!');
+        $this->session->flash('NOTICE_OF_AWARD_UPDATE_SUCCESS', 'The Notice of Award has been successfully updated!');
         $this->session->flash('NOTICE_OF_AWARD_UPDATE_SUCCESS_SLUG', $notice_of_award->slug);
 
     }
@@ -59,7 +59,7 @@ class NoticeOfAwardSubscriber extends BaseSubscriber{
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:findBySlug:'. $notice_of_award->slug .'');
 
-        $this->session->flash('NOTICE_OF_AWARD_DELETE_SUCCESS', 'The Invitation to Bid has been successfully deleted!');
+        $this->session->flash('NOTICE_OF_AWARD_DELETE_SUCCESS', 'The Notice of Award has been successfully deleted!');
         $this->session->flash('NOTICE_OF_AWARD_DELETE_SUCCESS_SLUG', $notice_of_award->slug);
 
     }

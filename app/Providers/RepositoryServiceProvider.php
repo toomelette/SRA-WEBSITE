@@ -102,6 +102,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		
 		$this->app->bind('App\Core\Interfaces\NoticeOfAwardInterface', 'App\Core\Repositories\NoticeOfAwardRepository');
 		
+		$this->app->bind('App\Core\Interfaces\NoticeToProceedInterface', 'App\Core\Repositories\NoticeToProceedRepository');
+		
 		
 		
 		

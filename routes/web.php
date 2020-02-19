@@ -152,6 +152,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/notice_of_award/view_file/{slug}/{type}', 'NoticeOfAwardController@viewFile')->name('notice_of_award.view_file');
 	Route::resource('notice_of_award', 'NoticeOfAwardController');
 	
+	/** Notice to Proceed **/
+	Route::get('/notice_to_proceed/view_file/{slug}/{type}', 'NoticeToProceedController@viewFile')->name('notice_to_proceed.view_file');
+	Route::resource('notice_to_proceed', 'NoticeToProceedController');
+	
 });
 
 
