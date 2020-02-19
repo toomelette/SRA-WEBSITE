@@ -148,6 +148,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/supplemental_bid/view_file/{slug}', 'SupplementalBidController@viewFile')->name('supplemental_bid.view_file');
 	Route::resource('supplemental_bid', 'SupplementalBidController');
 	
+	/** Notice of Award **/
+	Route::get('/notice_of_award/view_file/{slug}/{type}', 'NoticeOfAwardController@viewFile')->name('notice_of_award.view_file');
+	Route::resource('notice_of_award', 'NoticeOfAwardController');
+	
 });
 
 
