@@ -53,13 +53,13 @@
 
                 @if(Storage::disk('local')->exists($data->file_location_ntp))
                   <a href="{{ route('dashboard.notice_to_proceed.view_file', [$data->slug, 'NTP']) }}" class="btn btn-sm btn-success" target="_blank">
-                    NOA
+                    NTP
                   </a>
                 @endif
 
                 @if(Storage::disk('local')->exists($data->file_location_po))
                   <a href="{{ route('dashboard.notice_to_proceed.view_file', [$data->slug, 'PO']) }}" class="btn btn-sm btn-success" target="_blank">
-                    BAC Reso
+                    PO
                   </a>
                 @endif
 

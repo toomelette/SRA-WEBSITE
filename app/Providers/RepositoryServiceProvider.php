@@ -104,6 +104,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		
 		$this->app->bind('App\Core\Interfaces\NoticeToProceedInterface', 'App\Core\Repositories\NoticeToProceedRepository');
 		
+		$this->app->bind('App\Core\Interfaces\MinutesOfTheBidInterface', 'App\Core\Repositories\MinutesOfTheBidRepository');
+		
 		
 		
 		

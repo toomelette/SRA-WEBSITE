@@ -156,6 +156,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/notice_to_proceed/view_file/{slug}/{type}', 'NoticeToProceedController@viewFile')->name('notice_to_proceed.view_file');
 	Route::resource('notice_to_proceed', 'NoticeToProceedController');
 	
+	/** Minutes of the Bid **/
+	Route::get('/minutes_of_the_bid/view_file/{slug}', 'MinutesOfTheBidController@viewFile')->name('minutes_of_the_bid.view_file');
+	Route::resource('minutes_of_the_bid', 'MinutesOfTheBidController');
+	
 });
 
 
