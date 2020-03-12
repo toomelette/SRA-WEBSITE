@@ -3,12 +3,21 @@
 
 
 /** Auth **/
-Route::group(['as' => 'auth.'], function () {
+Route::group(['prefix'=>'login', 'as' => 'auth.'], function () {
 	
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
 	Route::post('/', 'Auth\LoginController@login')->name('login');
 	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 	Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+});
+
+
+
+/** Guest **/
+Route::group(['as' => 'guest.'], function () {
+	
+	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
 });
 
