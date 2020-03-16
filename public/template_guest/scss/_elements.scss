@@ -306,7 +306,7 @@ sup,
 sub,
 u,
 del {
-  color: #86C232;
+  color: #f8b600;
 }
 
 h1 {
@@ -445,25 +445,25 @@ h6 {
 
 .genric-btn.primary {
   color: #fff;
-  background: #86C232;
+  background: #f8b600;
   border: 1px solid transparent;
 }
 
 .genric-btn.primary:hover {
-  color: #86C232;
-  border: 1px solid #86C232;
+  color: #f8b600;
+  border: 1px solid #f8b600;
   background: #fff;
 }
 
 .genric-btn.primary-border {
-  color: #86C232;
-  border: 1px solid #86C232;
+  color: #f8b600;
+  border: 1px solid #f8b600;
   background: #fff;
 }
 
 .genric-btn.primary-border:hover {
   color: #fff;
-  background: #86C232;
+  background: #f8b600;
   border: 1px solid transparent;
 }
 
@@ -599,7 +599,7 @@ h6 {
 .generic-blockquote {
   padding: 30px 50px 30px 30px;
   background: #fff;
-  border-left: 2px solid #86C232;
+  border-left: 2px solid #f8b600;
 }
 
 @media (max-width: 991px) {
@@ -739,7 +739,7 @@ h6 {
   position: absolute;
   width: 14px;
   height: 14px;
-  border: 3px solid #86C232;
+  border: 3px solid #f8b600;
   background: #fff;
   top: 4px;
   left: 0;
@@ -752,7 +752,7 @@ h6 {
 
 .ordered-list li {
   list-style-type: decimal-leading-zero;
-  color: #86C232;
+  color: #f8b600;
   font-weight: 500;
   line-height: 1.82em !important;
 }
@@ -765,7 +765,7 @@ h6 {
 .ordered-list-alpha li {
   margin-left: 30px;
   list-style-type: lower-alpha;
-  color: #86C232;
+  color: #f8b600;
   font-weight: 500;
   line-height: 1.82em !important;
 }
@@ -778,7 +778,7 @@ h6 {
 .ordered-list-roman li {
   margin-left: 30px;
   list-style-type: lower-roman;
-  color: #86C232;
+  color: #f8b600;
   font-weight: 500;
   line-height: 1.82em !important;
 }
@@ -850,7 +850,7 @@ h6 {
 
 .single-input-primary:focus {
   outline: none;
-  border: 1px solid #86C232;
+  border: 1px solid #f8b600;
 }
 
 .single-input-accent {
@@ -911,7 +911,7 @@ h6 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #86C232;
+  background: #f8b600;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
@@ -998,7 +998,7 @@ h6 {
 }
 
 .primary-switch input:checked + label:before {
-  background: #86C232;
+  background: #f8b600;
 }
 
 .confirm-switch {
@@ -1366,12 +1366,12 @@ h6 {
 }
 
 .default-select .nice-select .list .option.selected {
-  color: #86C232;
+  color: #f8b600;
   background: transparent;
 }
 
 .default-select .nice-select .list .option:hover {
-  color: #86C232;
+  color: #f8b600;
   background: transparent;
 }
 
@@ -1429,12 +1429,12 @@ h6 {
 }
 
 .form-select .nice-select .list .option.selected {
-  color: #86C232;
+  color: #f8b600;
   background: transparent;
 }
 
 .form-select .nice-select .list .option:hover {
-  color: #86C232;
+  color: #f8b600;
   background: transparent;
 }
 

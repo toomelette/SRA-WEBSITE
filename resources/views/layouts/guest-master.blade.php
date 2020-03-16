@@ -16,7 +16,7 @@
     
     @include('layouts.guest-header')
 
-    <section class="home_banner_area">
+    {{-- <section class="home_banner_area">
       <div class="banner_inner">
         <div class="container">
           <div class="row">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
 
     @yield('content')

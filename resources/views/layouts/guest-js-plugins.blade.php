@@ -1,5 +1,4 @@
 
-
 <script type="text/javascript" src="{{ asset('template_guest/js/jquery-3.2.1.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('template_guest/js/popper.js') }}"></script>
