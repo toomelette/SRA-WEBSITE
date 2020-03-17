@@ -19,6 +19,14 @@
 
           @csrf  
 
+          <div class="col-md-12 no-padding">
+
+            {!! __form::file(
+              '6', 'img_file', 'Upload Image *', $errors->has('img_file'), $errors->first('img_file'), ''
+            ) !!} 
+
+          </div>
+
           {!! __form::select_static(
             '3', 'type', 'Type *', old('type'), ['URL' => 'URL', 'FILE' => 'FILE'], $errors->has('type'), $errors->first('type'), '', ''
           ) !!}
@@ -28,7 +36,7 @@
           <div class="col-md-12 no-padding" id="doc_file_div">
 
             {!! __form::file(
-              '12', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
+              '6', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
             ) !!} 
           
           </div> 
@@ -36,7 +44,7 @@
           <div class="col-md-12 no-padding" id="url_div">
 
             {!! __form::textbox(
-              '12', 'url', 'text', 'Url *', 'Url', old('url'), $errors->has('url'), $errors->first('url'), ''
+              '6', 'url', 'text', 'Url *', 'Url', old('url'), $errors->has('url'), $errors->first('url'), ''
             ) !!}
 
           </div>
@@ -104,6 +112,8 @@
 
 
     {!! __js::pdf_upload('doc_file', 'fa', '') !!}
+
+    {!! __js::img_upload('img_file', 'fa', '') !!}
 
 
     $(function () {

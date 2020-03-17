@@ -41,12 +41,22 @@ class NewsService extends BaseService{
 
     public function store($request){
 
+        $img_location = "";
         $file_location = "";
+        $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
+
+        $img_ext = File::extension($request->file('img_file')->getClientOriginalName());
+        $imgname = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.'. $img_ext);
+
+        if(!is_null($request->file('img_file'))){
+            $request->file('img_file')->storeAs($dir, $imgname);
+        }
+
+        $img_location = $dir .'/'. $imgname;
 
         if ($request->type == "FILE") {
 
             $filename = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.pdf');
-            $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
 
             if(!is_null($request->file('doc_file'))){
                 $request->file('doc_file')->storeAs($dir, $filename);
@@ -56,7 +66,7 @@ class NewsService extends BaseService{
         
         }
 
-        $news = $this->news_repo->store($request, $file_location);
+        $news = $this->news_repo->store($request, $file_location, $img_location);
         
         $this->event->fire('news.store');
         return redirect()->back();

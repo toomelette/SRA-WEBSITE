@@ -28,6 +28,7 @@ class News extends Model{
         'slug' => '',
         'news_id' => '',
         'type' => '',
+        'img_location' => '',
         'file_location' => '',
         'url' => '',
         'title' => '',
