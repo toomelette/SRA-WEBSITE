@@ -55,6 +55,15 @@ class NewsController extends Controller{
 
 
 
+    public function viewImg($slug){
+        
+        return $this->news->viewImg($slug);
+
+    }
+ 
+
+
+
     public function show($slug){
         
         return $this->news->show($slug);

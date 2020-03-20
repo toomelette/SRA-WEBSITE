@@ -52,12 +52,34 @@ class NewsRepository extends BaseRepository implements NewsInterface {
 
 
 
-    public function store($request, $file_location){
+    public function guestfetchInHome(){
+
+        $news = $this->cache->remember('news:guest:fetchInHome', 240, function(){
+
+            $news = $this->news->newQuery();
+
+            return $news->select('img_location', 'title', 'content', 'created_at', 'slug')
+                        ->orderBy('created_at', 'desc')
+                        ->limit(5)
+                        ->get();
+
+        });
+
+        return $news;
+
+    }
+
+
+
+
+
+    public function store($request, $file_location, $img_location){
 
         $news = new News;
         $news->slug = $this->str->random(16);
         $news->news_id = $this->getNewsIdInc();
         $news->type = $request->type;
+        $news->img_location = $img_location;
         $news->file_location = $file_location;
         $news->url = $request->url;
         $news->title = $request->title;

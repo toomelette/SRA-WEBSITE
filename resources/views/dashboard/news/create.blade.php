@@ -28,7 +28,7 @@
           </div>
 
           {!! __form::select_static(
-            '3', 'type', 'Type *', old('type'), ['URL' => 'URL', 'FILE' => 'FILE'], $errors->has('type'), $errors->first('type'), '', ''
+            '3', 'type', 'Content Type *', old('type'), ['URL' => 'URL', 'FILE' => 'FILE'], $errors->has('type'), $errors->first('type'), '', ''
           ) !!}
           
           <div class="col-md-9"></div>
@@ -36,7 +36,7 @@
           <div class="col-md-12 no-padding" id="doc_file_div">
 
             {!! __form::file(
-              '6', 'doc_file', 'Upload File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
+              '6', 'doc_file', 'File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
             ) !!} 
           
           </div> 

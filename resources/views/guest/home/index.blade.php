@@ -13,53 +13,24 @@
                 <div class="container">
                   <div class="owl-carousel active_course">
                     
-                    <div class="single_course">
-                      <div class="course_head">
-                        <img class="img-fluid" src="{{ asset('template_guest/img/courses/c1.jpg') }}" alt="" />
+                    @foreach ($news_list as $data)
+                      <div class="single_course">
+                        <div class="course_head">
+                          <img class="img-fluid" src="{{ asset('template_guest/img/courses/c1.jpg') }}" alt="" />
+                        </div>
+                        <div class="course_content">
+                          <span class="tag mb-4 d-inline-block">Read More</span>
+                          <h4 class="mb-3">
+                            <a href="course-details.html">Custom Product Design</a>
+                          </h4>
+                          <p>
+                            One make creepeth man bearing their one firmament won't fowl
+                            meat over sea
+                          </p>
+                        </div>
                       </div>
-                      <div class="course_content">
-                        <span class="tag mb-4 d-inline-block">Read More</span>
-                        <h4 class="mb-3">
-                          <a href="course-details.html">Custom Product Design</a>
-                        </h4>
-                        <p>
-                          One make creepeth man bearing their one firmament won't fowl
-                          meat over sea
-                        </p>
-                      </div>
-                    </div>
+                    @endforeach
 
-                    <div class="single_course">
-                      <div class="course_head">
-                        <img class="img-fluid" src="{{ asset('template_guest/img/courses/c2.jpg') }}" alt="" />
-                      </div>
-                      <div class="course_content">
-                        <span class="tag mb-4 d-inline-block">Read More</span>
-                        <h4 class="mb-3">
-                          <a href="course-details.html">Social Media Network</a>
-                        </h4>
-                        <p>
-                          One make creepeth man bearing their one firmament won't fowl
-                          meat over sea
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="single_course">
-                      <div class="course_head">
-                        <img class="img-fluid" src="{{ asset('template_guest/img/courses/c3.jpg') }}" alt="" />
-                      </div>
-                      <div class="course_content">
-                        <span class="tag mb-4 d-inline-block">Read More</span>
-                        <h4 class="mb-3">
-                          <a href="course-details.html">Computer Engineering</a>
-                        </h4>
-                        <p>
-                          One make creepeth man bearing their one firmament won't fowl
-                          meat over sea
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

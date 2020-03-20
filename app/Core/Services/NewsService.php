@@ -45,27 +45,23 @@ class NewsService extends BaseService{
         $file_location = "";
         $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
 
+        // Store Image
         $img_ext = File::extension($request->file('img_file')->getClientOriginalName());
         $imgname = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.'. $img_ext);
-
         if(!is_null($request->file('img_file'))){
             $request->file('img_file')->storeAs($dir, $imgname);
         }
-
         $img_location = $dir .'/'. $imgname;
 
+        // Store File
         if ($request->type == "FILE") {
-
             $filename = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.pdf');
-
             if(!is_null($request->file('doc_file'))){
                 $request->file('doc_file')->storeAs($dir, $filename);
             }
-            
             $file_location = $dir .'/'. $filename;
-        
         }
-
+        
         $news = $this->news_repo->store($request, $file_location, $img_location);
         
         $this->event->fire('news.store');
@@ -86,6 +82,37 @@ class NewsService extends BaseService{
         if(!empty($news->file_location)){
 
             $path = $this->__static->archive_dir() .'/'. $news->file_location;
+
+            if (!File::exists($path)) { return "Cannot Detect File!"; }
+
+            $file = File::get($path);
+            $type = File::mimeType($path);
+
+            $response = response()->make($file, 200);
+            $response->header("Content-Type", $type);
+
+            return $response;
+
+        }
+
+        return "Cannot Detect File!";
+        
+
+    }
+
+
+
+
+
+
+
+    public function viewImg($slug){
+
+        $news = $this->news_repo->findBySlug($slug);
+
+        if(!empty($news->file_location)){
+
+            $path = $this->__static->archive_dir() .'/'. $news->img_location;
 
             if (!File::exists($path)) { return "Cannot Detect File!"; }
 

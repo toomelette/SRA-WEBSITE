@@ -15,6 +15,7 @@
 
         <div class="box-body">
           <div class="col-md-12">
+            <img src="{{ route('dashboard.news.view_img', $news->slug) }}" style="width:200px;">
             <h3>{{ $news->title }}</h3>
             <p>{!! $news->content !!}</p>
           </div>    

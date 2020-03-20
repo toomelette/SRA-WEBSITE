@@ -19,6 +19,9 @@ Route::group(['as' => 'guest.'], function () {
 	
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
+	Route::get('/news/view_file/{slug}', 'Guest\NewsController@view_file')->name('news.view_file');
+	Route::get('/news/view_img/{slug}', 'Guest\NewsController@view_img')->name('news.view_img');
+
 });
 
 
@@ -48,6 +51,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 	/** NEWS **/
 	Route::get('/news/view_file/{slug}', 'NewsController@viewFile')->name('news.view_file');
+	Route::get('/news/view_img/{slug}', 'NewsController@viewImg')->name('news.view_img');
 	Route::resource('news', 'NewsController');
 
 	/** ANNOUNCEMENTS **/
