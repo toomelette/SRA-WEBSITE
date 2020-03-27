@@ -35,6 +35,9 @@ class AnnouncementSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetchInHome');
+
 
         $this->session->flash('ANNOUNCEMENT_CREATE_SUCCESS', 'The Announcement has been successfully created!');
 
@@ -45,6 +48,8 @@ class AnnouncementSubscriber extends BaseSubscriber{
     public function onUpdate($announcement){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetchInHome');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:findBySlug:'. $announcement->slug .'');
 
         $this->session->flash('ANNOUNCEMENT_UPDATE_SUCCESS', 'The Announcement has been successfully updated!');
@@ -57,6 +62,8 @@ class AnnouncementSubscriber extends BaseSubscriber{
     public function onDestroy($announcement){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:guest:fetchInHome');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:announcements:findBySlug:'. $announcement->slug .'');
 
         $this->session->flash('ANNOUNCEMENT_DELETE_SUCCESS', 'The Announcement has been successfully deleted!');

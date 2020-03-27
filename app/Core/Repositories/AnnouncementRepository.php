@@ -52,6 +52,43 @@ class AnnouncementRepository extends BaseRepository implements AnnouncementInter
 
 
 
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $announcements = $this->cache->remember('announcements:guest:fetch:'. $key, 240, function(){
+            $announcement = $this->announcement->newQuery();
+            return $announcement->select('file_location', 'url', 'type', 'title', 'content', 'created_at', 'slug')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
+        });
+
+        return $announcements;
+
+    }
+
+
+
+
+
+    public function guestfetchInHome(){
+
+        $announcements = $this->cache->remember('announcements:guest:fetchInHome', 240, function(){
+            $announcement = $this->announcement->newQuery();
+            return $announcement->select('title', 'content', 'slug')
+                        ->orderBy('created_at', 'desc')
+                        ->limit(5)
+                        ->get();
+        });
+
+        return $announcements;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $announcement = new Announcement;

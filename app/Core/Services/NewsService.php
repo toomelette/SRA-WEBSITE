@@ -46,11 +46,13 @@ class NewsService extends BaseService{
         $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
 
         // Store Image
-        $img_ext = File::extension($request->file('img_file')->getClientOriginalName());
+        $img_ext = $request->file('img_file') ? File::extension($request->file('img_file')->getClientOriginalName()) : '';
         $imgname = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.'. $img_ext);
+
         if(!is_null($request->file('img_file'))){
             $request->file('img_file')->storeAs($dir, $imgname);
         }
+
         $img_location = $dir .'/'. $imgname;
 
         // Store File
@@ -164,14 +166,42 @@ class NewsService extends BaseService{
 
         $news = $this->news_repo->findbySlug($slug);
         
+        $img_ext = $request->file('img_file') ? File::extension($request->file('img_file')->getClientOriginalName()) : '';
+        $new_imgname = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.'. $img_ext);
         $new_filename = $this->__dataType::fileFilterReservedChar($request->title .'-'. $this->str->random(8), '.pdf');
+
         $dir = $this->__dataType->date_parse($this->carbon->now(), 'Y') .'/NEWS';
 
         $old_file_location = $news->file_location;
         $new_file_location = $dir .'/'. $new_filename;
-
         $file_location = $old_file_location;
 
+        $old_img_location = $news->img_location;
+        $new_img_location = $dir .'/'. $new_imgname;
+        $img_location = $old_img_location;
+
+        // Store Image
+        if(!is_null($request->file('img_file'))){
+
+            // if img_file has value
+            if(!is_null($request->file('img_file'))){
+
+                if ($this->storage->disk('local')->exists($old_img_location)) {
+                    $this->storage->disk('local')->delete($old_img_location);
+                }
+                
+                $request->file('img_file')->storeAs($dir, $new_imgname);
+                $img_location = $new_img_location;
+
+            // if title has change
+            }elseif($request->title != $news->title && $this->storage->disk('local')->exists($old_img_location)){
+                $this->storage->disk('local')->move($old_img_location, $new_img_location);
+                $img_location = $new_img_location;
+            }
+
+        }
+
+        // Store Document or Url
         if ($request->type == "FILE") {
 
             // if doc_file has value
@@ -193,16 +223,13 @@ class NewsService extends BaseService{
         }elseif($request->type == "URL"){
 
             if(isset($news->file_location)){
-
                 if ($this->storage->disk('local')->exists($old_file_location)) {
                     $this->storage->disk('local')->delete($old_file_location);
                 }
-
             }
-
         }
 
-        $news = $this->news_repo->update($request, $file_location, $news);
+        $news = $this->news_repo->update($request, $file_location, $img_location, $news);
 
         $this->event->fire('news.update', $news);
         return redirect()->route('dashboard.news.index');
@@ -222,6 +249,14 @@ class NewsService extends BaseService{
 
             if ($this->storage->disk('local')->exists($news->file_location)) {
                 $this->storage->disk('local')->delete($news->file_location);
+            }
+
+        }
+
+        if(!is_null($news->img_location)){
+
+            if ($this->storage->disk('local')->exists($news->img_location)) {
+                $this->storage->disk('local')->delete($news->img_location);
             }
 
         }

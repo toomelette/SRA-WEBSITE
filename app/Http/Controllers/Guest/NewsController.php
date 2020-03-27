@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
-
 use App\Core\Services\Guest\NewsService;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller{
     
@@ -22,18 +22,36 @@ class NewsController extends Controller{
 
 
 
-    public function viewFile(){
+    public function index(Request $request){
 
-    	return $this->news->viewFile();
+        return $this->news->list($request);
     
     }
 
 
 
 
-    public function viewImg(){
+    public function details($slug){
 
-    	return $this->news->viewImg();
+        return $this->news->details($slug);
+    
+    }
+
+
+
+
+    public function viewFile($slug){
+
+    	return $this->news->viewFile($slug);
+    
+    }
+
+
+
+
+    public function viewImg($slug){
+
+    	return $this->news->viewImg($slug);
     
     }
 

@@ -19,8 +19,16 @@ Route::group(['as' => 'guest.'], function () {
 	
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
-	Route::get('/news/view_file/{slug}', 'Guest\NewsController@view_file')->name('news.view_file');
-	Route::get('/news/view_img/{slug}', 'Guest\NewsController@view_img')->name('news.view_img');
+	// News
+	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
+	Route::get('/news/details/{slug}', 'Guest\NewsController@details')->name('news.details');
+	Route::get('/news/view_file/{slug}', 'Guest\NewsController@viewFile')->name('news.view_file');
+	Route::get('/news/view_img/{slug}', 'Guest\NewsController@viewImg')->name('news.view_img');
+
+	// Announcement
+	Route::get('/announcement', 'Guest\AnnouncementController@index')->name('announcement.index');
+	Route::get('/announcement/details/{slug}', 'Guest\AnnouncementController@details')->name('announcement.details');
+	Route::get('/announcement/view_file/{slug}', 'Guest\AnnouncementController@viewFile')->name('announcement.view_file');
 
 });
 

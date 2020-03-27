@@ -52,17 +52,33 @@ class NewsRepository extends BaseRepository implements NewsInterface {
 
 
 
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $news = $this->cache->remember('news:guest:fetch:'. $key, 240, function(){
+            $news = $this->news->newQuery();
+            return $news->select('img_location', 'file_location', 'url', 'type', 'title', 'content', 'created_at', 'slug')
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(10);
+        });
+
+        return $news;
+
+    }
+
+
+
+
+
     public function guestfetchInHome(){
 
         $news = $this->cache->remember('news:guest:fetchInHome', 240, function(){
-
             $news = $this->news->newQuery();
-
             return $news->select('img_location', 'title', 'content', 'created_at', 'slug')
                         ->orderBy('created_at', 'desc')
                         ->limit(5)
                         ->get();
-
         });
 
         return $news;
@@ -100,10 +116,11 @@ class NewsRepository extends BaseRepository implements NewsInterface {
 
 
 
-    public function update($request, $file_location, $news){
+    public function update($request, $file_location, $img_location, $news){
 
         $news->type = $request->type;
         $news->file_location = $file_location;
+        $news->img_location = $img_location;
         $news->url = $request->url;
         $news->title = $request->title;
         $news->content = $request->content;
