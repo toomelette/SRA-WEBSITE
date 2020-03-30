@@ -18,6 +18,7 @@
               </div>
               <div class="col-lg-12 col-md-12 blog_details">
                   <h2>{{ $news->title }}</h2>
+                  <span>{{ __dataType::date_parse($news->created_at, 'F d, Y') }}</span>
                   <p class="excert">{!! $news->content !!}</p>
                   @if ($news->type == "FILE")
                     <a href="{{ route('guest.news.view_file', $news->slug) }}" class="blog_btn" target="__blank">View Document</a>  

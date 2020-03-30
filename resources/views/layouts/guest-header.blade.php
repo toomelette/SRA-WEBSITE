@@ -25,10 +25,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="">Mandate</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.mandate') }}">Mandate</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Services</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.services') }}">Services</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="">Charter</a>

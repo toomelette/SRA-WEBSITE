@@ -13,6 +13,7 @@
             <div class="single-post row">
               <div class="col-lg-12 col-md-12 blog_details">
                   <h2>{{ $announcement->title }}</h2>
+                  <span>{{ __dataType::date_parse($announcement->created_at, 'F d, Y') }}</span>
                   <p class="excert">{!! $announcement->content !!}</p>
                   @if ($announcement->type == "FILE")
                     <a href="{{ route('guest.announcement.view_file', $announcement->slug) }}" class="blog_btn" target="__blank">View Document</a>  

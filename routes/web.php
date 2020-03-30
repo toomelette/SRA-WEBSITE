@@ -19,6 +19,9 @@ Route::group(['as' => 'guest.'], function () {
 	
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
+	Route::get('/about_us/mandate', 'Guest\AboutUsController@mandate')->name('about_us.mandate');
+	Route::get('/about_us/services', 'Guest\AboutUsController@services')->name('about_us.services');
+
 	// News
 	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
 	Route::get('/news/details/{slug}', 'Guest\NewsController@details')->name('news.details');

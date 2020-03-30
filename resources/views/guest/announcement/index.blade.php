@@ -20,7 +20,8 @@
                                 <a href="{{ route('guest.announcement.details', $data->slug) }}">
                                     <h2>{{ $data->title }}</h2>
                                 </a>
-                                <p>{!! $data->content !!}</p>
+                                <span>{{ __dataType::date_parse($data->created_at, 'F d, Y') }}</span>
+                                <p>{!! Str::limit($data->content, 300 , ' ...') !!}</p>
                                 <a href="{{ route('guest.announcement.details', $data->slug) }}" class="blog_btn">Read More</a>
                                 @if ($data->type == "FILE")
                                   <a href="{{ route('guest.announcement.view_file', $data->slug) }}" class="blog_btn" target="__blank">View Document</a>  

@@ -28,3 +28,15 @@ Breadcrumbs::for('announcement_details', function ($trail, $announcement) {
     $trail->parent('announcement');
     $trail->push($announcement->title, route('guest.announcement.details', $announcement->slug));
 });
+
+// Home > About us > Mandate
+Breadcrumbs::for('aboutUs_mandate', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Mandate', route('guest.about_us.mandate'));
+});
+
+// Home > About us > Mandate
+Breadcrumbs::for('aboutUs_services', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Services', route('guest.about_us.services'));
+});
