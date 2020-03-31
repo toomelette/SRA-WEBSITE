@@ -12,7 +12,7 @@
 
   </head>
 
-  <body style="zoom:100%;">
+  <body style="zoom:90%;">
     
     @include('layouts.guest-header')
 

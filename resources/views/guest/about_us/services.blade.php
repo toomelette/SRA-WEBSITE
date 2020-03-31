@@ -106,53 +106,53 @@
 
                     <li>ADMINISTRATIVE AND FINANCE DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">ACCOUNTING (6177)</a></li>
-                        <li><a href="" class="link-default">BUDGET & TREASURY (2229)</a></li>
-                        <li><a href="" class="link-default">HUMAN RESOURCE DEPEARTMENT (1534)</a></li>
-                        <li><a href="" class="link-default">LIBRARY (1245)</a></li>
-                        <li><a href="" class="link-default">RECORDS (1140)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'dQU2Elbu2rwDPkTP') }}" class="link-default" target="__blank">ACCOUNTING (6177)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'SanSH4jsBGlO5nvE') }}" class="link-default" target="__blank">BUDGET & TREASURY (2229)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'FwbAnovlU4kmhxsi') }}" class="link-default" target="__blank">HUMAN RESOURCE DEPEARTMENT (1534)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'G5O6i0I3TLzdmz8q') }}" class="link-default" target="__blank">LIBRARY (1245)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'BpR5tsvuxEGaDsot') }}" class="link-default" target="__blank">RECORDS (1140)</a></li>
                       </ul>
                     </li>
                     <br>
 
                     <li>INTERNAL AUDIT DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">INTERNAL AUDIT DEPARTMENT (1262)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'wKAAEvFxditJ147O') }}" class="link-default" target="__blank">INTERNAL AUDIT DEPARTMENT (1262)</a></li>
                       </ul>
                     </li>
                     <br>
 
                     <li>LEGAL DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">LEGAL DEPARTMENT (1236)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'TDW71ajKhHwBXqRR') }}" class="link-default" target="__blank">LEGAL DEPARTMENT (1236)</a></li>
                       </ul>
                     </li>
                     <br>
 
                     <li>PLANNING AND POLICY DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">MANAGEMENT INFORMATION SYSTEM (1431)</a></li>
-                        <li><a href="" class="link-default">PLANNING (1163)</a></li>
-                        <li><a href="" class="link-default">SPECIAL PROJECT & PROJECT MONITORING & EVALUATION (1267)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'FqKX8qzrAXAe57DC') }}" class="link-default" target="__blank">MANAGEMENT INFORMATION SYSTEM (1431)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'vnl9HpgrR1GiQh1C') }}" class="link-default" target="__blank">PLANNING (1163)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'OcDRZVp2qmhPGZEV') }}" class="link-default" target="__blank">SPECIAL PROJECT & PROJECT MONITORING & EVALUATION (1267)</a></li>
                       </ul>
                     </li>
                     <br>
 
                     <li>REGULATION DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">LICENSING AND MONITORING (2344)</a></li>
-                        <li><a href="" class="link-default">SUGAR REGULATION AND ENFORCEMENT (3444)</a></li>
-                        <li><a href="" class="link-default">SUGAR TRANSACTION (4176)</a></li>
-                        <li><a href="" class="link-default">VISAYAS (3088)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'm4KlKNaBqtfdY0qb') }}" class="link-default" target="__blank">LICENSING AND MONITORING (2344)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', '74088fFY3FVR7J2s') }}" class="link-default" target="__blank">SUGAR REGULATION AND ENFORCEMENT (3444)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'sARophOruKscyiAa') }}" class="link-default" target="__blank">SUGAR TRANSACTION (4176)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'DunMB4pjYECxE5kp') }}" class="link-default" target="__blank">VISAYAS (3088)</a></li>
                       </ul>
                     </li>
                     <br>
 
                     <li>RESEARCH DEVELOPMENT & EXTENSION DEPARTMENT
                       <ul>
-                        <li><a href="" class="link-default">LUZON AGRICULTURAL RESEARCH CENTER (1247)</a></li>
-                        <li><a href="" class="link-default">LUZON AND MINDANAO (1702)</a></li>
-                        <li><a href="" class="link-default">VISAYAS (1243)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', '3UVx9GAh6qNk9OSz') }}" class="link-default" target="__blank">LUZON AGRICULTURAL RESEARCH CENTER (1247)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'weZkpnMv10nuXZmq') }}" class="link-default" target="__blank">LUZON AND MINDANAO (1702)</a></li>
+                        <li><a href="{{ route('guest.about_us.view_service_guide', 'Xtt3O3guarGNkppx') }}" class="link-default" target="__blank">VISAYAS (1243)</a></li>
                       </ul>
                     </li>
                     <br>
@@ -160,17 +160,21 @@
                   </ul>
               </div>
 
-
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">SERVICE FEES AND CHARGES</h3>
-                  
-                   
-
+                <h3 class="text-heading title_color">SERVICE FEES AND CHARGES</h3>  
+                <a href="{{ route('guest.about_us.view_service_fees') }}" class="link-default" target="__blank">
+                  DOWNLOAD
+                </a>
+                <object 
+                  type="application/pdf" 
+                  data="{{ route('guest.about_us.view_service_fees') }}#toolbar=0" 
+                  width="750" 
+                  height="550"
+                >
+                </object>
               </div>
 
-
-          </div>
-            
+            </div>            
           </div>
 
           @include('layouts.guest-sidebar')

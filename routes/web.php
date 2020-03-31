@@ -20,7 +20,10 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
 	Route::get('/about_us/mandate', 'Guest\AboutUsController@mandate')->name('about_us.mandate');
+
 	Route::get('/about_us/services', 'Guest\AboutUsController@services')->name('about_us.services');
+	Route::get('/about_us/services/view_service_guide/{slug}', 'Guest\AboutUsController@viewServiceGuide')->name('about_us.view_service_guide');
+	Route::get('/about_us/services/view_service_fees', 'Guest\AboutUsController@viewServiceFees')->name('about_us.view_service_fees');
 
 	// News
 	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
@@ -191,9 +194,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 
 /** Testing **/
-// Route::get('/dashboard/test', function(){
+Route::get('/dashboard/test', function(){
 
-// 	return dd(Illuminate\Support\Str::random(16));
+	return dd(Illuminate\Support\Str::random(16));
 
-// });
+});
 
