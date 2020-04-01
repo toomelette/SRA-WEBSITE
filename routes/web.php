@@ -20,10 +20,16 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
 	Route::get('/about_us/mandate', 'Guest\AboutUsController@mandate')->name('about_us.mandate');
-
 	Route::get('/about_us/services', 'Guest\AboutUsController@services')->name('about_us.services');
 	Route::get('/about_us/services/view_service_guide/{slug}', 'Guest\AboutUsController@viewServiceGuide')->name('about_us.view_service_guide');
 	Route::get('/about_us/services/view_service_fees', 'Guest\AboutUsController@viewServiceFees')->name('about_us.view_service_fees');
+	Route::get('/about_us/charter', 'Guest\AboutUsController@charter')->name('about_us.charter');
+	Route::get('/about_us/charter/view_eo', 'Guest\AboutUsController@viewCharterEO')->name('about_us.view_charter_eo');
+	Route::get('/about_us/org_chart', 'Guest\AboutUsController@orgChart')->name('about_us.org_chart');
+	Route::get('/about_us/view_org_chart_img', 'Guest\AboutUsController@viewOrgChartImg')->name('about_us.view_org_chart_img');
+	Route::get('/about_us/view_org_functional_statements', 'Guest\AboutUsController@viewOrgFunctionalStatements')->name('about_us.view_org_functional_statements');
+	Route::get('/about_us/corp_objectives', 'Guest\AboutUsController@corpObjectives')->name('about_us.corp_objectives');
+	Route::get('/about_us/history', 'Guest\AboutUsController@history')->name('about_us.history');
 
 	// News
 	Route::get('/news', 'Guest\NewsController@index')->name('news.index');

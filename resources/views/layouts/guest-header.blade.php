@@ -31,16 +31,16 @@
                   <a class="nav-link" href="{{ route('guest.about_us.services') }}">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Charter</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.charter') }}">Charter</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Organizational Chart</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.org_chart') }}">Organizational Chart</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Corp. Objectives</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.corp_objectives') }}">Corp. Objectives</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">History</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.history') }}">History</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="">Officials</a>

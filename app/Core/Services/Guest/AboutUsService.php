@@ -8,7 +8,6 @@ use File;
 class AboutUsService extends BaseService{
 
 
-
     public function viewServiceGuide($slug){
 
         $sg_list = [
@@ -32,13 +31,7 @@ class AboutUsService extends BaseService{
         ];
 
         if(array_key_exists($slug, $sg_list)) {
-            $path = $this->__static->archive_dir() .'/'. $sg_list[$slug];
-            if (!File::exists($path)){ return abort(404); }
-            $file = File::get($path);
-            $type = File::mimeType($path);
-            $response = response()->make($file, 200);
-            $response->header("Content-Type", $type);
-            return $response;
+            return $this->view_file('/'. $sg_list[$slug]);
         }
 
         return abort(404);
@@ -46,17 +39,36 @@ class AboutUsService extends BaseService{
     }
 
 
-
     public function viewServiceFees(){
+        return $this->view_file('/STATICS/LIST-OF-FRONLINE-SERVICES.pdf');
+    }
 
-        $path = $this->__static->archive_dir() .'/STATICS/LIST-OF-FRONLINE-SERVICES.pdf';
+
+    public function viewCharterEO(){
+        return $this->view_file('/STATICS/EO-18.pdf');
+    }
+
+
+    public function viewOrgChartImg(){
+        return $this->view_file('/STATICS/ORG-CHART.png');
+    }
+
+
+    public function viewOrgFunctionalStatements(){
+        return $this->view_file('/STATICS/ORG-FUNCTIONAL-STATEMENTS.pdf');
+    }
+
+
+
+    // Utilities
+    private function view_file($loc){
+        $path = $this->__static->archive_dir() . $loc;
         if (!File::exists($path)){ return abort(404); }
         $file = File::get($path);
         $type = File::mimeType($path);
         $response = response()->make($file, 200);
         $response->header("Content-Type", $type);
         return $response;
-
     }
 
 

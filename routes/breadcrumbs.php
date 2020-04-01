@@ -35,8 +35,32 @@ Breadcrumbs::for('aboutUs_mandate', function ($trail) {
     $trail->push('About Us - Mandate', route('guest.about_us.mandate'));
 });
 
-// Home > About us > Mandate
+// Home > About us > Services
 Breadcrumbs::for('aboutUs_services', function ($trail) {
     $trail->parent('home');
     $trail->push('About Us - Services', route('guest.about_us.services'));
+});
+
+// Home > About us > Services
+Breadcrumbs::for('aboutUs_charter', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Charter', route('guest.about_us.charter'));
+});
+
+// Home > About us > Org Chart
+Breadcrumbs::for('aboutUs_orgChart', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Organizational Chart', route('guest.about_us.org_chart'));
+});
+
+// Home > About us > Corp Objectives
+Breadcrumbs::for('aboutUs_corpObjectives', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Corporate Objectives', route('guest.about_us.corp_objectives'));
+});
+
+// Home > About us > History
+Breadcrumbs::for('aboutUs_history', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - History', route('guest.about_us.history'));
 });

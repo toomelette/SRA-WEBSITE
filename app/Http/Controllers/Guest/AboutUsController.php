@@ -35,6 +35,41 @@ class AboutUsController extends Controller{
     public function viewServiceFees(){
         return $this->about_us->viewServiceFees();
     }
+   
+
+    public function charter(){
+        return view('guest.about_us.charter');
+    }
+   
+
+    public function viewCharterEO(){
+        return $this->about_us->viewCharterEO();
+    }
+   
+
+    public function orgChart(){
+        return view('guest.about_us.org_chart');
+    }
+   
+
+    public function viewOrgChartImg(){
+        return $this->about_us->viewOrgChartImg();
+    }
+   
+
+    public function viewOrgFunctionalStatements(){
+        return $this->about_us->viewOrgFunctionalStatements();
+    }
+   
+
+    public function corpObjectives(){
+        return view('guest.about_us.corp_objectives');
+    }
+   
+
+    public function history(){
+        return view('guest.about_us.history');
+    }
 
 
 }

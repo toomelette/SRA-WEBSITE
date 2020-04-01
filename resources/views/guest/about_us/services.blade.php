@@ -46,7 +46,7 @@
               <div class="col-lg-12 col-md-12 blog_details">
                 <h3 class="text-heading title_color">SERVICES OFFERED</h3>
                 <div class="">
-                  <ul class="unordered-list">
+                  <ul>
 
                     <li>RESEARCH DEVELOPMENT AND EXTENSION OFFICE (RDE)
                       <ul>
@@ -102,7 +102,7 @@
 
               <div class="col-lg-12 col-md-12 blog_details">
                 <h3 class="text-heading title_color">SERVICE GUIDE</h3>
-                  <ul class="unordered-list">
+                  <ul>
 
                     <li>ADMINISTRATIVE AND FINANCE DEPARTMENT
                       <ul>
@@ -165,7 +165,7 @@
                 <a href="{{ route('guest.about_us.view_service_fees') }}" class="link-default" target="__blank">
                   DOWNLOAD
                 </a>
-                <object 
+                <object
                   type="application/pdf" 
                   data="{{ route('guest.about_us.view_service_fees') }}#toolbar=0" 
                   width="750" 
