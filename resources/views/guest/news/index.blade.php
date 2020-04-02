@@ -16,7 +16,6 @@
                 <article class="row blog_item" style="padding-bottom:50px;">
                   <div class="col-md-12">
                     <div class="blog_post">
-                      <img src="{{ route('guest.news.view_img', $data->slug) }}" alt="">
                       <div class="blog_details">
                         <a href="{{ route('guest.news.details', $data->slug) }}">
                             <h2>{{ $data->title }}</h2>

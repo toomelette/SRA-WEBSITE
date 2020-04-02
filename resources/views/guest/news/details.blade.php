@@ -11,11 +11,6 @@
           </div>
           <div class="col-lg-8 posts-list">
             <div class="single-post row">
-              <div class="col-lg-12">
-                  <div class="feature-img">
-                      <img class="img-fluid" src="{{ route('guest.news.view_img',$news->slug) }}" alt="">
-                  </div>
-              </div>
               <div class="col-lg-12 col-md-12 blog_details">
                   <h2>{{ $news->title }}</h2>
                   <span>{{ __dataType::date_parse($news->created_at, 'F d, Y') }}</span>
