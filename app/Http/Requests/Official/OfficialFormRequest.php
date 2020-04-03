@@ -25,8 +25,8 @@ class OfficialFormRequest extends FormRequest{
             'station_id' => 'required|max:11|string',
             'fullname' => 'required|max:255|string',
             'position' => 'required|max:255|string',
-            'email' => 'nullable|max:90|email',
-            'contact_no' => 'nullable|max:45|string',
+            'email' => 'nullable|max:90|string',
+            'contact_no' => 'nullable|max:90|string',
             
         ];
     

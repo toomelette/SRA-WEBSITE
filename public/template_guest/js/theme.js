@@ -48,8 +48,8 @@
         thumbs: true,
         thumbsPrerendered: true,
         navText: [
-          "<img style='height:30px; margin-left: 40px;' src='template_guest/img/prev.png'>", 
-          "<img style='height:30px; margin-left:-60px;' src='template_guest/img/next.png'>"
+          "<img style='height:30px; margin-left: 60px;' src='template_guest/img/prev.png'>", 
+          "<img style='height:30px; margin-left:-80px;' src='template_guest/img/next.png'>"
         ],
         responsive: {
           0: {

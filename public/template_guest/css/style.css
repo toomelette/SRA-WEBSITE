@@ -3036,7 +3036,7 @@ h6 {
     transition: all 400ms linear;
     cursor: pointer; }
 
-  .navbar .container {
+  .navbar .container-fluid {
     background: #28AE60;
     padding-left: 15px;
     padding-right: 15px; 

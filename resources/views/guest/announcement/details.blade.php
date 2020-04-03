@@ -3,13 +3,13 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             {{ Breadcrumbs::render('announcement_details', $announcement) }}
           </div>
-          <div class="col-lg-8 posts-list">
+          <div class="col-lg-9 posts-list">
             <div class="single-post row">
               <div class="col-lg-12 col-md-12 blog_details">
                   <h2>{{ $announcement->title }}</h2>

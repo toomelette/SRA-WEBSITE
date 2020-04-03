@@ -30,6 +30,8 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/about_us/view_org_functional_statements', 'Guest\AboutUsController@viewOrgFunctionalStatements')->name('about_us.view_org_functional_statements');
 	Route::get('/about_us/corp_objectives', 'Guest\AboutUsController@corpObjectives')->name('about_us.corp_objectives');
 	Route::get('/about_us/history', 'Guest\AboutUsController@history')->name('about_us.history');
+	Route::get('/about_us/officials', 'Guest\AboutUsController@officials')->name('about_us.officials');
+	Route::get('/about_us/officials/view_img/{slug}', 'Guest\AboutUsController@viewOfficialImg')->name('about_us.view_official_img');
 
 	// News
 	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
@@ -200,9 +202,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 
 
 /** Testing **/
-Route::get('/dashboard/test', function(){
+// Route::get('/dashboard/test', function(){
 
-	return dd(Illuminate\Support\Str::random(16));
+// 	return dd(Illuminate\Support\Str::random(16));
 
-});
+// });
 

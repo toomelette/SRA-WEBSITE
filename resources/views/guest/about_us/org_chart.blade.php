@@ -2,16 +2,12 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
       <div class="row">
 
-        <div class="col-lg-8">
+        <div class="col-lg-9 posts-list">
           {{ Breadcrumbs::render('aboutUs_orgChart') }}
-        </div>
-
-        <div class="col-lg-8 posts-list">
-
           <div class="single-post row">
             <div class="section-top-border">
               <h3 class="title_color">ORGANIZATIONAL CHART</h3>
@@ -19,7 +15,7 @@
                 <div class="col-md-12">
                   <p>Click the image to view fullscreen</p>
                   <a href="{{ route('guest.about_us.view_org_chart_img') }}" class="img-gal" target="__blank">
-                    <div class="single-gallery-image" style="background: url({{ route('guest.about_us.view_org_chart_img') }}); height:420px; width:700px;"></div>
+                    <div class="single-gallery-image" style="background: url({{ route('guest.about_us.view_org_chart_img') }}); height:570px; width:950px;"></div>
                   </a>
                   <br>
                   Read more:

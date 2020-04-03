@@ -3,10 +3,10 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-8 posts-list">
+        <div class="col-lg-9 posts-list">
             
           {{-- Slide Show --}}
           <div class="popular_courses">

@@ -2,13 +2,11 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-9 posts-list">
             {{ Breadcrumbs::render('aboutUs_mandate') }}
-          </div>
-          <div class="col-lg-8 posts-list">
             <div class="single-post row">
 
 

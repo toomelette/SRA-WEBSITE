@@ -3,13 +3,13 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             {{ Breadcrumbs::render('announcement') }}
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <div class="blog_left_sidebar">
 
               @foreach ($announcement_list as $data)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
 use App\Core\Services\Guest\AboutUsService;
 
 
@@ -69,6 +69,16 @@ class AboutUsController extends Controller{
 
     public function history(){
         return view('guest.about_us.history');
+    }
+   
+
+    public function officials(Request $request){
+        return $this->about_us->fetchOfficials($request);
+    }
+   
+
+    public function viewOfficialImg($slug){
+        return $this->about_us->viewOfficialImg($slug);
     }
 
 

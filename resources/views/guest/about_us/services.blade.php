@@ -2,16 +2,12 @@
 
 @section('content')
 
-  <section class="blog_area single-post-area">
-    <div class="container">
+  <section class="blog_area single-post-area content-margin">
+    <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-9 posts-list">
             {{ Breadcrumbs::render('aboutUs_services') }}
-          </div>
-          <div class="col-lg-8 posts-list">
             <div class="single-post row">
-
-
               <div class="col-lg-12 col-md-12 blog_details">
                 <h3 class="text-heading title_color">SERVICE PLEDGE</h3>
                 <p class="sample-text">
@@ -168,8 +164,8 @@
                 <object
                   type="application/pdf" 
                   data="{{ route('guest.about_us.view_service_fees') }}#toolbar=0" 
-                  width="750" 
-                  height="550"
+                  width="950" 
+                  height="700"
                 >
                 </object>
               </div>

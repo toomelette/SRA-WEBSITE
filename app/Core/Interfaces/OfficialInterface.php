@@ -15,4 +15,7 @@ interface OfficialInterface {
 	public function destroy($news);
 
 	public function findBySlug($slug);
+
+	public function guestFetch($request);
+	
 }

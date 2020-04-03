@@ -29,7 +29,7 @@
             ) !!}
 
             {!! __form::textbox(
-              '4', 'name', 'text', 'Name *', 'Name', old('name') ? old('name') : $office->name, $errors->has('name'), $errors->first('name'), ''
+              '10', 'name', 'text', 'Name *', 'Name', old('name') ? old('name') : $office->name, $errors->has('name'), $errors->first('name'), ''
             ) !!}
 
           </div>

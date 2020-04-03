@@ -3,3 +3,18 @@
     text-decoration: underline; 
     color:#002347;
 }
+
+
+.content-margin{
+	margin-left:100px;
+	margin-right:100px;
+}
+
+@media (max-width: 910px){
+
+	.content-margin{
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+}

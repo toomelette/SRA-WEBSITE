@@ -35,6 +35,7 @@ class OfficialSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:guest:fetch:*');
 
         $this->session->flash('OFFICIAL_CREATE_SUCCESS', 'The Official has been successfully created!');
 
@@ -45,6 +46,7 @@ class OfficialSubscriber extends BaseSubscriber{
     public function onUpdate($official){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:findBySlug:'. $official->slug .'');
 
         $this->session->flash('OFFICIAL_UPDATE_SUCCESS', 'The Official has been successfully updated!');
@@ -57,6 +59,7 @@ class OfficialSubscriber extends BaseSubscriber{
     public function onDestroy($official){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:officials:findBySlug:'. $official->slug .'');
 
         $this->session->flash('OFFICIAL_DELETE_SUCCESS', 'The Official has been successfully deleted!');

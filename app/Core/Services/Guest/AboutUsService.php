@@ -3,9 +3,22 @@
 namespace App\Core\Services\Guest;
 
 use App\Core\BaseClasses\BaseService;
+
+use App\Core\Interfaces\OfficialInterface;
 use File;
 
 class AboutUsService extends BaseService{
+
+
+    protected $official_repo;
+
+
+    public function __construct(OfficialInterface $official_repo){
+
+        $this->official_repo = $official_repo;
+        parent::__construct();
+
+    }
 
 
     public function viewServiceGuide($slug){
@@ -56,6 +69,21 @@ class AboutUsService extends BaseService{
 
     public function viewOrgFunctionalStatements(){
         return $this->view_file('/STATICS/ORG-FUNCTIONAL-STATEMENTS.pdf');
+    }
+
+
+    public function fetchOfficials($request){
+        $officials = $this->official_repo->guestFetch($request);    
+        return view('guest.about_us.officials')->with('officials', $officials);
+    }
+
+
+    public function viewOfficialImg($slug){
+        $official = $this->official_repo->findBySlug($slug);
+        if(!empty($official->file_location)){
+            return $this->view_file('/'. $official->file_location);
+        }
+        return ''; 
     }
 
 

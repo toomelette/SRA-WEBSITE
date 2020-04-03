@@ -1,5 +1,5 @@
 {{-- Side Bar --}}
-<div class="col-lg-4">
+<div class="col-lg-3">
   <div class="blog_right_sidebar">
 
     {{-- Industry Update --}}
