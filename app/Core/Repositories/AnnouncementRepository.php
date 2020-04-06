@@ -75,7 +75,7 @@ class AnnouncementRepository extends BaseRepository implements AnnouncementInter
 
         $announcements = $this->cache->remember('announcements:guest:fetchInHome', 240, function(){
             $announcement = $this->announcement->newQuery();
-            return $announcement->select('title', 'content', 'slug')
+            return $announcement->select('title', 'created_at', 'slug')
                         ->orderBy('created_at', 'desc')
                         ->limit(5)
                         ->get();

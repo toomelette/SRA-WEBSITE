@@ -217,8 +217,8 @@
 </header>
 
 
-
 <section class="sample-text-area content-margin">
+  
   <div class="container-fluid single_feature">
     <div class="row">
       <div>
@@ -229,13 +229,45 @@
         <span> Sugar Center Bldg., North Avenue, Diliman, Quezon City </span><br>
         <span> (02) 455-3524 | (02) 455-2135 | (02) 455-1589 </span>
       </div>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="pull-right">
+      <div class="col-md-4">
         <img src="{{ asset('images/food-secure-slogan.svg') }}" style="height:75px;">
       </div>
     </div>
   </div>
+
+  @if (Route::currentRouteName() == "guest.home.index") 
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" style=" width:100%; height: 350px !important; margin:auto;">
+        <div class="carousel-item active">
+          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel2.jpg') }}">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel3.jpg') }}">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel4.jpg') }}">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel5.jpg') }}">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  @endif 
+
 </section>

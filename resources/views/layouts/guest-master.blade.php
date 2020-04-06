@@ -12,7 +12,7 @@
 
   </head>
 
-  <body style="zoom:93%;">
+  <body">
     
     @include('layouts.guest-header')
 
@@ -23,4 +23,7 @@
     @include('layouts.guest-js-plugins')
 
   </body>
+
+  @yield('scripts')
+
 </html>

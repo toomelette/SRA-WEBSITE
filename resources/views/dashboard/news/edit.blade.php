@@ -35,9 +35,9 @@
             '3', 'type', 'Type *', old('type') ? old('type') : $news->type, ['URL' => 'URL', 'FILE' => 'FILE'], $errors->has('type'), $errors->first('type'), '', ''
           ) !!}
           
-          <div class="col-md-9"></div>
+          <div class="col-md-12"></div>
 
-          <div class="col-md-12 no-padding" id="doc_file_div">
+          <div class="col-md-6 no-padding" id="doc_file_div">
 
             {!! __form::file(
               '12', 'doc_file', 'File *', $errors->has('doc_file'), $errors->first('doc_file'), ''
@@ -48,7 +48,7 @@
           <div class="col-md-12 no-padding" id="url_div">
 
             {!! __form::textbox(
-              '12', 'url', 'text', 'Url *', 'Url', old('url') ? old('url') : $news->url, $errors->has('url'), $errors->first('url'), ''
+              '6', 'url', 'text', 'Url *', 'Url', old('url') ? old('url') : $news->url, $errors->has('url'), $errors->first('url'), ''
             ) !!}
 
           </div>

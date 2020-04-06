@@ -128,6 +128,11 @@
     </aside>
 
     {{-- Logo's --}}
+    {{-- <aside class="single_sidebar_widget author_widget" style="margin-bottom:10px;">  
+      <a href="">
+        <img src="{{ asset('images/citizen-charter.png') }}" style="height:200px; margin-right:23px;">
+      </a><br>
+    </aside>
     <aside class="single_sidebar_widget author_widget" style="margin-bottom:10px;">
       <a href="">
         <img src="{{ asset('images/transparency-seal.png') }}" style="height:150px; ">
@@ -148,7 +153,7 @@
         <img src="{{ asset('images/iso-sra-qr-code.jpg') }}" style="height:90px; ">
       </a><br>
     </aside>
-    <div class="br"></div>
+    <div class="br"></div> --}}
 
     {{-- News --}}
     {{-- <aside class="single_sidebar_widget popular_post_widget">

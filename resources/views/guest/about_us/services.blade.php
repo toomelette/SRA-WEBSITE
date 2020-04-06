@@ -161,10 +161,11 @@
                 <a href="{{ route('guest.about_us.view_service_fees') }}" class="link-default" target="__blank">
                   DOWNLOAD
                 </a>
+                <br>
                 <object
                   type="application/pdf" 
                   data="{{ route('guest.about_us.view_service_fees') }}#toolbar=0" 
-                  width="950" 
+                  width="1000" 
                   height="700"
                 >
                 </object>

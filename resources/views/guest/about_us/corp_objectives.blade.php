@@ -5,13 +5,9 @@
   <section class="blog_area single-post-area content-margin">
     <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-9">
-            {{ Breadcrumbs::render('aboutUs_corpObjectives') }}
-          </div>
           <div class="col-lg-9 posts-list">
+            {{ Breadcrumbs::render('aboutUs_corpObjectives') }}
             <div class="single-post row">
-
-
               <div class="section-top-border">
                 <h3 class="mb-30 title_color">CORPORATE GOALS AND OBJECTIVES</h3>
                 <div class="row">
