@@ -13,29 +13,182 @@
                 <h3 class="text-heading title_color">OFFICIALS</h3>
               </div>
               
-              <div class="row justify-content-center d-flex align-items-center">
-                  
-                @foreach ($officials as $data)
+              <div class="container">
 
-                  <div class="col-lg-4 col-md-6 col-sm-12 single-trainer">
-                    <div class="thumb d-flex justify-content-sm-center">
-                      @if (isset($data->file_location) && $data->file_location != "")
-                        <img class="img-fluid" src="{{ route('guest.about_us.view_official_img', $data->slug) }}" alt="" />
-                      @else
-                        <img class="img-fluid" src="{{ asset('images/avatar.jpeg') }}" alt="" />
-                      @endif
-                    </div>
-                    <div class="meta-text text-sm-center">
-                      <h4>{{ $data->fullname }}</h4>
-                      <p class="designation">{{ $data->position }}</p>
-                      <p>
-                        Email : {{ $data->email }}<br>
-                        Contact No. : {{ $data->contact_no }}
-                      </p>
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">SUGAR BOARD</h4>
+                      @foreach ($officials->where('office_id', 'O10001') as $data)
+                        <div class="table-row">
+                          <div class="visit"> 
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
                     </div>
                   </div>
-                  
-                @endforeach
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">OFFICE OF THE DEPUTY ADMINISTRATOR FOR ADMINISTRATION AND FINANCE</h4>
+                      @foreach ($officials->where('office_id', 'O10002') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">OFFICE OF THE DEPUTY ADMINISTRATOR FOR RESEARCH, DEVELOPMENT AND EXTENSION</h4>
+                      @foreach ($officials->where('office_id', 'O10003') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">OFFICE OF THE DEPUTY ADMINISTRATOR FOR REGULATIONS</h4>
+                      @foreach ($officials->where('office_id', 'O10004') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">INTERNAL AUDIT DEPARTMENT</h4>
+                      @foreach ($officials->where('office_id', 'O10005') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">LEGAL DEPARTMENT</h4>
+                      @foreach ($officials->where('office_id', 'O10006') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+
+                  <div class="progress-table-wrap">
+                    <div class="progress-table">
+                    <h4 class="mb-20">PLANNING, POLICY AND SPECIAL PROJECTS DEPARTMENT</h4>
+                      @foreach ($officials->where('office_id', 'O10007') as $data)
+                        <div class="table-row">
+                          <div class="visit">
+                            @if (isset($data->file_location) && $data->file_location != "")
+                              <img src="{{ route('guest.about_us.view_official_img', $data->slug) }}" style="height:80px;">
+                            @else
+                              <img src="{{ asset('images/avatar.jpeg') }}" class="profile-user-img img-responsive img-circle" alt="User Image"  style="height:80px;">
+                            @endif
+                          </div>
+                          <div class="percentage">
+                            {{ $data->fullname }}<br>
+                            {{ $data->position }}
+                          </div>
+                          <div class="percentage">
+                            {{ $data->contact_no }}<br>
+                            {{ $data->email }}
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
 
               </div>
 

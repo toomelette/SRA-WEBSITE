@@ -4,12 +4,10 @@
 
 /** Auth **/
 Route::group(['prefix'=>'login', 'as' => 'auth.'], function () {
-	
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
 	Route::post('/', 'Auth\LoginController@login')->name('login');
 	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 	Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-
 });
 
 
@@ -19,6 +17,18 @@ Route::group(['as' => 'guest.'], function () {
 	
 	Route::get('/', 'Guest\HomeController@index')->name('home.index');
 
+	// News
+	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
+	Route::get('/news/details/{slug}', 'Guest\NewsController@details')->name('news.details');
+	Route::get('/news/view_file/{slug}', 'Guest\NewsController@viewFile')->name('news.view_file');
+	Route::get('/news/view_img/{slug}', 'Guest\NewsController@viewImg')->name('news.view_img');
+
+	// Announcement
+	Route::get('/announcement', 'Guest\AnnouncementController@index')->name('announcement.index');
+	Route::get('/announcement/details/{slug}', 'Guest\AnnouncementController@details')->name('announcement.details');
+	Route::get('/announcement/view_file/{slug}', 'Guest\AnnouncementController@viewFile')->name('announcement.view_file');
+
+	// About Us
 	Route::get('/about_us/mandate', 'Guest\AboutUsController@mandate')->name('about_us.mandate');
 	Route::get('/about_us/services', 'Guest\AboutUsController@services')->name('about_us.services');
 	Route::get('/about_us/services/view_service_guide/{slug}', 'Guest\AboutUsController@viewServiceGuide')->name('about_us.view_service_guide');
@@ -32,17 +42,11 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/about_us/history', 'Guest\AboutUsController@history')->name('about_us.history');
 	Route::get('/about_us/officials', 'Guest\AboutUsController@officials')->name('about_us.officials');
 	Route::get('/about_us/officials/view_img/{slug}', 'Guest\AboutUsController@viewOfficialImg')->name('about_us.view_official_img');
+	Route::get('/about_us/administrators', 'Guest\AboutUsController@administrators')->name('about_us.administrators');
+	Route::get('/about_us/administrators/view_img/{slug}', 'Guest\AboutUsController@viewAdministratorImg')->name('about_us.view_administrator_img');
 
-	// News
-	Route::get('/news', 'Guest\NewsController@index')->name('news.index');
-	Route::get('/news/details/{slug}', 'Guest\NewsController@details')->name('news.details');
-	Route::get('/news/view_file/{slug}', 'Guest\NewsController@viewFile')->name('news.view_file');
-	Route::get('/news/view_img/{slug}', 'Guest\NewsController@viewImg')->name('news.view_img');
-
-	// Announcement
-	Route::get('/announcement', 'Guest\AnnouncementController@index')->name('announcement.index');
-	Route::get('/announcement/details/{slug}', 'Guest\AnnouncementController@details')->name('announcement.details');
-	Route::get('/announcement/view_file/{slug}', 'Guest\AnnouncementController@viewFile')->name('announcement.view_file');
+	// Downloads
+	Route::get('/downloads/application_forms', 'Guest\DownloadsController@applicationForms')->name('downloads.application_forms');
 
 });
 

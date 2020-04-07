@@ -60,3 +60,13 @@ Breadcrumbs::for('aboutUs_officials', function ($trail) {
     $trail->parent('home');
     $trail->push('About Us - Officials', route('guest.about_us.officials'));
 });
+
+Breadcrumbs::for('aboutUs_administrators', function ($trail) {
+    $trail->parent('home');
+    $trail->push('About Us - Administrators', route('guest.about_us.administrators'));
+});
+
+Breadcrumbs::for('downloads_applicationForms', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Downloads - Application Forms', route('guest.downloads.application_forms'));
+});

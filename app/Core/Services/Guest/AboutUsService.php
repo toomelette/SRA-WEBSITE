@@ -5,17 +5,20 @@ namespace App\Core\Services\Guest;
 use App\Core\BaseClasses\BaseService;
 
 use App\Core\Interfaces\OfficialInterface;
+use App\Core\Interfaces\AdministratorInterface;
 use File;
 
 class AboutUsService extends BaseService{
 
 
     protected $official_repo;
+    protected $administrator_repo;
 
 
-    public function __construct(OfficialInterface $official_repo){
+    public function __construct(OfficialInterface $official_repo, AdministratorInterface $administrator_repo){
 
         $this->official_repo = $official_repo;
+        $this->administrator_repo = $administrator_repo;
         parent::__construct();
 
     }
@@ -82,6 +85,21 @@ class AboutUsService extends BaseService{
         $official = $this->official_repo->findBySlug($slug);
         if(!empty($official->file_location)){
             return $this->view_file('/'. $official->file_location);
+        }
+        return ''; 
+    }
+
+
+    public function fetchAdministrators($request){
+        $administrators = $this->administrator_repo->guestFetch($request);    
+        return view('guest.about_us.administrators')->with('administrators', $administrators);
+    }
+
+
+    public function viewAdministratorImg($slug){
+        $administrator = $this->administrator_repo->findBySlug($slug);
+        if(!empty($administrator->file_location)){
+            return $this->view_file('/'. $administrator->file_location);
         }
         return ''; 
     }

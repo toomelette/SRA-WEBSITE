@@ -58,8 +58,7 @@ class OfficialRepository extends BaseRepository implements OfficialInterface {
 
         $officials = $this->cache->remember('officials:guest:fetch:'. $key, 240, function(){
             $official = $this->official->newQuery();
-            return $official->select('office_id', 'station_id', 'fullname', 'position', 'email', 'contact_no', 'file_location', 'slug')
-                            ->with('office', 'station')
+            return $official->select('office_id', 'fullname', 'position', 'email', 'contact_no', 'file_location', 'slug')
                             ->get();
         });
 

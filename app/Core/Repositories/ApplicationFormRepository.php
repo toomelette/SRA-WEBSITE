@@ -35,13 +35,30 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
         $application_forms = $this->cache->remember('application_forms:fetch:' . $key, 240, function() use ($request, $entries){
 
             $application_form = $this->application_form->newQuery();
-            
             if(isset($request->q)){
                 $this->search($application_form, $request->q);
             }
-
             return $this->populate($application_form, $entries);
 
+        });
+
+        return $application_forms;
+
+    }
+
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $application_forms = $this->cache->remember('application_forms:guest:fetch:'. $key, 240, function(){
+            $application_form = $this->application_form->newQuery();
+            return $application_form->select('file_location', 'title', 'description', 'slug')
+                                    ->orderBy('updated_at', 'desc')
+                                    ->paginate(10);
         });
 
         return $application_forms;

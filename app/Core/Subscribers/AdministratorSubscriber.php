@@ -35,6 +35,7 @@ class AdministratorSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:guest:fetch:*');
 
         $this->session->flash('ADMINISTRATOR_CREATE_SUCCESS', 'The Administrator has been successfully created!');
 
@@ -45,6 +46,7 @@ class AdministratorSubscriber extends BaseSubscriber{
     public function onUpdate($administrator){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:findBySlug:'. $administrator->slug .'');
 
         $this->session->flash('ADMINISTRATOR_UPDATE_SUCCESS', 'The Administrator has been successfully updated!');
@@ -57,6 +59,7 @@ class AdministratorSubscriber extends BaseSubscriber{
     public function onDestroy($administrator){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:administrators:findBySlug:'. $administrator->slug .'');
 
         $this->session->flash('ADMINISTRATOR_DELETE_SUCCESS', 'The Administrator has been successfully deleted!');

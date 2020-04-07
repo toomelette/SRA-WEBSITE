@@ -48,6 +48,25 @@ class AdministratorRepository extends BaseRepository implements AdministratorInt
 
     }
 
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $administrators = $this->cache->remember('administrators:guest:fetch:'. $key, 240, function(){
+            $administrator = $this->administrator->newQuery();
+            return $administrator->select('fullname', 'date_scope', 'file_location', 'slug')
+                                 ->orderBy('administrator_id', 'desc')
+                                 ->get();
+        });
+
+        return $administrators;
+
+    }
+
 
 
 

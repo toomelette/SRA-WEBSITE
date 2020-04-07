@@ -44,7 +44,7 @@
                   <a class="nav-link" href="{{ route('guest.about_us.officials') }}">Officials</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Administrators</a>
+                  <a class="nav-link" href="{{ route('guest.about_us.administrators') }}">Administrators</a>
                 </li>
               </ul>
             </li>
@@ -55,7 +55,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="">Application Forms</a>
+                  <a class="nav-link" href="{{ route('guest.downloads.application_forms') }}">Application Forms</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="">SMS Forms</a>
@@ -242,21 +242,9 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" style=" width:100%; height: 350px !important; margin:auto;">
+      <div class="carousel-inner" style=" width:100%; height: 400px !important; margin:auto;">
         <div class="carousel-item active">
           <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel2.jpg') }}">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel3.jpg') }}">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel4.jpg') }}">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel5.jpg') }}">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

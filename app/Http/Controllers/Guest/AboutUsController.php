@@ -80,6 +80,16 @@ class AboutUsController extends Controller{
     public function viewOfficialImg($slug){
         return $this->about_us->viewOfficialImg($slug);
     }
+   
+
+    public function administrators(Request $request){
+        return $this->about_us->fetchAdministrators($request);
+    }
+   
+
+    public function viewAdministratorImg($slug){
+        return $this->about_us->viewAdministratorImg($slug);
+    }
 
 
 }
