@@ -43,5 +43,10 @@ class DownloadsController extends Controller{
     	return $this->downloads_service->fetchHistoricalData($request);
     }
 
+   
+    public function viewHistoricalDataDoc($slug){
+    	return $this->downloads_service->viewHistoricalDataDoc($slug);
+    }
+
 
 }

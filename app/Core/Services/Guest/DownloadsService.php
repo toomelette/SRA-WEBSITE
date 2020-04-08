@@ -60,6 +60,15 @@ class DownloadsService extends BaseService{
     }
 
 
+    public function viewHistoricalDataDoc($slug){
+        $historical_data = $this->historical_data_repo->findBySlug($slug);
+        if(!empty($historical_data->file_location)){
+            return $this->view_file('/'. $historical_data->file_location);
+        }
+        return ''; 
+    }
+
+
 
     // Utilities
     private function view_file($loc){
