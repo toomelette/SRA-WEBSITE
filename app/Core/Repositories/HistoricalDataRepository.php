@@ -48,6 +48,36 @@ class HistoricalDataRepository extends BaseRepository implements HistoricalDataI
 
     }
 
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $historical_datas = $this->cache->remember('historical_datas:guest:fetch:'. $key, 240, function() use ($request){
+                
+            $entries = isset($request->e) ? $request->e : 10;
+
+            $historical_data = $this->historical_data->newQuery();
+
+            if(isset($request->q)){
+                $historical_data->where('title', 'LIKE', '%'. $request->q .'%')
+                                ->orWhereYear('date_from', 'LIKE', '%'. $request->q .'%')
+                                ->orWhereYear('date_to', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $historical_data->select('file_location', 'title', 'date_from', 'date_to', 'slug')
+                                   ->sortable()
+                                   ->orderBy('updated_at', 'desc')
+                                   ->paginate($entries);
+        });
+
+        return $historical_datas;
+
+    }
+
 
 
 

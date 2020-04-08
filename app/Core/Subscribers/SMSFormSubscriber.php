@@ -35,6 +35,7 @@ class SMSFormSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:guest:fetch:*');
 
         $this->session->flash('SMS_FORM_CREATE_SUCCESS', 'The SMS Form has been successfully created!');
 
@@ -45,6 +46,7 @@ class SMSFormSubscriber extends BaseSubscriber{
     public function onUpdate($sms_form){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:findBySlug:'. $sms_form->slug .'');
 
         $this->session->flash('SMS_FORM_UPDATE_SUCCESS', 'The SMS Form has been successfully updated!');
@@ -57,6 +59,7 @@ class SMSFormSubscriber extends BaseSubscriber{
     public function onDestroy($sms_form){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sms_forms:findBySlug:'. $sms_form->slug .'');
 
         $this->session->flash('SMS_FORM_DELETE_SUCCESS', 'The SMS Form has been successfully deleted!');

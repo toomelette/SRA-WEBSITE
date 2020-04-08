@@ -5,6 +5,11 @@
 }
 
 
+#mid-vert{
+    vertical-align: middle;
+}
+
+
 .content-margin{
 	margin-left:100px;
 	margin-right:100px;

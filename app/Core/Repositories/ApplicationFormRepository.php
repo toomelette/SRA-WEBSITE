@@ -12,7 +12,9 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
 	
 
 
+
     protected $application_form;
+
 
 
 
@@ -30,14 +32,17 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
     public function fetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
-        $entries = isset($request->e) ? $request->e : 20;
 
-        $application_forms = $this->cache->remember('application_forms:fetch:' . $key, 240, function() use ($request, $entries){
+        $application_forms = $this->cache->remember('application_forms:fetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
 
             $application_form = $this->application_form->newQuery();
+
             if(isset($request->q)){
                 $this->search($application_form, $request->q);
             }
+            
             return $this->populate($application_form, $entries);
 
         });
@@ -54,11 +59,21 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
 
         $key = str_slug($request->fullUrl(), '_');
 
-        $application_forms = $this->cache->remember('application_forms:guest:fetch:'. $key, 240, function(){
+        $application_forms = $this->cache->remember('application_forms:guest:fetch:'. $key, 240, function() use ($request){
+                
+            $entries = isset($request->e) ? $request->e : 10;
+
             $application_form = $this->application_form->newQuery();
+
+            if(isset($request->q)){
+                $application_form->where('title', 'LIKE', '%'. $request->q .'%')
+                                 ->orWhere('description', 'LIKE', '%'. $request->q .'%');
+            }
+
             return $application_form->select('file_location', 'title', 'description', 'slug')
+                                    ->sortable()
                                     ->orderBy('updated_at', 'desc')
-                                    ->paginate(10);
+                                    ->paginate($entries);
         });
 
         return $application_forms;
@@ -172,15 +187,15 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
 
         $id = 'AF10001';
 
-        $application_form = $this->application_form->select('application_form_id')->orderBy('application_form_id', 'desc')->first();
+        $application_form = $this->application_form->select('application_form_id')
+                                                   ->orderBy('application_form_id', 'desc')
+                                                   ->first();
 
         if($application_form != null){
-
             if($application_form->application_form_id != null){
                 $num = str_replace('AF', '', $application_form->application_form_id) + 1;
                 $id = 'AF' . $num;
             }
-        
         }
         
         return $id;

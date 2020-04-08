@@ -6,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('downloads_applicationForms') }}
+            {{ Breadcrumbs::render('downloads_historicalData') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Application Forms</h3>
+                <h3 class="text-heading title_color">Historical Data</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.application_forms') }}" value="{{ Request::get('q') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.historical_data') }}" value="{{ Request::get('q') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -50,37 +50,42 @@
                 <div id="pjax-container">
                   <table class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                      <td style="color:red;">@sortablelink('title', 'Document Name')</td>
+                      <td style="color:red;">@sortablelink('title', 'Name')</td>
+                      <td style="width:150px;">@sortablelink('date_from', 'Date Scope')</td>
                       <td style="width:150px;">@sortablelink('', 'File size')</td>
                       <td style="width:150px;"></td>
                     </thead>
                     <tbody>
-                      @foreach ($application_forms as $data)
+                      @foreach ($historical_datas as $data)
                         <?php
                           $filesize = Storage::disk('local')->size($data->file_location) / 1000;
                         ?>
                         <tr>
                           <td id="mid-vert">
-                            <b>{{ $data->title }}</b><br>
-                            <p>{{ $data->description }}</p>
+                            {{ $data->title }}
                           </td>
-                          <td id="mid-vert">{{ $filesize > 1000 ? number_format($filesize / 1000,2) .'MB' : number_format($filesize,2) .' KB' }}</td>
                           <td id="mid-vert">
-                            <a href="{{ route('guest.downloads.view_application_form_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
+                            {{ __dataType::date_parse($data->date_from, 'Y') }} - {{ __dataType::date_parse($data->date_to, 'Y') }}
+                          </td>
+                          <td id="mid-vert">
+                            {{ $filesize > 1000 ? number_format($filesize / 1000,2) .'MB' : number_format($filesize,2) .' KB' }}
+                          </td>
+                          <td id="mid-vert">
+                            <a href="{{ route('guest.downloads.view_historical_data_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
                   </table>
 
-                  @if($application_forms->isEmpty())
+                  @if($historical_datas->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($application_forms) !!}
-                  {!! $application_forms->appends([])->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($historical_datas) !!}
+                  {!! $historical_datas->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

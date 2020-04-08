@@ -35,6 +35,7 @@ class ApplicationFormSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:guest:fetch:*');
 
         $this->session->flash('APPLICATION_FORM_CREATE_SUCCESS', 'The Application Form has been successfully created!');
 
@@ -45,6 +46,7 @@ class ApplicationFormSubscriber extends BaseSubscriber{
     public function onUpdate($application_form){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:findBySlug:'. $application_form->slug .'');
 
         $this->session->flash('APPLICATION_FORM_UPDATE_SUCCESS', 'The Application Form has been successfully updated!');
@@ -57,6 +59,7 @@ class ApplicationFormSubscriber extends BaseSubscriber{
     public function onDestroy($application_form){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:application_forms:findBySlug:'. $application_form->slug .'');
 
         $this->session->flash('APPLICATION_FORM_DELETE_SUCCESS', 'The Application Form has been successfully deleted!');

@@ -5,6 +5,8 @@
 
 <script type="text/javascript" src="{{ asset('template_guest/js/bootstrap.min.js') }}"></script>
 
+<script type="text/javascript" src="{{ asset('template_guest/vendors/pjax/jquery.pjax.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('template_guest/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('template_guest/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
@@ -18,3 +20,5 @@
 <script type="text/javascript" src="{{ asset('template_guest/js/gmaps.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('template_guest/js/theme.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('js/app_guest.js') }}"></script>

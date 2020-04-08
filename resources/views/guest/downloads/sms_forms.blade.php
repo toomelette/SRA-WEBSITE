@@ -6,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('downloads_applicationForms') }}
+            {{ Breadcrumbs::render('downloads_smsForms') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Application Forms</h3>
+                <h3 class="text-heading title_color">Sugar Monitoring System Forms</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.application_forms') }}" value="{{ Request::get('q') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.sms_forms') }}" value="{{ Request::get('q') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -55,7 +55,7 @@
                       <td style="width:150px;"></td>
                     </thead>
                     <tbody>
-                      @foreach ($application_forms as $data)
+                      @foreach ($sms_forms as $data)
                         <?php
                           $filesize = Storage::disk('local')->size($data->file_location) / 1000;
                         ?>
@@ -66,21 +66,21 @@
                           </td>
                           <td id="mid-vert">{{ $filesize > 1000 ? number_format($filesize / 1000,2) .'MB' : number_format($filesize,2) .' KB' }}</td>
                           <td id="mid-vert">
-                            <a href="{{ route('guest.downloads.view_application_form_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
+                            <a href="{{ route('guest.downloads.view_sms_form_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
                   </table>
 
-                  @if($application_forms->isEmpty())
+                  @if($sms_forms->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($application_forms) !!}
-                  {!! $application_forms->appends([])->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($sms_forms) !!}
+                  {!! $sms_forms->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

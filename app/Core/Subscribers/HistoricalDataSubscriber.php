@@ -35,6 +35,7 @@ class HistoricalDataSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:guest:fetch:*');
 
         $this->session->flash('HISTORICAL_DATA_CREATE_SUCCESS', 'The Historical Data has been successfully created!');
 
@@ -45,6 +46,7 @@ class HistoricalDataSubscriber extends BaseSubscriber{
     public function onUpdate($historical_data){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:findBySlug:'. $historical_data->slug .'');
 
         $this->session->flash('HISTORICAL_DATA_UPDATE_SUCCESS', 'The Historical Data has been successfully updated!');
@@ -57,6 +59,7 @@ class HistoricalDataSubscriber extends BaseSubscriber{
     public function onDestroy($historical_data){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:guest:fetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:historical_datas:findBySlug:'. $historical_data->slug .'');
 
         $this->session->flash('HISTORICAL_DATA_DELETE_SUCCESS', 'The Historical Data has been successfully deleted!');

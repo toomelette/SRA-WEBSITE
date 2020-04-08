@@ -29,11 +29,11 @@
             ) !!}
 
             {!! __form::datepicker(
-              '4', 'date_from',  'Date From *', old('date_from'), $errors->has('date_from'), $errors->first('date_from')
+              '4', 'date_from',  'Date From', old('date_from'), $errors->has('date_from'), $errors->first('date_from')
             ) !!}
 
             {!! __form::datepicker(
-              '4', 'date_to',  'Date To *', old('date_to'), $errors->has('date_to'), $errors->first('date_to')
+              '4', 'date_to',  'Date To', old('date_to'), $errors->has('date_to'), $errors->first('date_to')
             ) !!}
 
           </div>

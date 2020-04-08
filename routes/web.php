@@ -47,6 +47,11 @@ Route::group(['as' => 'guest.'], function () {
 
 	// Downloads
 	Route::get('/downloads/application_forms', 'Guest\DownloadsController@applicationForms')->name('downloads.application_forms');
+	Route::get('/downloads/application_forms/view_doc/{slug}', 'Guest\DownloadsController@viewApplicationFormDoc')->name('downloads.view_application_form_doc');
+	Route::get('/downloads/sms_forms', 'Guest\DownloadsController@smsForms')->name('downloads.sms_forms');
+	Route::get('/downloads/sms_forms/view_doc/{slug}', 'Guest\DownloadsController@viewSMSFormDoc')->name('downloads.view_sms_form_doc');
+	Route::get('/downloads/historical_data', 'Guest\DownloadsController@historicalData')->name('downloads.historical_data');
+	Route::get('/downloads/historical_data/view_doc/{slug}', 'Guest\DownloadsController@viewHistoricalDataDoc')->name('downloads.view_historical_data_doc');
 
 });
 

@@ -58,10 +58,10 @@
                   <a class="nav-link" href="{{ route('guest.downloads.application_forms') }}">Application Forms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">SMS Forms</a>
+                  <a class="nav-link" href="{{ route('guest.downloads.sms_forms') }}">SMS Forms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Historical Data</a>
+                  <a class="nav-link" href="{{ route('guest.downloads.historical_data') }}">Historical Data</a>
                 </li>
               </ul>
             </li>

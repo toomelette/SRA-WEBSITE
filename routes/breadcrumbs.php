@@ -70,3 +70,13 @@ Breadcrumbs::for('downloads_applicationForms', function ($trail) {
     $trail->parent('home');
     $trail->push('Downloads - Application Forms', route('guest.downloads.application_forms'));
 });
+
+Breadcrumbs::for('downloads_smsForms', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Downloads - SMS Forms', route('guest.downloads.sms_forms'));
+});
+
+Breadcrumbs::for('downloads_historicalData', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Downloads - Historical Data', route('guest.downloads.historical_data'));
+});

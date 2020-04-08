@@ -48,6 +48,35 @@ class SMSFormRepository extends BaseRepository implements SMSFormInterface {
 
     }
 
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $sms_forms = $this->cache->remember('sms_forms:guest:fetch:'. $key, 240, function() use ($request){
+                
+            $entries = isset($request->e) ? $request->e : 10;
+
+            $sms_form = $this->sms_form->newQuery();
+
+            if(isset($request->q)){
+                $sms_form->where('title', 'LIKE', '%'. $request->q .'%')
+                         ->orWhere('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $sms_form->select('file_location', 'title', 'description', 'slug')
+                            ->sortable()
+                            ->orderBy('updated_at', 'desc')
+                            ->paginate($entries);
+        });
+
+        return $sms_forms;
+
+    }
+
 
 
 
