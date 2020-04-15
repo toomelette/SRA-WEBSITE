@@ -6,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('downloads_smsForms') }}
+            {{ Breadcrumbs::render('aboutSugarcane_varieties') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Sugar Monitoring System Forms</h3>
+                <h3 class="text-heading title_color">Sugarcane Varieties</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.sms_forms') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.about_sugarcane.varieties') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -47,40 +47,38 @@
 
                 </form>
 
-                <div id="pjax-container">
-                  <table class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                      <td style="color:red;">@sortablelink('title', 'Document Name')</td>
-                      <td style="width:150px;">@sortablelink('', 'File size')</td>
-                      <td style="width:150px;"></td>
-                    </thead>
-                    <tbody>
-                      @foreach ($sms_forms as $data)
-                        <?php
-                          $filesize = Storage::disk('local')->size($data->file_location) / 1000;
-                        ?>
-                        <tr>
-                          <td id="mid-vert">
-                            <b>{{ $data->title }}</b><br>
-                            <p>{{ $data->description }}</p>
-                          </td>
-                          <td id="mid-vert">{{ $filesize > 1000 ? number_format($filesize / 1000,2) .'MB' : number_format($filesize,2) .' KB' }}</td>
-                          <td id="mid-vert">
-                            <a href="{{ route('guest.downloads.view_sms_form_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
-                          </td>
-                        </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                <div id="pjax-container" style="margin-top:50px;">
+                  @foreach ($varieties as $data)
+                    <h2>{{ $data->name }}</h2>
+                    <article class="row blog_item" style="padding-bottom:50px;">
+                      <div class="col-md-4">
+                        @if (isset($data->file_location) && $data->file_location != "")
+                          <img src="{{ route('guest.about_sugarcane.view_variety_img', $data->slug) }}" style="height:500px;">
+                        @endif
+                      </div>
+                      <div class="col-md-8">
+                        <table class="table table-sm table-striped table-bordered">
+                          <tbody>
+                            @foreach ($data->varietyData as $variety_data)
+                              <tr>
+                                <td id="mid-vert">{{ $variety_data->field }}</td>
+                                <td id="mid-vert">{{ $variety_data->value }}</td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </article>
+                  @endforeach
 
-                  @if($sms_forms->isEmpty())
+                  @if($varieties->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($sms_forms) !!}
-                  {!! $sms_forms->appends([])->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($varieties) !!}
+                  {!! $varieties->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

@@ -36,7 +36,7 @@ class VarietyFormRequest extends FormRequest{
                 
                 $rules['row.'.$key.'.seq_no'] = 'required|int|max:50';
                 $rules['row.'.$key.'.field'] = 'required|string|max:90';
-                $rules['row.'.$key.'.value'] = 'required|string|max:255';
+                $rules['row.'.$key.'.value'] = 'required|string';
 
             } 
 

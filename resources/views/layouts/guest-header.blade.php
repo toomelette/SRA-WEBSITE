@@ -72,16 +72,16 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="">Sugarcane Varieties</a>
+                  <a class="nav-link" href="{{ route('guest.about_sugarcane.varieties') }}">Sugarcane Varieties</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Researches</a>
+                  <a class="nav-link" href="{{ route('guest.about_sugarcane.researches') }}">Researches</a>
                 </li>
               </ul>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="">Stakeholders</a>
+              <a class="nav-link" href="{{ route('guest.stakeholders.index') }}">Stakeholders</a>
             </li>
 
             {{-- <li class="nav-item submenu dropdown">
@@ -219,42 +219,46 @@
 
 <section class="sample-text-area content-margin">
   
-  <div class="container-fluid single_feature">
-    <div class="row">
-      <div>
-        <img src="{{ asset('images/sra-logo.png') }}" style="height:85px;">
-      </div>
-      <div class="col-md-6">
-        <h3>Sugar Regulatory Administration</h3>
-        <span> Sugar Center Bldg., North Avenue, Diliman, Quezon City </span><br>
-        <span> (02) 455-3524 | (02) 455-2135 | (02) 455-1589 </span>
-      </div>
-      <div class="col-md-4">
-        <img src="{{ asset('images/food-secure-slogan.svg') }}" style="height:75px;">
+  <div class="container-fluid" style="margin-top:-30px; margin-bottom:-80px;">
+    <div class="single_feature">
+      <div class="row">
+        <div>
+          <img src="{{ asset('images/sra-logo.png') }}" style="height:85px;">
+        </div>
+        <div class="col-md-6">
+          <h3>Sugar Regulatory Administration</h3>
+          <span> Sugar Center Bldg., North Avenue, Diliman, Quezon City </span><br>
+          <span> (02) 455-3524 | (02) 455-2135 | (02) 455-1589 </span>
+        </div>
+        <div class="col-md-4">
+          <img src="{{ asset('images/food-secure-slogan.svg') }}" style="height:75px;">
+        </div>
       </div>
     </div>
   </div>
 
   @if (Route::currentRouteName() == "guest.home.index") 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" style=" width:100%; height: 400px !important; margin:auto;">
-        <div class="carousel-item active">
-          <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
+    <div class="container-fluid">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin-top:90px;">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" style=" width:100%; height: 400px !important; margin:auto;">
+          <div class="carousel-item active">
+            <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
+          </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   @endif 
 

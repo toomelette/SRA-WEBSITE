@@ -53,6 +53,17 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/downloads/historical_data', 'Guest\DownloadsController@historicalData')->name('downloads.historical_data');
 	Route::get('/downloads/historical_data/view_doc/{slug}', 'Guest\DownloadsController@viewHistoricalDataDoc')->name('downloads.view_historical_data_doc');
 
+	// About Sugar Cane
+	Route::get('/about_sugarcane/sugarcane_varieties', 'Guest\AboutSugarcaneController@varieties')->name('about_sugarcane.varieties');
+	Route::get('/about_sugarcane/sugarcane_varieties/view_img/{slug}', 'Guest\AboutSugarcaneController@viewVarietyImg')->name('about_sugarcane.view_variety_img');
+	Route::get('/about_sugarcane/researches', 'Guest\AboutSugarcaneController@researches')->name('about_sugarcane.researches');
+	Route::get('/about_sugarcane/researches/{slug}', 'Guest\AboutSugarcaneController@researchDetails')->name('about_sugarcane.research_details');
+
+	// Stakeholders
+	Route::get('/stakeholders', 'Guest\StakeholdersController@index')->name('stakeholders.index');
+	Route::get('/stakeholders/traders_directory/view_doc/{slug}', 'Guest\StakeholdersController@viewTradersDirectoryDoc')->name('stakeholders.view_traders_directory_doc');
+	Route::get('/stakeholders/planters_directory/view_doc/{slug}', 'Guest\StakeholdersController@viewPlantersDirectoryDoc')->name('stakeholders.view_planters_directory_doc');
+
 });
 
 

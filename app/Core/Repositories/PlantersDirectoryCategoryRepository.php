@@ -34,6 +34,7 @@ class PlantersDirectoryCategoryRepository extends BaseRepository implements Plan
 
         $planters_dir_cats = $this->cache->remember('planters_directory_categories:getAll', 240, function(){
             return $this->planters_dir_cat->select('planters_dir_cat_id','name')
+                                          ->with('plantersDirectory')
                                           ->orderBy('seq_no', 'asc')->get();
         });
         

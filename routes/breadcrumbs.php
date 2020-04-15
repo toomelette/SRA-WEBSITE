@@ -28,55 +28,75 @@ Breadcrumbs::for('announcement_details', function ($trail, $announcement) {
 
 Breadcrumbs::for('aboutUs_mandate', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Mandate', route('guest.about_us.mandate'));
+    $trail->push('Mandate', route('guest.about_us.mandate'));
 });
 
 Breadcrumbs::for('aboutUs_services', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Services', route('guest.about_us.services'));
+    $trail->push('Services', route('guest.about_us.services'));
 });
 
 Breadcrumbs::for('aboutUs_charter', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Charter', route('guest.about_us.charter'));
+    $trail->push('Charter', route('guest.about_us.charter'));
 });
 
 Breadcrumbs::for('aboutUs_orgChart', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Organizational Chart', route('guest.about_us.org_chart'));
+    $trail->push('Organizational Chart', route('guest.about_us.org_chart'));
 });
 
 Breadcrumbs::for('aboutUs_corpObjectives', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Corporate Objectives', route('guest.about_us.corp_objectives'));
+    $trail->push('Corporate Objectives', route('guest.about_us.corp_objectives'));
 });
 
 Breadcrumbs::for('aboutUs_history', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - History', route('guest.about_us.history'));
+    $trail->push('History', route('guest.about_us.history'));
 });
 
 Breadcrumbs::for('aboutUs_officials', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Officials', route('guest.about_us.officials'));
+    $trail->push('Officials', route('guest.about_us.officials'));
 });
 
 Breadcrumbs::for('aboutUs_administrators', function ($trail) {
     $trail->parent('home');
-    $trail->push('About Us - Administrators', route('guest.about_us.administrators'));
+    $trail->push('Administrators', route('guest.about_us.administrators'));
 });
 
 Breadcrumbs::for('downloads_applicationForms', function ($trail) {
     $trail->parent('home');
-    $trail->push('Downloads - Application Forms', route('guest.downloads.application_forms'));
+    $trail->push('Application Forms', route('guest.downloads.application_forms'));
 });
 
 Breadcrumbs::for('downloads_smsForms', function ($trail) {
     $trail->parent('home');
-    $trail->push('Downloads - SMS Forms', route('guest.downloads.sms_forms'));
+    $trail->push('SMS Forms', route('guest.downloads.sms_forms'));
 });
 
 Breadcrumbs::for('downloads_historicalData', function ($trail) {
     $trail->parent('home');
-    $trail->push('Downloads - Historical Data', route('guest.downloads.historical_data'));
+    $trail->push('Historical Data', route('guest.downloads.historical_data'));
+});
+
+Breadcrumbs::for('aboutSugarcane_varieties', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Sugarcane Varieties', route('guest.about_sugarcane.varieties'));
+});
+
+Breadcrumbs::for('aboutSugarcane_researches', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Sugarcane Researches', route('guest.about_sugarcane.researches'));
+});
+
+Breadcrumbs::for('aboutSugarcane_researchDetails', function ($trail, $research) {
+    $trail->parent('aboutSugarcane_researches');
+    $trail->push($research->title, route('guest.about_sugarcane.research_details', $research->slug));
+});
+
+Breadcrumbs::for('stakeholders', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Stakeholders', route('guest.stakeholders.index'));
 });

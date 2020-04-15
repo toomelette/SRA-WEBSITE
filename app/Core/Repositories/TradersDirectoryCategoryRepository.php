@@ -33,14 +33,14 @@ class TradersDirectoryCategoryRepository extends BaseRepository implements Trade
     public function getAll(){
 
         $traders_dir_cats = $this->cache->remember('traders_directory_categories:getAll', 240, function(){
-            return $this->traders_dir_cat->select('traders_dir_cat_id','name')
-                                 ->orderBy('seq_no', 'asc')->get();
+            return $this->traders_dir_cat->select('traders_dir_cat_id', 'name')
+                                         ->with('tradersDirectory')
+                                         ->orderBy('seq_no', 'asc')->get();
         });
         
         return $traders_dir_cats;
 
     }
-
 
 
 

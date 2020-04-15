@@ -48,6 +48,33 @@ class ResearchRepository extends BaseRepository implements ResearchInterface {
 
     }
 
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $researches = $this->cache->remember('researches:guest:fetch:'. $key, 240, function() use ($request){
+                
+            $entries = isset($request->e) ? $request->e : 10;
+            $research = $this->research->newQuery();
+
+            if(isset($request->q)){
+                $research->where('title', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $research->select('title', 'slug')
+                           ->sortable()
+                           ->orderBy('created_at', 'desc')
+                           ->paginate($entries);
+        });
+
+        return $researches;
+
+    }
+
 
 
 

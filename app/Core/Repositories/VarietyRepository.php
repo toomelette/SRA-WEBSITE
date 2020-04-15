@@ -48,6 +48,34 @@ class VarietyRepository extends BaseRepository implements VarietyInterface {
 
     }
 
+        
+
+
+
+    public function guestfetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $varieties = $this->cache->remember('varieties:guest:fetch:'. $key, 240, function() use ($request){
+                
+            $entries = isset($request->e) ? $request->e : 10;
+            $variety = $this->variety->newQuery();
+
+            if(isset($request->q)){
+                $variety->where('name', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $variety->select('name', 'file_location', 'variety_id', 'slug')
+                           ->with('varietyData')
+                           ->sortable()
+                           ->orderBy('updated_at', 'desc')
+                           ->paginate($entries);
+        });
+
+        return $varieties;
+
+    }
+
 
 
 

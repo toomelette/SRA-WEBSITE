@@ -8,6 +8,8 @@ interface ResearchInterface {
 
 	public function fetch($request);
 
+	public function guestFetch($request);
+
 	public function store($request);
 
 	public function update($request, $slug);
