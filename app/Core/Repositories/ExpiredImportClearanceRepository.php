@@ -52,6 +52,40 @@ class ExpiredImportClearanceRepository extends BaseRepository implements Expired
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $expired_import_clearances = $this->cache->remember('expired_import_clearances:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $expired_import_clearance = $this->expired_import_clearance->newQuery();
+
+            if(isset($request->q)){
+                $expired_import_clearance->where('title', 'LIKE', '%'. $request->q .'%')
+                                         ->orWhere('year', 'LIKE', '%'. $request->q .'%')
+                                         ->orwhereHas('expiredImportClearanceCategory', function ($model) use ($request) {
+                                            $model->where('name', 'LIKE', '%'. $request->q .'%');
+                                         });
+            }
+
+            return $expired_import_clearance->select('file_location', 'title', 'expired_import_clearance_cat_id', 'year', 'slug')
+                                            ->with('expiredImportClearanceCategory')
+                                            ->sortable()
+                                            ->orderBy('created_at', 'desc')
+                                            ->paginate($entries);
+
+        });
+
+        return $expired_import_clearances;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $expired_import_clearance = new ExpiredImportClearance;

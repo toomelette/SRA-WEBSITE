@@ -100,3 +100,53 @@ Breadcrumbs::for('stakeholders', function ($trail) {
     $trail->parent('home');
     $trail->push('Stakeholders', route('guest.stakeholders.index'));
 });
+
+Breadcrumbs::for('industryUpdate_ssads', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Sugar Supply and Demand Situation', route('guest.industry_update.ssads'));
+});
+
+Breadcrumbs::for('industryUpdate_millsitePrices', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Millsite Prices ', route('guest.industry_update.millsite_prices'));
+});
+
+Breadcrumbs::for('industryUpdate_BERPrice', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Bioethanol Reference Price', route('guest.industry_update.ber_price'));
+});
+
+Breadcrumbs::for('industryUpdate_MMPrices', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Metro Manila Prices', route('guest.industry_update.mm_prices'));
+});
+
+Breadcrumbs::for('industryUpdate_sugarStatistics', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Sugar Statistics', route('guest.industry_update.sugar_statistics'));
+});
+
+Breadcrumbs::for('industryUpdate_roadmap', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Roadmap', route('guest.industry_update.roadmap'));
+});
+
+Breadcrumbs::for('industryUpdate_eic', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Expired Import Clearance', route('guest.industry_update.eic'));
+});
+
+Breadcrumbs::for('industryUpdate_millingSchedule', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Milling Schedule', route('guest.industry_update.milling_schedule'));
+});
+
+Breadcrumbs::for('industryUpdate_blockFarm', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Block Farm', route('guest.industry_update.block_farm'));
+});
+
+Breadcrumbs::for('industryUpdate_ces', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Crop Estimate', route('guest.industry_update.ces'));
+});

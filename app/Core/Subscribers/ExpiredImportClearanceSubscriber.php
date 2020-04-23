@@ -35,6 +35,7 @@ class ExpiredImportClearanceSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:guestFetch:*');
 
         $this->session->flash('EXPIRED_IMPORT_CLEARANCE_CREATE_SUCCESS', 'The Expired Import Clearance has been successfully created!');
 
@@ -45,6 +46,7 @@ class ExpiredImportClearanceSubscriber extends BaseSubscriber{
     public function onUpdate($expired_import_clearance){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:findBySlug:'. $expired_import_clearance->slug .'');
 
         $this->session->flash('EXPIRED_IMPORT_CLEARANCE_UPDATE_SUCCESS', 'The Expired Import Clearance has been successfully updated!');
@@ -57,6 +59,7 @@ class ExpiredImportClearanceSubscriber extends BaseSubscriber{
     public function onDestroy($expired_import_clearance){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:expired_import_clearances:findBySlug:'. $expired_import_clearance->slug .'');
 
         $this->session->flash('EXPIRED_IMPORT_CLEARANCE_DELETE_SUCCESS', 'The Expired Import Clearance has been successfully deleted!');

@@ -58,7 +58,7 @@ class HistoricalDataRepository extends BaseRepository implements HistoricalDataI
 
         $historical_datas = $this->cache->remember('historical_datas:guest:fetch:'. $key, 240, function() use ($request){
                 
-            $entries = isset($request->e) ? $request->e : 10;
+            $entries = isset($request->e) ? $request->e : 20;
 
             $historical_data = $this->historical_data->newQuery();
 

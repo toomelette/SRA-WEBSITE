@@ -52,6 +52,36 @@ class IndustryStatisticRepository extends BaseRepository implements IndustryStat
 
 
 
+    public function guestFetchByCatId($cat_id, $request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $industry_statistics = $this->cache->remember('industry_statistics:guestFetchByCatId:'. $cat_id .':' . $key, 240, function() use ($request, $cat_id){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $industry_statistic = $this->industry_statistic->newQuery();
+
+            if(isset($request->q)){
+                $industry_statistic->where('title', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $industry_statistic->select('file_location', 'title', 'crop_year_id', 'slug')
+                                      ->where('industry_statistics_category_id', $cat_id)
+                                      ->sortable()
+                                      ->orderBy('created_at', 'desc')
+                                      ->paginate($entries);
+
+        });
+
+        return $industry_statistics;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $industry_statistic = new IndustryStatistic;

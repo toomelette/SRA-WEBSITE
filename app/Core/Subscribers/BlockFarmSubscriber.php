@@ -35,6 +35,7 @@ class BlockFarmSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:guestFetch:*');
 
         $this->session->flash('BLOCK_FARM_CREATE_SUCCESS', 'The Block Farm has been successfully created!');
 
@@ -45,6 +46,7 @@ class BlockFarmSubscriber extends BaseSubscriber{
     public function onUpdate($block_farm){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:findBySlug:'. $block_farm->slug .'');
 
         $this->session->flash('BLOCK_FARM_UPDATE_SUCCESS', 'The Block Farm has been successfully updated!');
@@ -57,6 +59,7 @@ class BlockFarmSubscriber extends BaseSubscriber{
     public function onDestroy($block_farm){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:block_farms:findBySlug:'. $block_farm->slug .'');
 
         $this->session->flash('BLOCK_FARM_DELETE_SUCCESS', 'The Block Farm has been successfully deleted!');

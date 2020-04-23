@@ -58,7 +58,7 @@ class SMSFormRepository extends BaseRepository implements SMSFormInterface {
 
         $sms_forms = $this->cache->remember('sms_forms:guest:fetch:'. $key, 240, function() use ($request){
                 
-            $entries = isset($request->e) ? $request->e : 10;
+            $entries = isset($request->e) ? $request->e : 20;
 
             $sms_form = $this->sms_form->newQuery();
 

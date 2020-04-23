@@ -35,6 +35,7 @@ class MillingScheduleSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:guestFetch:*');
 
         $this->session->flash('MILLING_SCHEDULE_CREATE_SUCCESS', 'The Milling Schedule has been successfully created!');
 
@@ -45,6 +46,7 @@ class MillingScheduleSubscriber extends BaseSubscriber{
     public function onUpdate($milling_schedule){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:findBySlug:'. $milling_schedule->slug .'');
 
         $this->session->flash('MILLING_SCHEDULE_UPDATE_SUCCESS', 'The Milling Schedule has been successfully updated!');
@@ -57,6 +59,7 @@ class MillingScheduleSubscriber extends BaseSubscriber{
     public function onDestroy($milling_schedule){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:milling_schedules:findBySlug:'. $milling_schedule->slug .'');
 
         $this->session->flash('MILLING_SCHEDULE_DELETE_SUCCESS', 'The Milling Schedule has been successfully deleted!');

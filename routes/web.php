@@ -30,32 +30,42 @@ Route::group(['as' => 'guest.'], function () {
 
 	// About Us
 	Route::get('/about_us/mandate', 'Guest\AboutUsController@mandate')->name('about_us.mandate');
+
 	Route::get('/about_us/services', 'Guest\AboutUsController@services')->name('about_us.services');
 	Route::get('/about_us/services/view_service_guide/{slug}', 'Guest\AboutUsController@viewServiceGuide')->name('about_us.view_service_guide');
 	Route::get('/about_us/services/view_service_fees', 'Guest\AboutUsController@viewServiceFees')->name('about_us.view_service_fees');
+
 	Route::get('/about_us/charter', 'Guest\AboutUsController@charter')->name('about_us.charter');
 	Route::get('/about_us/charter/view_eo', 'Guest\AboutUsController@viewCharterEO')->name('about_us.view_charter_eo');
+
 	Route::get('/about_us/org_chart', 'Guest\AboutUsController@orgChart')->name('about_us.org_chart');
 	Route::get('/about_us/view_org_chart_img', 'Guest\AboutUsController@viewOrgChartImg')->name('about_us.view_org_chart_img');
 	Route::get('/about_us/view_org_functional_statements', 'Guest\AboutUsController@viewOrgFunctionalStatements')->name('about_us.view_org_functional_statements');
+
 	Route::get('/about_us/corp_objectives', 'Guest\AboutUsController@corpObjectives')->name('about_us.corp_objectives');
+
 	Route::get('/about_us/history', 'Guest\AboutUsController@history')->name('about_us.history');
+
 	Route::get('/about_us/officials', 'Guest\AboutUsController@officials')->name('about_us.officials');
 	Route::get('/about_us/officials/view_img/{slug}', 'Guest\AboutUsController@viewOfficialImg')->name('about_us.view_official_img');
+
 	Route::get('/about_us/administrators', 'Guest\AboutUsController@administrators')->name('about_us.administrators');
 	Route::get('/about_us/administrators/view_img/{slug}', 'Guest\AboutUsController@viewAdministratorImg')->name('about_us.view_administrator_img');
 
 	// Downloads
 	Route::get('/downloads/application_forms', 'Guest\DownloadsController@applicationForms')->name('downloads.application_forms');
 	Route::get('/downloads/application_forms/view_doc/{slug}', 'Guest\DownloadsController@viewApplicationFormDoc')->name('downloads.view_application_form_doc');
+
 	Route::get('/downloads/sms_forms', 'Guest\DownloadsController@smsForms')->name('downloads.sms_forms');
 	Route::get('/downloads/sms_forms/view_doc/{slug}', 'Guest\DownloadsController@viewSMSFormDoc')->name('downloads.view_sms_form_doc');
+
 	Route::get('/downloads/historical_data', 'Guest\DownloadsController@historicalData')->name('downloads.historical_data');
 	Route::get('/downloads/historical_data/view_doc/{slug}', 'Guest\DownloadsController@viewHistoricalDataDoc')->name('downloads.view_historical_data_doc');
 
 	// About Sugar Cane
 	Route::get('/about_sugarcane/sugarcane_varieties', 'Guest\AboutSugarcaneController@varieties')->name('about_sugarcane.varieties');
 	Route::get('/about_sugarcane/sugarcane_varieties/view_img/{slug}', 'Guest\AboutSugarcaneController@viewVarietyImg')->name('about_sugarcane.view_variety_img');
+
 	Route::get('/about_sugarcane/researches', 'Guest\AboutSugarcaneController@researches')->name('about_sugarcane.researches');
 	Route::get('/about_sugarcane/researches/{slug}', 'Guest\AboutSugarcaneController@researchDetails')->name('about_sugarcane.research_details');
 
@@ -63,6 +73,37 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/stakeholders', 'Guest\StakeholdersController@index')->name('stakeholders.index');
 	Route::get('/stakeholders/traders_directory/view_doc/{slug}', 'Guest\StakeholdersController@viewTradersDirectoryDoc')->name('stakeholders.view_traders_directory_doc');
 	Route::get('/stakeholders/planters_directory/view_doc/{slug}', 'Guest\StakeholdersController@viewPlantersDirectoryDoc')->name('stakeholders.view_planters_directory_doc');
+
+	// Industry Update
+	Route::get('/industry_update/ssads', 'Guest\IndustryUpdateController@ssads')->name('industry_update.ssads');
+	Route::get('/industry_update/ssads/view_doc/{slug}', 'Guest\IndustryUpdateController@viewSSADSDoc')->name('industry_update.view_ssads_doc');
+
+	Route::get('/industry_update/millsite_prices', 'Guest\IndustryUpdateController@millsitePrices')->name('industry_update.millsite_prices');
+	Route::get('/industry_update/millsite_prices/view_doc/{slug}', 'Guest\IndustryUpdateController@viewMillsitePricesDoc')->name('industry_update.view_millsite_prices_doc');
+
+	Route::get('/industry_update/ber_price', 'Guest\IndustryUpdateController@BERPrice')->name('industry_update.ber_price');
+	Route::get('/industry_update/ber_price/view_doc/{slug}', 'Guest\IndustryUpdateController@viewBERPriceDoc')->name('industry_update.view_ber_price_doc');
+
+	Route::get('/industry_update/mm_prices', 'Guest\IndustryUpdateController@MMPrices')->name('industry_update.mm_prices');
+	Route::get('/industry_update/mm_prices/view_doc/{slug}', 'Guest\IndustryUpdateController@viewMMPricesDoc')->name('industry_update.view_mm_prices_doc');
+
+	Route::get('/industry_update/sugar_statistics', 'Guest\IndustryUpdateController@sugarStatistics')->name('industry_update.sugar_statistics');
+	Route::get('/industry_update/sugar_statistics/view_doc/{slug}', 'Guest\IndustryUpdateController@viewSugarStatisticsDoc')->name('industry_update.view_sugar_statistics_doc');
+
+	Route::get('/industry_update/roadmap', 'Guest\IndustryUpdateController@roadmap')->name('industry_update.roadmap');
+	Route::get('/industry_update/roadmap/view_doc/', 'Guest\IndustryUpdateController@viewRoadmapDoc')->name('industry_update.view_roadmap_doc');
+
+	Route::get('/industry_update/eic', 'Guest\IndustryUpdateController@EIC')->name('industry_update.eic');
+	Route::get('/industry_update/eic/view_doc/{slug}', 'Guest\IndustryUpdateController@viewEICDoc')->name('industry_update.view_eic_doc');
+
+	Route::get('/industry_update/milling_schedule', 'Guest\IndustryUpdateController@millingSchedule')->name('industry_update.milling_schedule');
+	Route::get('/industry_update/milling_schedule/view_doc/{slug}', 'Guest\IndustryUpdateController@viewMillingScheduleDoc')->name('industry_update.view_milling_schedule_doc');
+
+	Route::get('/industry_update/block_farm', 'Guest\IndustryUpdateController@blockFarm')->name('industry_update.block_farm');
+	Route::get('/industry_update/block_farm/view_doc/{slug}', 'Guest\IndustryUpdateController@viewBlockFarmDoc')->name('industry_update.view_block_farm_doc');
+
+	Route::get('/industry_update/ces', 'Guest\IndustryUpdateController@CES')->name('industry_update.ces');
+	Route::get('/industry_update/ces/view_doc/{slug}', 'Guest\IndustryUpdateController@viewCESDoc')->name('industry_update.view_ces_doc');
 
 });
 

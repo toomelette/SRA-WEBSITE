@@ -52,6 +52,35 @@ class CropEstimateRepository extends BaseRepository implements CropEstimateInter
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $crop_estimates = $this->cache->remember('crop_estimates:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $crop_estimate = $this->crop_estimate->newQuery();
+
+            if(isset($request->q)){
+                $crop_estimate->where('title', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $crop_estimate->select('file_location', 'title', 'slug')
+                                 ->sortable()
+                                 ->orderBy('created_at', 'desc')
+                                 ->paginate($entries);
+
+        });
+
+        return $crop_estimates;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $crop_estimate = new CropEstimate;

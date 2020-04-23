@@ -20,10 +20,10 @@
                   <div class="row" style="margin-bottom:10px;">
                       
                     <div class="col-md-10">
-                      <div class="input-group input-group-sm" style="width: 300px;">
+                      <div class="input-group input-group-md" style="width: 500px;">
                         <input name="q" class="form-control pull-right" placeholder="Search ..." type="text" value="">
                         <div class="input-group-btn">
-                          <button id="table_search_button" type="submit" class="btn btn-default btn-sm">Search <i class="fa fa-search"></i></button>
+                          <button id="table_search_button" type="submit" class="btn btn-default btn-md">Search <i class="fa fa-search"></i></button>
                         </div>
                       </div>
                     </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-8">
                           <select id="e" name="e" class="small" onchange="document.getElementById('table_search_button').click()">
-                            <option value="">10</option>
+                            <option value="">20</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                           </select>

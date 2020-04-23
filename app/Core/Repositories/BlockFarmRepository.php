@@ -52,6 +52,35 @@ class BlockFarmRepository extends BaseRepository implements BlockFarmInterface {
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $block_farms = $this->cache->remember('block_farms:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $block_farm = $this->block_farm->newQuery();
+
+            if(isset($request->q)){
+                $block_farm->where('title', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $block_farm->select('file_location', 'title', 'slug')
+                              ->sortable()
+                              ->orderBy('created_at', 'desc')
+                              ->paginate($entries);
+
+        });
+
+        return $block_farms;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $block_farm = new BlockFarm;

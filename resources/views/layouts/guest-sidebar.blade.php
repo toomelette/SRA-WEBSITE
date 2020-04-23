@@ -7,34 +7,34 @@
       <h4 class="widget_title">Industry Update</h4>
       <ul class="list cat-list">
         <li>
-          <a class="d-flex justify-content-between" href="">Sugar Supply and Demand Situation</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.ssads') }}">Sugar Supply and Demand Situation</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Millsite Prices</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.millsite_prices') }}">Millsite Prices</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Bioethanol Reference Price</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.ber_price') }}">Bioethanol Reference Price</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Metro Manila Prices</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.mm_prices') }}">Metro Manila Prices</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Sugar Statistics</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.sugar_statistics') }}">Sugar Statistics</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Road Map</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.roadmap') }}">Road Map</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Expired Import Clearances</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.eic') }}">Expired Import Clearances</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Milling Schedule</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.milling_schedule') }}">Milling Schedule</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Block Farm</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.block_farm') }}">Block Farm</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Crop Estimates and Statistics</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.ces') }}">Crop Estimates and Statistics</a>
         </li>
         <li>
           <a class="d-flex justify-content-between" href="">Vacant Positions</a>

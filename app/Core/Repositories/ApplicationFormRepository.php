@@ -61,7 +61,7 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
 
         $application_forms = $this->cache->remember('application_forms:guest:fetch:'. $key, 240, function() use ($request){
                 
-            $entries = isset($request->e) ? $request->e : 10;
+            $entries = isset($request->e) ? $request->e : 20;
 
             $application_form = $this->application_form->newQuery();
 

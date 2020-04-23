@@ -52,6 +52,35 @@ class MillingScheduleRepository extends BaseRepository implements MillingSchedul
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $milling_schedules = $this->cache->remember('milling_schedules:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $milling_schedule = $this->milling_schedule->newQuery();
+
+            if(isset($request->q)){
+                $milling_schedule->where('title', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $milling_schedule->select('file_location', 'title', 'slug')
+                                    ->sortable()
+                                    ->orderBy('created_at', 'desc')
+                                    ->paginate($entries);
+
+        });
+
+        return $milling_schedules;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $milling_schedule = new MillingSchedule;

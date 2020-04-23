@@ -29,7 +29,7 @@
             ) !!} 
 
             {!! __form::select_dynamic(
-              '4', 'crop_year_id', 'Crop Year *', old('crop_year_id') ? old('crop_year_id') : $industry_statistic->crop_year_id, $global_crop_years_all, 'crop_year_id', 'name', $errors->has('crop_year_id'), $errors->first('crop_year_id'), 'select2', ''
+              '4', 'crop_year_id', 'Crop Year', old('crop_year_id') ? old('crop_year_id') : $industry_statistic->crop_year_id, $global_crop_years_all, 'crop_year_id', 'name', $errors->has('crop_year_id'), $errors->first('crop_year_id'), 'select2', ''
             ) !!}
 
             {!! __form::select_dynamic(
@@ -41,7 +41,7 @@
             ) !!}
 
             {!! __form::datepicker(
-              '4', 'cut_off_date',  'Cut Off Date *', old('cut_off_date') ? old('cut_off_date') : $industry_statistic->cut_off_date, $errors->has('cut_off_date'), $errors->first('cut_off_date')
+              '4', 'cut_off_date',  'Cut Off Date', old('cut_off_date') ? old('cut_off_date') : $industry_statistic->cut_off_date, $errors->has('cut_off_date'), $errors->first('cut_off_date')
             ) !!}
 
           </div>

@@ -57,7 +57,7 @@ class IndustryStatisticService extends BaseService{
 
         $industry_statistic = $this->industry_statistic_repo->store($request, $file_location);
         
-        $this->event->fire('industry_statistic.store');
+        $this->event->fire('industry_statistic.store', $industry_statistic);
         return redirect()->back();
     }
 

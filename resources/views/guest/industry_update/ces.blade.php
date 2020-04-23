@@ -1,12 +1,3 @@
-<?php
-
-  $appended_requests = [
-                        'q'=> Request::get('q'),
-                        'e' => Request::get('e'),
-                      ];
-
-?>
-
 @extends('layouts.guest-master')
 
 @section('content')
@@ -15,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('downloads_historicalData') }}
+            {{ Breadcrumbs::render('industryUpdate_ces') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Historical Data</h3>
+                <h3 class="text-heading title_color">Crop Estimate</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.historical_data') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.industry_update.ces') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -59,42 +50,31 @@
                 <div id="pjax-container">
                   <table class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                      <td style="color:red;">@sortablelink('title', 'Name')</td>
-                      <td style="width:150px;">@sortablelink('date_from', 'Date Scope')</td>
-                      <td style="width:150px;">@sortablelink('', 'File size')</td>
+                      <td style="color:red;">@sortablelink('title', 'Title')</td>
                       <td style="width:150px;"></td>
                     </thead>
                     <tbody>
-                      @foreach ($historical_datas as $data)
-                        <?php
-                          $filesize = Storage::disk('local')->size($data->file_location) / 1000;
-                        ?>
+                      @foreach ($ces_list as $data)
                         <tr>
+                          <td id="mid-vert">{{ $data->title }}</td>
                           <td id="mid-vert">
-                            {{ $data->title }}
-                          </td>
-                          <td id="mid-vert">
-                            {{ __dataType::date_parse($data->date_from, 'Y') }} - {{ __dataType::date_parse($data->date_to, 'Y') }}
-                          </td>
-                          <td id="mid-vert">
-                            {{ $filesize > 1000 ? number_format($filesize / 1000,2) .'MB' : number_format($filesize,2) .' KB' }}
-                          </td>
-                          <td id="mid-vert">
-                            <a href="{{ route('guest.downloads.view_historical_data_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">Download</a>
+                            <a href="{{ route('guest.industry_update.view_ces_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">
+                              Download
+                            </a>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
                   </table>
 
-                  @if($historical_datas->isEmpty())
+                  @if($ces_list->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($historical_datas) !!}
-                  {!! $historical_datas->appends($appended_requests)->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($ces_list) !!}
+                  {!! $ces_list->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

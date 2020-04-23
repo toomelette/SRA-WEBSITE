@@ -35,6 +35,7 @@ class CropEstimateSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:guestFetch:*');
 
         $this->session->flash('CROP_ESTIMATE_CREATE_SUCCESS', 'The Crop Estimate has been successfully created!');
 
@@ -45,6 +46,7 @@ class CropEstimateSubscriber extends BaseSubscriber{
     public function onUpdate($crop_estimate){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:findBySlug:'. $crop_estimate->slug .'');
 
         $this->session->flash('CROP_ESTIMATE_UPDATE_SUCCESS', 'The Crop Estimate has been successfully updated!');
@@ -57,6 +59,7 @@ class CropEstimateSubscriber extends BaseSubscriber{
     public function onDestroy($crop_estimate){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:crop_estimates:findBySlug:'. $crop_estimate->slug .'');
 
         $this->session->flash('CROP_ESTIMATE_DELETE_SUCCESS', 'The Crop Estimate has been successfully deleted!');
