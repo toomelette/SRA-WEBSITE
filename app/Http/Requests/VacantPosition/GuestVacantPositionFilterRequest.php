@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Http\Requests\IndustryStatistic;
+namespace App\Http\Requests\VacantPosition;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GuestMillsitePricesFilterRequest extends FormRequest{
-
+class GuestVacantPositionFilterRequest extends FormRequest{
 
     
     public function authorize(){
 
         return true;
-    
+
     }
 
     
     public function rules(){
-        
+
         return [
-            
+
             'q' => 'nullable|max:90|string',
             'e' => 'nullable|max:100|numeric',
             'page' => 'nullable|max:50|numeric',
@@ -30,5 +29,4 @@ class GuestMillsitePricesFilterRequest extends FormRequest{
     }
 
 
-    
 }

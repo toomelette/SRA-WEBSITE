@@ -8,6 +8,7 @@ use App\Core\Interfaces\ExpiredImportClearanceInterface;
 use App\Core\Interfaces\MillingScheduleInterface;
 use App\Core\Interfaces\BlockFarmInterface;
 use App\Core\Interfaces\CropEstimateInterface;
+use App\Core\Interfaces\VacantPositionInterface;
 use File;
 
 class IndustryUpdateService extends BaseService{
@@ -18,14 +19,16 @@ class IndustryUpdateService extends BaseService{
     protected $milling_schedule_repo;
     protected $block_farm_repo;
     protected $ces_repo;
+    protected $vacant_position_repo;
 
 
-    public function __construct(IndustryStatisticInterface $industry_statistic_repo, ExpiredImportClearanceInterface $eic_repo, MillingScheduleInterface $milling_schedule_repo, BlockFarmInterface $block_farm_repo, CropEstimateInterface $ces_repo){
+    public function __construct(IndustryStatisticInterface $industry_statistic_repo, ExpiredImportClearanceInterface $eic_repo, MillingScheduleInterface $milling_schedule_repo, BlockFarmInterface $block_farm_repo, CropEstimateInterface $ces_repo, VacantPositionInterface $vacant_position_repo){
         $this->industry_statistic_repo = $industry_statistic_repo;
         $this->eic_repo = $eic_repo;
         $this->milling_schedule_repo = $milling_schedule_repo;
         $this->block_farm_repo = $block_farm_repo;
         $this->ces_repo = $ces_repo;
+        $this->vacant_position_repo = $vacant_position_repo;
         parent::__construct();
     }
 
@@ -165,6 +168,21 @@ class IndustryUpdateService extends BaseService{
         $ces = $this->ces_repo->findBySlug($slug);
         if(!empty($ces->file_location)){
             return $this->view_file('/'. $ces->file_location);
+        }
+        return ''; 
+    }
+
+
+    public function fetchVacantPosition($request){
+        $vacant_positions = $this->vacant_position_repo->guestFetch($request);    
+        return view('guest.industry_update.vacant_position')->with('vacant_positions', $vacant_positions);
+    }
+
+
+    public function viewVacantPositionDoc($slug){
+        $vacant_position = $this->vacant_position_repo->findBySlug($slug);
+        if(!empty($vacant_position->file_location)){
+            return $this->view_file('/'. $vacant_position->file_location);
         }
         return ''; 
     }

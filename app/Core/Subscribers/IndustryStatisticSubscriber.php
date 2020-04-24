@@ -34,7 +34,7 @@ class IndustryStatisticSubscriber extends BaseSubscriber{
 
     public function onStore($industry_statistic){
         $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:fetch:*');
-        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:'. $industry_statistic->industry_statistics_category_id .':*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:*');
 
         $this->session->flash('INDUSTRY_STATISTIC_CREATE_SUCCESS', 'The Industry Statistic has been successfully created!');
 
@@ -45,7 +45,7 @@ class IndustryStatisticSubscriber extends BaseSubscriber{
     public function onUpdate($industry_statistic){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:fetch:*');
-        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:'. $industry_statistic->industry_statistics_category_id .':*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:findBySlug:'. $industry_statistic->slug .'');
 
         $this->session->flash('INDUSTRY_STATISTIC_UPDATE_SUCCESS', 'The Industry Statistic has been successfully updated!');
@@ -58,7 +58,7 @@ class IndustryStatisticSubscriber extends BaseSubscriber{
     public function onDestroy($industry_statistic){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:fetch:*');
-        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:'. $industry_statistic->industry_statistics_category_id .':*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:guestFetchByCatId:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:industry_statistics:findBySlug:'. $industry_statistic->slug .'');
 
         $this->session->flash('INDUSTRY_STATISTIC_DELETE_SUCCESS', 'The Industry Statistic has been successfully deleted!');

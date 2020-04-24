@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
+
 use App\Http\Requests\IndustryStatistic\GuestSSADSFilterRequest;
 use App\Http\Requests\IndustryStatistic\GuestMillsitePricesFilterRequest;
 use App\Http\Requests\IndustryStatistic\GuestBERPriceFilterRequest;
 use App\Http\Requests\IndustryStatistic\GuestMMPricesFilterRequest;
 use App\Http\Requests\IndustryStatistic\GuestSugarStatisticsFilterRequest;
-use App\Http\Requests\IndustryStatistic\GuestEICFilterRequest;
-use App\Http\Requests\IndustryStatistic\GuestMillingScheduleFilterRequest;
-use App\Http\Requests\IndustryStatistic\GuestBlockFarmFilterRequest;
+
+use App\Http\Requests\ExpiredImportClearance\GuestEICFilterRequest;
+use App\Http\Requests\MillingSchedule\GuestMillingScheduleFilterRequest;
+use App\Http\Requests\BlockFarm\GuestBlockFarmFilterRequest;
+use App\Http\Requests\CropEstimate\GuestCESFilterRequest;
+use App\Http\Requests\VacantPosition\GuestVacantPositionFilterRequest;
+
 use App\Core\Services\Guest\IndustryUpdateService;
 
 
@@ -114,13 +119,23 @@ class IndustryUpdateController extends Controller{
     }
    
 
-    public function CES(GuestBlockFarmFilterRequest $request){
+    public function CES(GuestCESFilterRequest $request){
         return $this->industry_update->fetchCES($request);
     }
    
 
     public function viewCESDoc($slug){
         return $this->industry_update->viewCESDoc($slug);
+    }
+   
+
+    public function vacantPosition(GuestVacantPositionFilterRequest $request){
+        return $this->industry_update->fetchVacantPosition($request);
+    }
+   
+
+    public function viewVacantPositionDoc($slug){
+        return $this->industry_update->viewVacantPositionDoc($slug);
     }
 
 

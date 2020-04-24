@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\IndustryStatistic;
+namespace App\Http\Requests\CropEstimate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,7 +19,11 @@ class GuestCESFilterRequest extends FormRequest{
         
         return [
             
-            'q' => 'nullable|string|max:90',
+            'q' => 'nullable|max:90|string',
+            'e' => 'nullable|max:100|numeric',
+            'page' => 'nullable|max:50|numeric',
+            'sort' => 'nullable|max:45|string',
+            'direction' => 'nullable|max:5|string',
             
         ];
 

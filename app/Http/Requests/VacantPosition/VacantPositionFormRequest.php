@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\IndustryStatistic;
+namespace App\Http\Requests\VacantPosition;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GuestEICFilterRequest extends FormRequest{
-
+class VacantPositionFormRequest extends FormRequest{
 
     
+
     public function authorize(){
 
         return true;
@@ -16,15 +16,16 @@ class GuestEICFilterRequest extends FormRequest{
 
     
     public function rules(){
-        
+
         return [
             
-            'q' => 'nullable|string|max:90',
+            'doc_file' => 'nullable|mimes:pdf|max:50000',
+            'title' => 'required|max:255|string',
             
         ];
-
+    
     }
 
 
-    
+
 }

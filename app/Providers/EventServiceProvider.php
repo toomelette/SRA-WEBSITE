@@ -64,8 +64,7 @@ class EventServiceProvider extends ServiceProvider{
         'App\Core\Subscribers\NoticeOfAwardSubscriber',
         'App\Core\Subscribers\NoticeToProceedSubscriber',
         'App\Core\Subscribers\MinutesOfTheBidSubscriber',
-        
-        
+        'App\Core\Subscribers\VacantPositionSubscriber',
         
     ];
 

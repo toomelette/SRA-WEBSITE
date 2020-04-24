@@ -37,7 +37,7 @@
           <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.ces') }}">Crop Estimates and Statistics</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Vacant Positions</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.industry_update.vacant_position') }}">Vacant Positions</a>
         </li>
       </ul>
       <div class="br"></div>
@@ -48,16 +48,16 @@
       <h4 class="widget_title">Policy</h4>
       <ul class="list cat-list">
         <li>
-          <a class="d-flex justify-content-between" href="">Sugar Order</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.sugar_order') }}">Sugar Order</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Circular Letter</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.circular_letter') }}">Circular Letter</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Memorandum Order</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.memo_order') }}">Memorandum Order</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Memorandum Circular</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.memo_cir') }}">Memorandum Circular</a>
         </li>
         <li>
           <a class="d-flex justify-content-between" href="">Molasses Order</a>

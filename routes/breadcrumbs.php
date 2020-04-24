@@ -150,3 +150,28 @@ Breadcrumbs::for('industryUpdate_ces', function ($trail) {
     $trail->parent('home');
     $trail->push('Industry Updates / Crop Estimate', route('guest.industry_update.ces'));
 });
+
+Breadcrumbs::for('industryUpdate_vacantPosition', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Industry Updates / Vacant Positions', route('guest.industry_update.vacant_position'));
+});
+
+Breadcrumbs::for('policies_sugarOrder', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Sugar Orders', route('guest.policies.sugar_order'));
+});
+
+Breadcrumbs::for('policies_circularLetter', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Circular Letters', route('guest.policies.circular_letter'));
+});
+
+Breadcrumbs::for('policies_memoOrder', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Memorandum Order', route('guest.policies.memo_order'));
+});
+
+Breadcrumbs::for('policies_memoCir', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Memorandum Circular', route('guest.policies.memo_cir'));
+});

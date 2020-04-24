@@ -105,6 +105,23 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/industry_update/ces', 'Guest\IndustryUpdateController@CES')->name('industry_update.ces');
 	Route::get('/industry_update/ces/view_doc/{slug}', 'Guest\IndustryUpdateController@viewCESDoc')->name('industry_update.view_ces_doc');
 
+	Route::get('/industry_update/vacant_position', 'Guest\IndustryUpdateController@vacantPosition')->name('industry_update.vacant_position');
+	Route::get('/industry_update/vacant_position/view_doc/{slug}', 'Guest\IndustryUpdateController@viewVacantPositionDoc')->name('industry_update.view_vacant_position_doc');
+
+	// Policies
+	Route::get('/policies/sugar_order', 'Guest\PoliciesController@sugarOrder')->name('policies.sugar_order');
+	Route::get('/policies/sugar_order/view_img/{slug}', 'Guest\PoliciesController@viewSugarOrderDoc')->name('policies.view_sugar_order_doc');
+
+	Route::get('/policies/circular_letter', 'Guest\PoliciesController@circularLetter')->name('policies.circular_letter');
+	Route::get('/policies/circular_letter/view_img/{slug}', 'Guest\PoliciesController@viewCircularLetterDoc')->name('policies.view_circular_letter_doc');
+
+	Route::get('/policies/memo_order', 'Guest\PoliciesController@memoOrder')->name('policies.memo_order');
+	Route::get('/policies/memo_order/view_img/{slug}', 'Guest\PoliciesController@viewMemoOrderDoc')->name('policies.view_memo_order_doc');
+
+	Route::get('/policies/memo_cir', 'Guest\PoliciesController@memoCir')->name('policies.memo_cir');
+	Route::get('/policies/memo_cir/view_img/{slug}', 'Guest\PoliciesController@viewMemoCirDoc')->name('policies.view_memo_cir_doc');
+
+
 });
 
 
@@ -198,6 +215,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	/** Milling Schedule **/
 	Route::get('/milling_schedule/view_file/{slug}', 'MillingScheduleController@viewFile')->name('milling_schedule.view_file');
 	Route::resource('milling_schedule', 'MillingScheduleController');
+
+	/** Vacant Positions **/
+	Route::get('/vacant_position/view_file/{slug}', 'VacantPositionController@viewFile')->name('vacant_position.view_file');
+	Route::resource('vacant_position', 'VacantPositionController');
 	
 	/** SIDA Programs **/
 	Route::get('/sida_program/view_file/{slug}', 'SIDAProgramController@viewFile')->name('sida_program.view_file');

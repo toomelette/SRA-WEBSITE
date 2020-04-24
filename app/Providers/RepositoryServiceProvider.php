@@ -106,6 +106,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 		
 		$this->app->bind('App\Core\Interfaces\MinutesOfTheBidInterface', 'App\Core\Repositories\MinutesOfTheBidRepository');
 		
+		$this->app->bind('App\Core\Interfaces\VacantPositionInterface', 'App\Core\Repositories\VacantPositionRepository');
+		
 		
 		
 		

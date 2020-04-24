@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\IndustryStatistic;
+namespace App\Http\Requests\VacantPosition;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GuestBlockFarmFilterRequest extends FormRequest{
-
+class VacantPositionFilterRequest extends FormRequest{
 
     
+
     public function authorize(){
 
         return true;
@@ -16,15 +16,13 @@ class GuestBlockFarmFilterRequest extends FormRequest{
 
     
     public function rules(){
-        
-        return [
-            
-            'q' => 'nullable|string|max:90',
-            
-        ];
 
+        return [
+            'q' => 'nullable|max:90|string', 
+        ];
+    
     }
 
 
-    
+
 }

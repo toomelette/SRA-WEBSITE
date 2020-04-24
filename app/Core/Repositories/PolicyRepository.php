@@ -52,6 +52,42 @@ class PolicyRepository extends BaseRepository implements PolicyInterface {
 
 
 
+    public function guestFetchByCatId($cat_id, $request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $policies = $this->cache->remember('policies:guestFetchByCatId:'. $cat_id .':' . $key, 240, function() use ($request, $cat_id){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $policy = $this->policy->newQuery();
+
+            if(isset($request->q)){
+                $policy->where('title', 'LIKE', '%'. $request->q .'%')
+                       ->orwhereHas('policyCategory', function ($model) use ($request) {
+                           $model->where('name', 'LIKE', '%'. $request->q .'%');
+                       })
+                       ->orwhereHas('cropYear', function ($model) use ($request) {
+                           $model->where('name', 'LIKE', '%'. $request->q .'%');
+                       });
+            }
+
+            return $policy->select('file_location', 'title', 'crop_year_id', 'slug')
+                          ->where('policy_category_id', $cat_id)
+                          ->sortable()
+                          ->orderBy('created_at', 'desc')
+                          ->paginate($entries);
+
+        });
+
+        return $policies;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $policy = new Policy;

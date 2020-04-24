@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\IndustryStatistic;
+namespace App\Http\Requests\ExpiredImportClearance;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GuestMillsitePricesFilterRequest extends FormRequest{
+class GuestEICFilterRequest extends FormRequest{
 
 
     

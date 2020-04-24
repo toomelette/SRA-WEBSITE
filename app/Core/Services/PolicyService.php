@@ -57,7 +57,7 @@ class PolicyService extends BaseService{
 
         $policy = $this->policy_repo->store($request, $file_location);
         
-        $this->event->fire('policy.store');
+        $this->event->fire('policy.store', $policy);
         return redirect()->back();
     }
 

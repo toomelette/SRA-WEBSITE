@@ -32,9 +32,10 @@ class PolicySubscriber extends BaseSubscriber{
 
 
 
-    public function onStore(){
+    public function onStore($policy){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:guestFetchByCatId:*');
 
         $this->session->flash('POLICY_CREATE_SUCCESS', 'The Policy has been successfully created!');
 
@@ -45,6 +46,7 @@ class PolicySubscriber extends BaseSubscriber{
     public function onUpdate($policy){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:guestFetchByCatId:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:findBySlug:'. $policy->slug .'');
 
         $this->session->flash('POLICY_UPDATE_SUCCESS', 'The Policy has been successfully updated!');
@@ -57,6 +59,7 @@ class PolicySubscriber extends BaseSubscriber{
     public function onDestroy($policy){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:guestFetchByCatId:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:policies:findBySlug:'. $policy->slug .'');
 
         $this->session->flash('POLICY_DELETE_SUCCESS', 'The Policy has been successfully deleted!');
