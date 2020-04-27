@@ -7,7 +7,12 @@ use App\Http\Requests\Policy\GuestSugarOrderFilterRequest;
 use App\Http\Requests\Policy\GuestCircularLetterFilterRequest;
 use App\Http\Requests\Policy\GuestMemoOrderFilterRequest;
 use App\Http\Requests\Policy\GuestMemoCirFilterRequest;
-
+use App\Http\Requests\Policy\GuestMolassesOrderFilterRequest;
+use App\Http\Requests\Policy\GuestMuscovadoOrderFilterRequest;
+use App\Http\Requests\Policy\GuestGAOrderFilterRequest;
+use App\Http\Requests\Policy\GuestSugarLawFilterRequest;
+use App\Http\Requests\Policy\GuestBioenergyFilterRequest;
+use App\Http\Requests\Policy\GuestAseanFilterRequest;
 use App\Core\Services\Guest\PoliciesService;
 
 
@@ -27,18 +32,8 @@ class PoliciesController extends Controller{
     }
    
 
-    public function viewSugarOrderDoc($slug){
-        return $this->policies->viewSugarOrderDoc($slug);
-    }
-   
-
     public function circularLetter(GuestCircularLetterFilterRequest $request){
         return $this->policies->fetchCircularLetter($request);
-    }
-   
-
-    public function viewCircularLetterDoc($slug){
-        return $this->policies->viewCircularLetterDoc($slug);
     }
    
 
@@ -47,21 +42,44 @@ class PoliciesController extends Controller{
     }
    
 
-    public function viewMemoOrderDoc($slug){
-        return $this->policies->viewMemoOrderDoc($slug);
-    }
-   
-
     public function memoCir(GuestMemoCirFilterRequest $request){
         return $this->policies->fetchMemoCir($request);
     }
-   
 
-    public function viewMemoCirDoc($slug){
-        return $this->policies->viewMemoCirDoc($slug);
+   
+    public function molassesOrder(GuestMolassesOrderFilterRequest $request){
+        return $this->policies->fetchMolassesOrder($request);
+    }
+
+   
+    public function muscovadoOrder(GuestMuscovadoOrderFilterRequest $request){
+        return $this->policies->fetchMuscovadoOrder($request);
+    }
+
+   
+    public function GAOrder(GuestGAOrderFilterRequest $request){
+        return $this->policies->fetchGAOrder($request);
+    }
+
+   
+    public function sugarLaw(GuestSugarLawFilterRequest $request){
+        return $this->policies->fetchSugarLaw($request);
     }
 
 
+    public function bioenergy(GuestBioenergyFilterRequest $request){
+        return $this->policies->fetchBioenergy($request);
+    }
+
+
+    public function asean(GuestAseanFilterRequest $request){
+        return $this->policies->fetchAsean($request);
+    }
+   
+
+    public function viewPolicyDoc($slug){
+        return $this->policies->viewPolicyDoc($slug);
+    }
 
 
 }

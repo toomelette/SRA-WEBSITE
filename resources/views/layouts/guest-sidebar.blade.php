@@ -60,22 +60,22 @@
           <a class="d-flex justify-content-between" href="{{ route('guest.policies.memo_cir') }}">Memorandum Circular</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Molasses Order</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.molasses_order') }}">Molasses Order</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Muscovado Order</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.muscovado_order') }}">Muscovado Order</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href=""><p>General Administrative Order</p></a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.ga_order') }}"><p>General Administrative Order</p></a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Sugar Laws</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.sugar_law') }}">Sugar Laws</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Bioenergy</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.bioenergy') }}">Bioenergy</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">ASEAN</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.policies.asean') }}">ASEAN</a>
         </li>
       </ul>
       <div class="br"></div>
@@ -86,7 +86,7 @@
       <h4 class="widget_title">SIDA</h4>
       <ul class="list cat-list">
         <li>
-          <a class="d-flex justify-content-between" href="">SIDA Updates</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.sida.sida_updates') }}">SIDA Updates</a>
         </li>
         <li>
           <a class="d-flex justify-content-between" href="">SIDA Guidelines</a>

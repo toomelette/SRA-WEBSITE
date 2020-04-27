@@ -175,3 +175,38 @@ Breadcrumbs::for('policies_memoCir', function ($trail) {
     $trail->parent('home');
     $trail->push('Policies / Memorandum Circular', route('guest.policies.memo_cir'));
 });
+
+Breadcrumbs::for('policies_molassesOrder', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Molasses Order', route('guest.policies.molasses_order'));
+});
+
+Breadcrumbs::for('policies_muscovadoOrder', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Muscovado Order', route('guest.policies.muscovado_order'));
+});
+
+Breadcrumbs::for('policies_gaOrder', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / General Administrative Order', route('guest.policies.ga_order'));
+});
+
+Breadcrumbs::for('policies_sugarLaw', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Sugar Laws', route('guest.policies.sugar_law'));
+});
+
+Breadcrumbs::for('policies_bioenergy', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / Bioenergy', route('guest.policies.bioenergy'));
+});
+
+Breadcrumbs::for('policies_asean', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Policies / ASEAN', route('guest.policies.asean'));
+});
+
+Breadcrumbs::for('sida_sidaUpdates', function ($trail) {
+    $trail->parent('home');
+    $trail->push('SIDA / SIDA Updates', route('guest.sida.sida_updates'));
+});

@@ -6,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('aboutSugarcane_varieties') }}
+            {{ Breadcrumbs::render('policies_muscovadoOrder') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Sugarcane Varieties</h3>
+                <h3 class="text-heading title_color">Muscovado Orders</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.about_sugarcane.varieties') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.policies.muscovado_order') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-8">
                           <select id="e" name="e" class="small" onchange="document.getElementById('table_search_button').click()">
-                            <option value="">10</option>
+                            <option value="">20</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                           </select>
@@ -47,38 +47,36 @@
 
                 </form>
 
-                <div id="pjax-container" style="margin-top:50px;">
-                  @foreach ($varieties as $data)
-                    <h2>{{ $data->name }}</h2>
-                    <article class="row blog_item" style="padding-bottom:50px;">
-                      <div class="col-md-4">
-                        @if (isset($data->file_location) && $data->file_location != "")
-                          <img src="{{ route('guest.about_sugarcane.view_variety_img', $data->slug) }}" style="height:500px;">
-                        @endif
-                      </div>
-                      <div class="col-md-8">
-                        <table class="table table-sm table-striped table-bordered">
-                          <tbody>
-                            @foreach ($data->varietyData as $variety_data)
-                              <tr>
-                                <td id="mid-vert">{{ $variety_data->field }}</td>
-                                <td id="mid-vert">{{ $variety_data->value }}</td>
-                              </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
-                      </div>
-                    </article>
-                  @endforeach
+                <div id="pjax-container">
+                  <table class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                      <td style="color:red;">@sortablelink('title', 'Title')</td>
+                      <td style="color:red;">@sortablelink('cropYear.name', 'Crop Year')</td>
+                      <td style="width:150px;"></td>
+                    </thead>
+                    <tbody>
+                      @foreach ($muscovado_orders as $data)
+                        <tr>
+                          <td id="mid-vert">{{ $data->title }}</td>
+                          <td id="mid-vert">{{ optional($data->cropYear)->name }}</td>
+                          <td id="mid-vert">
+                            <a href="{{ route('guest.policies.view_muscovado_order_doc', $data->slug) }}" class="genric-btn btn-info small" target="_blank">
+                              Download
+                            </a>
+                          </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
 
-                  @if($varieties->isEmpty())
+                  @if($muscovado_orders->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($varieties) !!}
-                  {!! $varieties->appends([])->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($muscovado_orders) !!}
+                  {!! $muscovado_orders->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

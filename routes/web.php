@@ -110,16 +110,40 @@ Route::group(['as' => 'guest.'], function () {
 
 	// Policies
 	Route::get('/policies/sugar_order', 'Guest\PoliciesController@sugarOrder')->name('policies.sugar_order');
-	Route::get('/policies/sugar_order/view_img/{slug}', 'Guest\PoliciesController@viewSugarOrderDoc')->name('policies.view_sugar_order_doc');
+	Route::get('/policies/sugar_order/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_sugar_order_doc');
 
 	Route::get('/policies/circular_letter', 'Guest\PoliciesController@circularLetter')->name('policies.circular_letter');
-	Route::get('/policies/circular_letter/view_img/{slug}', 'Guest\PoliciesController@viewCircularLetterDoc')->name('policies.view_circular_letter_doc');
+	Route::get('/policies/circular_letter/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_circular_letter_doc');
 
 	Route::get('/policies/memo_order', 'Guest\PoliciesController@memoOrder')->name('policies.memo_order');
-	Route::get('/policies/memo_order/view_img/{slug}', 'Guest\PoliciesController@viewMemoOrderDoc')->name('policies.view_memo_order_doc');
+	Route::get('/policies/memo_order/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_memo_order_doc');
 
 	Route::get('/policies/memo_cir', 'Guest\PoliciesController@memoCir')->name('policies.memo_cir');
-	Route::get('/policies/memo_cir/view_img/{slug}', 'Guest\PoliciesController@viewMemoCirDoc')->name('policies.view_memo_cir_doc');
+	Route::get('/policies/memo_cir/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_memo_cir_doc');
+
+	Route::get('/policies/molasses_order', 'Guest\PoliciesController@molassesOrder')->name('policies.molasses_order');
+	Route::get('/policies/molasses_order/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_molasses_order_doc');
+
+	Route::get('/policies/muscovado_order', 'Guest\PoliciesController@muscovadoOrder')->name('policies.muscovado_order');
+	Route::get('/policies/muscovado_order/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_muscovado_order_doc');
+
+	Route::get('/policies/ga_order', 'Guest\PoliciesController@GAOrder')->name('policies.ga_order');
+	Route::get('/policies/ga_order/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_ga_order_doc');
+
+	Route::get('/policies/sugar_law', 'Guest\PoliciesController@sugarLaw')->name('policies.sugar_law');
+	Route::get('/policies/sugar_law/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_sugar_law_doc');
+
+	Route::get('/policies/bioenergy', 'Guest\PoliciesController@bioenergy')->name('policies.bioenergy');
+	Route::get('/policies/bioenergy/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_bioenergy_doc');
+
+	Route::get('/policies/asean', 'Guest\PoliciesController@asean')->name('policies.asean');
+	Route::get('/policies/asean/view_img/{slug}', 'Guest\PoliciesController@viewPolicyDoc')->name('policies.view_asean_doc');
+
+	// SIDA
+	Route::get('/sida/sida_updates', 'Guest\SidaController@sidaUpdates')->name('sida.sida_updates');
+	Route::get('/sida/sida_updates/view_img/{slug}', 'Guest\SidaController@viewSidaProgramDoc')->name('sida.view_sida_program_doc');
+
+
 
 
 });

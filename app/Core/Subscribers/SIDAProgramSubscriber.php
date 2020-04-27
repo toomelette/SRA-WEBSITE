@@ -35,6 +35,7 @@ class SIDAProgramSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:guestFetch:*');
 
         $this->session->flash('SIDA_PROGRAM_CREATE_SUCCESS', 'The SIDA Program has been successfully created!');
 
@@ -45,6 +46,7 @@ class SIDAProgramSubscriber extends BaseSubscriber{
     public function onUpdate($sida_program){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:findBySlug:'. $sida_program->slug .'');
 
         $this->session->flash('SIDA_PROGRAM_UPDATE_SUCCESS', 'The SIDA Program has been successfully updated!');
@@ -57,6 +59,7 @@ class SIDAProgramSubscriber extends BaseSubscriber{
     public function onDestroy($sida_program){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_programs:findBySlug:'. $sida_program->slug .'');
 
         $this->session->flash('SIDA_PROGRAM_DELETE_SUCCESS', 'The SIDA Program has been successfully deleted!');

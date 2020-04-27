@@ -52,6 +52,45 @@ class SIDAProgramRepository extends BaseRepository implements SIDAProgramInterfa
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $sida_programs = $this->cache->remember('sida_programs:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $sida_program = $this->sida_program->newQuery();
+
+            if(isset($request->q)){
+                $sida_program->where('title', 'LIKE', '%'. $request->q .'%')
+                             ->orWhere('year', 'LIKE', '%'. $request->q .'%')
+                             ->orwhereHas('province', function ($model) use ($request) {
+                                 $model->where('name', 'LIKE', '%'. $request->q .'%');
+                             })
+                             ->orwhereHas('millDistrict', function ($model) use ($request) {
+                                 $model->where('name', 'LIKE', '%'. $request->q .'%');
+                             })
+                             ->orwhereHas('sidaProgramCategory', function ($model) use ($request) {
+                                 $model->where('name', 'LIKE', '%'. $request->q .'%');
+                             });
+            }
+
+            return $sida_program->select('file_location', 'title', 'year', 'slug')
+                                ->sortable()
+                                ->orderBy('created_at', 'desc')
+                                ->paginate($entries);
+
+        });
+
+        return $sida_programs;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $sida_program = new SIDAProgram;
