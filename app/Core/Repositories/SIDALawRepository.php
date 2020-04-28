@@ -52,6 +52,37 @@ class SIDALawRepository extends BaseRepository implements SIDALawInterface {
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $sida_laws = $this->cache->remember('sida_laws:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $sida_law = $this->sida_law->newQuery();
+
+            if(isset($request->q)){
+                $sida_law->where('title', 'LIKE', '%'. $request->q .'%')
+                         ->orWhere('description', 'LIKE', '%'. $request->q .'%')
+                         ->orWhere('year', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $sida_law->select('file_location', 'title', 'description', 'year', 'slug')
+                            ->sortable()
+                            ->orderBy('created_at', 'desc')
+                            ->paginate($entries);
+
+        });
+
+        return $sida_laws;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $sida_law = new SIDALaw;

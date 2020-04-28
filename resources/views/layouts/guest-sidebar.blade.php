@@ -89,13 +89,13 @@
           <a class="d-flex justify-content-between" href="{{ route('guest.sida.sida_updates') }}">SIDA Updates</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">SIDA Guidelines</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.sida.sida_guideline') }}">SIDA Guidelines</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">SIDA Laws</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.sida.sida_law') }}">SIDA Laws</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">SIDA Fund Utilization</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.sida.sida_fu') }}">SIDA Fund Utilization</a>
         </li>
       </ul>
       <div class="br"></div>

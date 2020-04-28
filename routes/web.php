@@ -143,6 +143,14 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/sida/sida_updates', 'Guest\SidaController@sidaUpdates')->name('sida.sida_updates');
 	Route::get('/sida/sida_updates/view_img/{slug}', 'Guest\SidaController@viewSidaProgramDoc')->name('sida.view_sida_program_doc');
 
+	Route::get('/sida/sida_guideline', 'Guest\SidaController@sidaGuidelines')->name('sida.sida_guideline');
+	Route::get('/sida/sida_guideline/view_img/{slug}', 'Guest\SidaController@viewSidaGuidelineDoc')->name('sida.view_sida_guideline_doc');
+
+	Route::get('/sida/sida_law', 'Guest\SidaController@sidaLaws')->name('sida.sida_law');
+	Route::get('/sida/sida_law/view_img/{slug}', 'Guest\SidaController@viewSidaLawDoc')->name('sida.view_sida_law_doc');
+
+	Route::get('/sida/sida_fu', 'Guest\SidaController@sidaFU')->name('sida.sida_fu');
+	Route::get('/sida/sida_fu/view_img/{slug}', 'Guest\SidaController@viewSidaFUDoc')->name('sida.view_sida_fu_doc');
 
 
 

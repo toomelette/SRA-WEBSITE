@@ -52,6 +52,36 @@ class SIDAFundUtilizationRepository extends BaseRepository implements SIDAFundUt
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $sida_fund_utilizations = $this->cache->remember('sida_fund_utilizations:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $sida_fund_utilization = $this->sida_fund_utilization->newQuery();
+
+            if(isset($request->q)){
+                $sida_fund_utilization->where('title', 'LIKE', '%'. $request->q .'%')
+                                      ->orWhere('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $sida_fund_utilization->select('file_location', 'title', 'description', 'slug')
+                                         ->sortable()
+                                         ->orderBy('created_at', 'desc')
+                                         ->paginate($entries);
+
+        });
+
+        return $sida_fund_utilizations;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $sida_fund_utilization = new SIDAFundUtilization;

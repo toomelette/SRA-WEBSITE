@@ -35,6 +35,7 @@ class SIDALawSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:guestFetch:*');
 
         $this->session->flash('SIDA_LAW_CREATE_SUCCESS', 'The SIDA Law has been successfully created!');
 
@@ -45,6 +46,7 @@ class SIDALawSubscriber extends BaseSubscriber{
     public function onUpdate($sida_law){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:findBySlug:'. $sida_law->slug .'');
 
         $this->session->flash('SIDA_LAW_UPDATE_SUCCESS', 'The SIDA Law has been successfully updated!');
@@ -57,6 +59,7 @@ class SIDALawSubscriber extends BaseSubscriber{
     public function onDestroy($sida_law){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_laws:findBySlug:'. $sida_law->slug .'');
 
         $this->session->flash('SIDA_LAW_DELETE_SUCCESS', 'The SIDA Law has been successfully deleted!');

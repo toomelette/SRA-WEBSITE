@@ -61,6 +61,10 @@ class SIDAProgramRepository extends BaseRepository implements SIDAProgramInterfa
             $entries = isset($request->e) ? $request->e : 20;
 
             $sida_program = $this->sida_program->newQuery();
+                
+            if (isset($request->md)) {
+                $sida_program->where('mill_district_id', $request->md);
+            }
 
             if(isset($request->q)){
                 $sida_program->where('title', 'LIKE', '%'. $request->q .'%')

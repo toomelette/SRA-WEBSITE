@@ -210,3 +210,18 @@ Breadcrumbs::for('sida_sidaUpdates', function ($trail) {
     $trail->parent('home');
     $trail->push('SIDA / SIDA Updates', route('guest.sida.sida_updates'));
 });
+
+Breadcrumbs::for('sida_sidaGuidelines', function ($trail) {
+    $trail->parent('home');
+    $trail->push('SIDA / SIDA Guidelines', route('guest.sida.sida_guideline'));
+});
+
+Breadcrumbs::for('sida_sidaLaws', function ($trail) {
+    $trail->parent('home');
+    $trail->push('SIDA / SIDA Laws', route('guest.sida.sida_law'));
+});
+
+Breadcrumbs::for('sida_sidaFU', function ($trail) {
+    $trail->parent('home');
+    $trail->push('SIDA / SIDA Fund Utilizations', route('guest.sida.sida_fu'));
+});

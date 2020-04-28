@@ -35,6 +35,7 @@ class SIDAFundUtilizationSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:guestFetch:*');
 
         $this->session->flash('SIDA_FUND_UTILIZATION_CREATE_SUCCESS', 'The SIDA Fund Utilization has been successfully created!');
 
@@ -45,6 +46,7 @@ class SIDAFundUtilizationSubscriber extends BaseSubscriber{
     public function onUpdate($sida_fund_utilization){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:findBySlug:'. $sida_fund_utilization->slug .'');
 
         $this->session->flash('SIDA_FUND_UTILIZATION_UPDATE_SUCCESS', 'The SIDA Fund Utilization has been successfully updated!');
@@ -57,6 +59,7 @@ class SIDAFundUtilizationSubscriber extends BaseSubscriber{
     public function onDestroy($sida_fund_utilization){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:sida_fund_utilizations:findBySlug:'. $sida_fund_utilization->slug .'');
 
         $this->session->flash('SIDA_FUND_UTILIZATION_DELETE_SUCCESS', 'The SIDA Fund Utilization has been successfully deleted!');

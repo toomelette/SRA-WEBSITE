@@ -52,6 +52,37 @@ class SIDAGuidelineRepository extends BaseRepository implements SIDAGuidelineInt
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $sida_guidelines = $this->cache->remember('sida_guidelines:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $sida_guideline = $this->sida_guideline->newQuery();
+
+            if(isset($request->q)){
+                $sida_guideline->where('title', 'LIKE', '%'. $request->q .'%')
+                               ->orWhere('description', 'LIKE', '%'. $request->q .'%')
+                               ->orWhere('year', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $sida_guideline->select('file_location', 'title', 'description', 'year', 'slug')
+                                  ->sortable()
+                                  ->orderBy('created_at', 'desc')
+                                  ->paginate($entries);
+
+        });
+
+        return $sida_guidelines;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $sida_guideline = new SIDAGuideline;
