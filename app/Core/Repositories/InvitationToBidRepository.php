@@ -52,6 +52,35 @@ class InvitationToBidRepository extends BaseRepository implements InvitationToBi
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $invitations_to_bid = $this->cache->remember('invitations_to_bid:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $invitation_to_bid = $this->invitation_to_bid->newQuery();
+
+            if(isset($request->q)){
+                $invitation_to_bid->where('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $invitation_to_bid->select('file_location_itb', 'file_location_pbd', 'description', 'station', 'date', 'slug')
+                                     ->sortable()
+                                     ->orderBy('created_at', 'desc')
+                                     ->paginate($entries);
+
+        });
+
+        return $invitations_to_bid;
+
+    }
+
+
+
+
+
     public function store($request, $file_location_itb, $file_location_pbd){
 
         $invitation_to_bid = new InvitationToBid;

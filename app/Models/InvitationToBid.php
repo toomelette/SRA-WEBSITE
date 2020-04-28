@@ -9,7 +9,6 @@ class InvitationToBid extends Model{
 
 
 
-
     use Sortable;
 
     protected $table = 'invitations_to_bid';
@@ -17,7 +16,6 @@ class InvitationToBid extends Model{
     protected $dates = ['date', 'created_at', 'updated_at'];
     
 	public $timestamps = false;
-
 
 
 
@@ -38,6 +36,18 @@ class InvitationToBid extends Model{
         'user_updated' => '',
 
     ];
+
+
+
+    public function getStationAttribute($value){
+
+        if ($value == 1) {
+            return "SRA-QUEZON CITY";
+        }else{
+            return "SRA-BACOLOD CITY";
+        }
+
+    }
 
 
 

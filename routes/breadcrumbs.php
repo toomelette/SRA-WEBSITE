@@ -225,3 +225,8 @@ Breadcrumbs::for('sida_sidaFU', function ($trail) {
     $trail->parent('home');
     $trail->push('SIDA / SIDA Fund Utilizations', route('guest.sida.sida_fu'));
 });
+
+Breadcrumbs::for('bid_ITB', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Invitation to Bid', route('guest.bid.itb'));
+});

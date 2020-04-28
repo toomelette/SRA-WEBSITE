@@ -106,7 +106,7 @@
       <h4 class="widget_title">Bid Corner</h4>
       <ul class="list cat-list">
         <li>
-          <a class="d-flex justify-content-between" href="">Invitation to Bid</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.itb') }}">Invitation to Bid</a>
         </li>
         <li>
           <a class="d-flex justify-content-between" href="">Supplemental Bid</a>
