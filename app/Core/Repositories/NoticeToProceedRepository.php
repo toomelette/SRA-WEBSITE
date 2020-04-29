@@ -52,6 +52,35 @@ class NoticeToProceedRepository extends BaseRepository implements NoticeToProcee
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $notice_to_proceed = $this->cache->remember('notice_to_proceed:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $notice_to_proceed = $this->notice_to_proceed->newQuery();
+
+            if(isset($request->q)){
+                $notice_to_proceed->where('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $notice_to_proceed->select('file_location_ntp', 'file_location_po', 'description', 'station', 'date', 'slug')
+                                     ->sortable()
+                                     ->orderBy('created_at', 'desc')
+                                     ->paginate($entries);
+
+        });
+
+        return $notice_to_proceed;
+
+    }
+
+
+
+
+
     public function store($request, $file_location_ntp, $file_location_po){
 
         $notice_to_proceed = new NoticeToProceed;

@@ -41,4 +41,16 @@ class NoticeOfAward extends Model{
 
 
 
+    public function getStationAttribute($value){
+
+        if ($value == 1) {
+            return "SRA-QUEZON CITY";
+        }else{
+            return "SRA-BACOLOD CITY";
+        }
+
+    }
+
+
+
 }

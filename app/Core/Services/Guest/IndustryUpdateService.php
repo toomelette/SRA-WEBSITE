@@ -44,7 +44,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($ssads->file_location)){
             return $this->view_file('/'. $ssads->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -59,7 +59,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($millsite_prices->file_location)){
             return $this->view_file('/'. $millsite_prices->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -74,7 +74,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($ber_price->file_location)){
             return $this->view_file('/'. $ber_price->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -89,7 +89,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($mm_prices->file_location)){
             return $this->view_file('/'. $mm_prices->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -104,7 +104,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($sugar_statistics->file_location)){
             return $this->view_file('/'. $sugar_statistics->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -124,7 +124,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($eic->file_location)){
             return $this->view_file('/'. $eic->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -139,7 +139,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($milling_schedule->file_location)){
             return $this->view_file('/'. $milling_schedule->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -154,7 +154,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($block_farm->file_location)){
             return $this->view_file('/'. $block_farm->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -169,7 +169,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($ces->file_location)){
             return $this->view_file('/'. $ces->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -184,7 +184,7 @@ class IndustryUpdateService extends BaseService{
         if(!empty($vacant_position->file_location)){
             return $this->view_file('/'. $vacant_position->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 

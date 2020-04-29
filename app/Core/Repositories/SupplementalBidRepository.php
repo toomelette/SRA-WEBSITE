@@ -52,6 +52,35 @@ class SupplementalBidRepository extends BaseRepository implements SupplementalBi
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $supplemental_bids = $this->cache->remember('supplemental_bids:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $supplemental_bid = $this->supplemental_bid->newQuery();
+
+            if(isset($request->q)){
+                $supplemental_bid->where('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $supplemental_bid->select('file_location', 'description', 'station', 'date', 'slug')
+                                    ->sortable()
+                                    ->orderBy('created_at', 'desc')
+                                    ->paginate($entries);
+
+        });
+
+        return $supplemental_bids;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $supplemental_bid = new SupplementalBid;

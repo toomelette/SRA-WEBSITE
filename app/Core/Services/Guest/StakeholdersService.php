@@ -52,7 +52,7 @@ class StakeHoldersService extends BaseService{
         if(!empty($traders_directory->file_location)){
             return $this->view_file('/'. $traders_directory->file_location);
         }
-        return ''; 
+        return abort(404); 
     }
 
 
@@ -61,7 +61,7 @@ class StakeHoldersService extends BaseService{
         if(!empty($planters_directory->file_location)){
             return $this->view_file('/'. $planters_directory->file_location);
         }
-        return ''; 
+        return abort(404); 
     }
 
 

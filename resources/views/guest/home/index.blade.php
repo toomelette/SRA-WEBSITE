@@ -7,38 +7,90 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-9 posts-list">
+
+
+          @if (Route::currentRouteName() == "guest.home.index") 
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" style=" width:100%; height: 400px !important; margin:auto;">
+                <div class="carousel-item active">
+                  <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          @endif 
           
 
 
-          {{-- Slide Show --}}
-          <div class="popular_courses col-lg-12">
-            <div class="container">
-              <div class="main_title">
-                <h2 class="mb-2">News</h2>
-              </div>
-              <div class="owl-carousel active_course">
-                @foreach ($news_list as $data)
-                    <div class="single_course">
-                      <div class="course_content">
-                        <h4 class="mb-3">
-                          <a href="{{ route('guest.news.details', $data->slug) }}">{{ $data->title }}</a>
-                        </h4>
-                        <p>{!! Str::limit(strip_tags($data->content), 70, ' ...'); !!}</p><br>
+
+          <div class="row" style="margin-top:50px;">
+
+            {{-- News --}}
+            <div class="col-lg-6">
+              <div class="blog_right_sidebar">
+                <aside class="popular_post_widget">
+                  <h3 class="widget_title">News</h3>
+                  @foreach ($news_list as $data)
+                    <div class="media post_item">
+                      <div class="media-body">
                         <a href="{{ route('guest.news.details', $data->slug) }}">
-                          <span class="tag mb-4 d-inline-block">Read More</span>
+                          <h3>{{ $data->title }}</h3>
+                        </a>
+                        <p>{{ __dataType::date_parse($data->created_at, 'F d, Y') }}</p>
+                      </div>
+                    </div>
+                    <div class="br"></div>
+                  @endforeach
+                    <div class="media post_item">
+                      <div class="media-body text-center">
+                        <a href="{{ route('guest.news.index') }}">
+                          <p style="color:#002347;"><h3>View All<i class="ti-arrow-right ml-1"></i></h3></p>
                         </a>
                       </div>
                     </div>
-                @endforeach
-              </div>
-              <div class="col-lg-12">
-                <div class="text-center">
-                  <a href="{{ route('guest.news.index') }}">
-                    <p style="color:#002347;">View All News <i class="ti-arrow-right ml-1"></i></p>
-                  </a>
-                </div>
+                </aside>
               </div>
             </div>
+
+            {{-- Announcements --}}
+            <div class="col-lg-6">
+              <div class="blog_right_sidebar">
+                <aside class="popular_post_widget">
+                  <h3 class="widget_title">Announcements</h3>
+                  @foreach ($announcement_list as $data)
+                    <div class="media post_item">
+                      <div class="media-body">
+                        <a href="{{ route('guest.announcement.details', $data->slug) }}">
+                          <h3>{{ $data->title }}</h3>
+                        </a>
+                        <p>{{ __dataType::date_parse($data->created_at, 'F d, Y') }}</p>
+                      </div>
+                    </div>
+                    <div class="br"></div>
+                  @endforeach
+                    <div class="media post_item">
+                      <div class="media-body text-center">
+                        <a href="{{ route('guest.announcement.index') }}">
+                          <p style="color:#002347;"><h3>View All<i class="ti-arrow-right ml-1"></i></h3></p>
+                        </a>
+                      </div>
+                    </div>
+                </aside>
+              </div>
+            </div>
+            
           </div>
 
 
@@ -103,32 +155,6 @@
               </div>
             </div>
 
-            {{-- Announcements --}}
-            <div class="col-lg-8">
-              <div class="blog_right_sidebar">
-                <aside class="popular_post_widget">
-                  <h3 class="widget_title">Announcements</h3>
-                  @foreach ($announcement_list as $data)
-                    <div class="media post_item">
-                      <div class="media-body">
-                        <a href="{{ route('guest.announcement.details', $data->slug) }}">
-                          <h3>{{ $data->title }}</h3>
-                        </a>
-                        <p>{{ __dataType::date_parse($data->created_at, 'F d, Y') }}</p>
-                      </div>
-                    </div>
-                    <div class="br"></div>
-                  @endforeach
-                    <div class="media post_item">
-                      <div class="media-body text-center">
-                        <a href="{{ route('guest.announcement.index') }}">
-                          <p style="color:#002347;"><h3>View All<i class="ti-arrow-right ml-1"></i></h3></p>
-                        </a>
-                      </div>
-                    </div>
-                </aside>
-              </div>
-            </div>
           </div>
 
 

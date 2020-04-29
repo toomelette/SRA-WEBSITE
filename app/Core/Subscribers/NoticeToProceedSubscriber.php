@@ -35,6 +35,7 @@ class NoticeToProceedSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:guestFetch:*');
 
         $this->session->flash('NOTICE_TO_PROCEED_CREATE_SUCCESS', 'The Notice to Proceed has been successfully created!');
 
@@ -45,6 +46,7 @@ class NoticeToProceedSubscriber extends BaseSubscriber{
     public function onUpdate($notice_to_proceed){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:findBySlug:'. $notice_to_proceed->slug .'');
 
         $this->session->flash('NOTICE_TO_PROCEED_UPDATE_SUCCESS', 'The Notice to Proceed has been successfully updated!');
@@ -57,6 +59,7 @@ class NoticeToProceedSubscriber extends BaseSubscriber{
     public function onDestroy($notice_to_proceed){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_to_proceed:findBySlug:'. $notice_to_proceed->slug .'');
 
         $this->session->flash('NOTICE_TO_PROCEED_DELETE_SUCCESS', 'The Notice to Proceed has been successfully deleted!');

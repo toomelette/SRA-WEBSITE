@@ -35,6 +35,7 @@ class SupplementalBidSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:guestFetch:*');
 
         $this->session->flash('SUPPLEMENTAL_BID_CREATE_SUCCESS', 'The Supplemental Bid has been successfully created!');
 
@@ -45,6 +46,7 @@ class SupplementalBidSubscriber extends BaseSubscriber{
     public function onUpdate($supplemental_bid){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:findBySlug:'. $supplemental_bid->slug .'');
 
         $this->session->flash('SUPPLEMENTAL_BID_UPDATE_SUCCESS', 'The Supplemental Bid has been successfully updated!');
@@ -57,6 +59,7 @@ class SupplementalBidSubscriber extends BaseSubscriber{
     public function onDestroy($supplemental_bid){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:supplemental_bids:findBySlug:'. $supplemental_bid->slug .'');
 
         $this->session->flash('SUPPLEMENTAL_BID_DELETE_SUCCESS', 'The Supplemental Bid has been successfully deleted!');

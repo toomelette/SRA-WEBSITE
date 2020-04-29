@@ -6,16 +6,16 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-lg-9 posts-list">
-            {{ Breadcrumbs::render('aboutSugarcane_researches') }}
+            {{ Breadcrumbs::render('bid_NTP') }}
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Sugarcane Researches</h3>
+                <h3 class="text-heading title_color">Notice to Proceed</h3>
               </div>
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.about_sugarcane.researches') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.bid.ntp') }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-8">
                           <select id="e" name="e" class="small" onchange="document.getElementById('table_search_button').click()">
-                            <option value="">10</option>
+                            <option value="">20</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                           </select>
@@ -50,29 +50,38 @@
                 <div id="pjax-container">
                   <table class="table table-striped table-bordered" style="width:100%">
                     <thead>
-                      <td style="color:red;">@sortablelink('title', 'Title')</td>
-                      <td style="width:175px;"></td>
+                      <td>@sortablelink('description', 'Description')</td>
+                      <td>@sortablelink('station', 'Station')</td>
+                      <td>@sortablelink('date', 'Date Posted')</td>
+                      <td style="width:250px;"></td>
                     </thead>
                     <tbody>
-                      @foreach ($researches as $data)
+                      @foreach ($ntp_list as $data)
                         <tr>
-                          <td id="mid-vert">{{ $data->title }}</td>
+                          <td id="mid-vert">{{ $data->description }}</td>
+                          <td id="mid-vert">{{ $data->station }}</td>
+                          <td id="mid-vert">{{ __dataType::date_parse($data->date, 'm/d/Y') }}</td>
                           <td id="mid-vert">
-                            <a href="{{ route('guest.about_sugarcane.research_details', $data->slug) }}" class="genric-btn btn-info small">Read More</a>
+                            <a href="{{ route('guest.bid.view_ntp', $data->slug) }}" class="genric-btn btn-info small" target="_blank">
+                              NTP
+                            </a>
+                            <a href="{{ route('guest.bid.view_po', $data->slug) }}" class="genric-btn btn-info small" target="_blank">
+                              PO
+                            </a>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
                   </table>
 
-                  @if($researches->isEmpty())
+                  @if($ntp_list->isEmpty())
                     <div style="padding :5px;">
                       <center><h4>No Records found!</h4></center>
                     </div>
                   @endif
 
-                  {!! __html::table_counter($researches) !!}
-                  {!! $researches->appends([])->render('vendor.pagination.bootstrap-4')!!}
+                  {!! __html::table_counter($ntp_list) !!}
+                  {!! $ntp_list->appends([])->render('vendor.pagination.bootstrap-4')!!}
 
                 </div>
               </div>

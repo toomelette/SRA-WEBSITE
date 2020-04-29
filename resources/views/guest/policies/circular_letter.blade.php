@@ -10,7 +10,7 @@
             <div class="single-post row">
 
               <div class="col-lg-12 col-md-12 blog_details">
-                <h3 class="text-heading title_color">Sugar Orders</h3>
+                <h3 class="text-heading title_color">Circular Letters</h3>
               </div>
               
               <div class="container">

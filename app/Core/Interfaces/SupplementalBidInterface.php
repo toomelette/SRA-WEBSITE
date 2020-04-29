@@ -4,9 +4,11 @@ namespace App\Core\Interfaces;
  
 
 
-interface SupplementalBidInterface {
+interface SupplementalBidInterface {	
 
 	public function fetch($request);
+
+	public function guestFetch($request);
 
 	public function store($request, $file_location);
 

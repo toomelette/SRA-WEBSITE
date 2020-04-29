@@ -92,6 +92,8 @@ class PoliciesService extends BaseService{
             return $response;
         }
 
+        return abort(404);
+        
     }
 
 

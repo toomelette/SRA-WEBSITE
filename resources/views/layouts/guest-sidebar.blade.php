@@ -109,19 +109,19 @@
           <a class="d-flex justify-content-between" href="{{ route('guest.bid.itb') }}">Invitation to Bid</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Supplemental Bid</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.supp_bid') }}">Supplemental Bid</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Notice of Award</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.noa') }}">Notice of Award</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Notice to Proceed</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.ntp') }}">Notice to Proceed</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Philgeps Posting</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.philgeps_posting') }}">Philgeps Posting</a>
         </li>
         <li>
-          <a class="d-flex justify-content-between" href="">Minutes of the Bid</a>
+          <a class="d-flex justify-content-between" href="{{ route('guest.bid.mob') }}">Minutes of the Bid</a>
         </li>
       </ul>
       <div class="br"></div>

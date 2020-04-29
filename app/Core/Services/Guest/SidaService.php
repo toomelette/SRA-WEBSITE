@@ -51,6 +51,8 @@ class SidaService extends BaseService{
             return $response;
         }
 
+        return abort(404);
+
     }
 
 
@@ -75,6 +77,8 @@ class SidaService extends BaseService{
             $response->header("Content-Type", $type);
             return $response;
         }
+
+        return abort(404);
 
     }
 
@@ -101,6 +105,8 @@ class SidaService extends BaseService{
             return $response;
         }
 
+        return abort(404);
+
     }
 
 
@@ -125,6 +131,8 @@ class SidaService extends BaseService{
             $response->header("Content-Type", $type);
             return $response;
         }
+
+        return abort(404);
 
     }
 

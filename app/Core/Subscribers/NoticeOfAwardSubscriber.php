@@ -35,6 +35,7 @@ class NoticeOfAwardSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:guestFetch:*');
 
         $this->session->flash('NOTICE_OF_AWARD_CREATE_SUCCESS', 'The Notice of Award has been successfully created!');
 
@@ -45,6 +46,7 @@ class NoticeOfAwardSubscriber extends BaseSubscriber{
     public function onUpdate($notice_of_award){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:findBySlug:'. $notice_of_award->slug .'');
 
         $this->session->flash('NOTICE_OF_AWARD_UPDATE_SUCCESS', 'The Notice of Award has been successfully updated!');
@@ -57,6 +59,7 @@ class NoticeOfAwardSubscriber extends BaseSubscriber{
     public function onDestroy($notice_of_award){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:notice_of_award:findBySlug:'. $notice_of_award->slug .'');
 
         $this->session->flash('NOTICE_OF_AWARD_DELETE_SUCCESS', 'The Notice of Award has been successfully deleted!');

@@ -52,6 +52,35 @@ class NoticeOfAwardRepository extends BaseRepository implements NoticeOfAwardInt
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $notice_of_award = $this->cache->remember('notice_of_award:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $notice_of_award = $this->notice_of_award->newQuery();
+
+            if(isset($request->q)){
+                $notice_of_award->where('description', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $notice_of_award->select('file_location_noa', 'file_location_bacreso', 'description', 'station', 'date', 'slug')
+                                   ->sortable()
+                                   ->orderBy('created_at', 'desc')
+                                   ->paginate($entries);
+
+        });
+
+        return $notice_of_award;
+
+    }
+
+
+
+
+
     public function store($request, $file_location_noa, $file_location_bacreso){
 
         $notice_of_award = new NoticeOfAward;

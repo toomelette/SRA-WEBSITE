@@ -33,7 +33,7 @@ class AboutSugarcaneService extends BaseService{
         if(!empty($varieties->file_location)){
             return $this->view_file('/'. $varieties->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 

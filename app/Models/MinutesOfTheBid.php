@@ -39,6 +39,5 @@ class MinutesOfTheBid extends Model{
     ];
 
 
-
     
 }

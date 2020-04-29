@@ -157,6 +157,22 @@ Route::group(['as' => 'guest.'], function () {
 	Route::get('/bid_corner/itb/view_itb/{slug}', 'Guest\BidController@viewITB')->name('bid.view_itb');
 	Route::get('/bid_corner/itb/view_pbd/{slug}', 'Guest\BidController@viewPBD')->name('bid.view_pbd');
 
+	Route::get('/bid_corner/supplemental_bid', 'Guest\BidController@suppBid')->name('bid.supp_bid');
+	Route::get('/bid_corner/supplemental_bid/view_supp_bid/{slug}', 'Guest\BidController@viewSuppBid')->name('bid.view_supp_bid');
+
+	Route::get('/bid_corner/noa', 'Guest\BidController@NOA')->name('bid.noa');
+	Route::get('/bid_corner/noa/view_noa/{slug}', 'Guest\BidController@viewNOA')->name('bid.view_noa');
+	Route::get('/bid_corner/noa/view_bacreso/{slug}', 'Guest\BidController@viewBacReso')->name('bid.view_bacreso');
+
+	Route::get('/bid_corner/ntp', 'Guest\BidController@NTP')->name('bid.ntp');
+	Route::get('/bid_corner/ntp/view_ntp/{slug}', 'Guest\BidController@viewNTP')->name('bid.view_ntp');
+	Route::get('/bid_corner/ntp/view_po/{slug}', 'Guest\BidController@viewPO')->name('bid.view_po');
+
+	Route::get('/bid_corner/philgeps_posting', 'Guest\BidController@philgepsPosting')->name('bid.philgeps_posting');
+
+	Route::get('/bid_corner/mob', 'Guest\BidController@MOB')->name('bid.mob');
+	Route::get('/bid_corner/mob/view_mob/{slug}', 'Guest\BidController@viewMOB')->name('bid.view_mob');
+
 
 });
 

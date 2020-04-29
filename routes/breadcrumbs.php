@@ -230,3 +230,28 @@ Breadcrumbs::for('bid_ITB', function ($trail) {
     $trail->parent('home');
     $trail->push('Bid Corner / Invitation to Bid', route('guest.bid.itb'));
 });
+
+Breadcrumbs::for('bid_suppBid', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Supplemental Bid', route('guest.bid.supp_bid'));
+});
+
+Breadcrumbs::for('bid_NOA', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Notice of Award', route('guest.bid.noa'));
+});
+
+Breadcrumbs::for('bid_NTP', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Notice to Proceed', route('guest.bid.ntp'));
+});
+
+Breadcrumbs::for('bid_philgepsPosting', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Philgeps Posting', route('guest.bid.philgeps_posting'));
+});
+
+Breadcrumbs::for('bid_MOB', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Bid Corner / Minutes of Bid', route('guest.bid.mob'));
+});

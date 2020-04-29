@@ -19,7 +19,7 @@
 
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                About us <i class="ti-angle-down"></i>
+                About us
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
@@ -51,7 +51,7 @@
 
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Downloads <i class="ti-angle-down"></i>
+                Downloads
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
@@ -68,7 +68,7 @@
 
             <li class="nav-item submenu dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                About Sugarcane <i class="ti-angle-down"></i>
+                About Sugarcane
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
@@ -236,30 +236,5 @@
       </div>
     </div>
   </div>
-
-  @if (Route::currentRouteName() == "guest.home.index") 
-    <div class="container-fluid">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin-top:90px;">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" style=" width:100%; height: 400px !important; margin:auto;">
-          <div class="carousel-item active">
-            <img class="d-block mx-auto w-100" src="{{ asset('images/carousel1.jpg') }}">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  @endif 
 
 </section>

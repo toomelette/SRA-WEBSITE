@@ -86,7 +86,7 @@ class AboutUsService extends BaseService{
         if(!empty($official->file_location)){
             return $this->view_file('/'. $official->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -101,7 +101,7 @@ class AboutUsService extends BaseService{
         if(!empty($administrator->file_location)){
             return $this->view_file('/'. $administrator->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 

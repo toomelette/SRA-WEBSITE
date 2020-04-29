@@ -35,7 +35,7 @@ class DownloadsService extends BaseService{
         if(!empty($application_form->file_location)){
             return $this->view_file('/'. $application_form->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -50,7 +50,7 @@ class DownloadsService extends BaseService{
         if(!empty($sms_form->file_location)){
             return $this->view_file('/'. $sms_form->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 
@@ -65,7 +65,7 @@ class DownloadsService extends BaseService{
         if(!empty($historical_data->file_location)){
             return $this->view_file('/'. $historical_data->file_location);
         }
-        return ''; 
+        return abort(404);
     }
 
 

@@ -35,6 +35,7 @@ class MinutesOfTheBidSubscriber extends BaseSubscriber{
     public function onStore(){
         
         $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:guestFetch:*');
 
         $this->session->flash('MINUTES_OF_THE_BID_CREATE_SUCCESS', 'The Minutes of the Bid has been successfully created!');
 
@@ -45,6 +46,7 @@ class MinutesOfTheBidSubscriber extends BaseSubscriber{
     public function onUpdate($minutes_of_the_bid){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:findBySlug:'. $minutes_of_the_bid->slug .'');
 
         $this->session->flash('MINUTES_OF_THE_BID_UPDATE_SUCCESS', 'The Minutes of the Bid has been successfully updated!');
@@ -57,6 +59,7 @@ class MinutesOfTheBidSubscriber extends BaseSubscriber{
     public function onDestroy($minutes_of_the_bid){
 
         $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:fetch:*');
+        $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:guestFetch:*');
         $this->__cache->deletePattern(''. config('app.name') .'_cache:minutes_of_the_bid:findBySlug:'. $minutes_of_the_bid->slug .'');
 
         $this->session->flash('MINUTES_OF_THE_BID_DELETE_SUCCESS', 'The Minutes of the Bid has been successfully deleted!');

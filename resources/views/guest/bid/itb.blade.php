@@ -60,7 +60,7 @@
                         <tr>
                           <td id="mid-vert">{{ $data->description }}</td>
                           <td id="mid-vert">{{ $data->station }}</td>
-                          <td id="mid-vert">{{ __dataType::date_parse($data->date, 'F d, Y') }}</td>
+                          <td id="mid-vert">{{ __dataType::date_parse($data->date, 'm/d/Y') }}</td>
                           <td id="mid-vert">
                             <a href="{{ route('guest.bid.view_itb', $data->slug) }}" class="genric-btn btn-info small" target="_blank">
                               ITB

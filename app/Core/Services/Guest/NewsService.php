@@ -10,9 +10,7 @@ use File;
 class NewsService extends BaseService{
 	
 
-
     protected $news_repo;
-
 
 
 	public function __construct(NewsInterface $news_repo){
@@ -24,25 +22,17 @@ class NewsService extends BaseService{
 
 
 
-
     public function list($request){
-
         $news_list = $this->news_repo->guestFetch($request);    
-        return view('guest.news.index')->with('news_list', $news_list);
-        
+        return view('guest.news.index')->with('news_list', $news_list); 
     }
-
 
 
 
     public function details($slug){
-
         $news = $this->news_repo->findBySlug($slug);    
-        return view('guest.news.details')->with('news', $news);
-        
+        return view('guest.news.details')->with('news', $news); 
     }
-
-
 
 
 
@@ -52,7 +42,7 @@ class NewsService extends BaseService{
 
         if(!empty($news->file_location)){
             $path = $this->__static->archive_dir() .'/'. $news->file_location;
-            if (!File::exists($path)) { return "Cannot Detect File!"; }
+            if (!File::exists($path)) { return abort(404); }
             $file = File::get($path);
             $type = File::mimeType($path);
             $response = response()->make($file, 200);
@@ -60,10 +50,9 @@ class NewsService extends BaseService{
             return $response;
         }
 
-        return "Cannot Detect File!";
+        return abort(404);
 
     }
-
 
 
 
@@ -73,16 +62,15 @@ class NewsService extends BaseService{
 
         if(!empty($news->img_location)){
             $path = $this->__static->archive_dir() .'/'. $news->img_location;
-            if (!File::exists($path)) { return "Cannot Detect File!"; }
+            if (!File::exists($path)) { return abort(404); }
             $file = File::get($path);
             $type = File::mimeType($path);
             $response = response()->make($file, 200);
             $response->header("Content-Type", $type);
             return $response;
-
         }
 
-        return "Cannot Detect File!"; 
+        return abort(404);
 
     }
 

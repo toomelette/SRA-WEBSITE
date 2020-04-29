@@ -52,6 +52,36 @@ class MinutesOfTheBidRepository extends BaseRepository implements MinutesOfTheBi
 
 
 
+    public function guestFetch($request){
+
+        $key = str_slug($request->fullUrl(), '_');
+
+        $minutes_of_the_bid = $this->cache->remember('minutes_of_the_bid:guestFetch:' . $key, 240, function() use ($request){
+
+            $entries = isset($request->e) ? $request->e : 20;
+
+            $minutes_of_the_bid = $this->minutes_of_the_bid->newQuery();
+
+            if(isset($request->q)){
+                $minutes_of_the_bid->where('title', 'LIKE', '%'. $request->q .'%')
+                                   ->orWhere('location', 'LIKE', '%'. $request->q .'%');
+            }
+
+            return $minutes_of_the_bid->select('file_location', 'title', 'location', 'date', 'slug')
+                                      ->sortable()
+                                      ->orderBy('created_at', 'desc')
+                                      ->paginate($entries);
+
+        });
+
+        return $minutes_of_the_bid;
+
+    }
+
+
+
+
+
     public function store($request, $file_location){
 
         $minutes_of_the_bid = new MinutesOfTheBid;
