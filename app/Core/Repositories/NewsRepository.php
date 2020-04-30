@@ -52,7 +52,7 @@ class NewsRepository extends BaseRepository implements NewsInterface {
 
 
 
-    public function guestfetch($request){
+    public function guestFetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
 
@@ -71,7 +71,7 @@ class NewsRepository extends BaseRepository implements NewsInterface {
 
 
 
-    public function guestfetchInHome(){
+    public function guestFetchInHome(){
 
         $news = $this->cache->remember('news:guest:fetchInHome', 240, function(){
             $news = $this->news->newQuery();

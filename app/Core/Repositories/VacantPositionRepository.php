@@ -52,7 +52,7 @@ class VacantPositionRepository extends BaseRepository implements VacantPositionI
 
 
 
-    public function guestfetch($request){
+    public function guestFetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
 

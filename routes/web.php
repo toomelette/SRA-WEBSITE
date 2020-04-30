@@ -329,6 +329,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.', 'middleware' => ['che
 	Route::get('/minutes_of_the_bid/view_file/{slug}', 'MinutesOfTheBidController@viewFile')->name('minutes_of_the_bid.view_file');
 	Route::resource('minutes_of_the_bid', 'MinutesOfTheBidController');
 	
+	/** Admin Corner **/
+	Route::get('/admin_corner/view_img/{slug}', 'AdminCornerController@viewImg')->name('admin_corner.view_img');
+	Route::resource('admin_corner', 'AdminCornerController');
+	
 });
 
 

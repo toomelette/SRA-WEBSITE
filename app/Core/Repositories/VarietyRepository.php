@@ -52,7 +52,7 @@ class VarietyRepository extends BaseRepository implements VarietyInterface {
 
 
 
-    public function guestfetch($request){
+    public function guestFetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
 

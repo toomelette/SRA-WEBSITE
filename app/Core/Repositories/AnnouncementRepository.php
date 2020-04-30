@@ -52,7 +52,7 @@ class AnnouncementRepository extends BaseRepository implements AnnouncementInter
 
 
 
-    public function guestfetch($request){
+    public function guestFetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
 
@@ -71,7 +71,7 @@ class AnnouncementRepository extends BaseRepository implements AnnouncementInter
 
 
 
-    public function guestfetchInHome(){
+    public function guestFetchInHome(){
 
         $announcements = $this->cache->remember('announcements:guest:fetchInHome', 240, function(){
             $announcement = $this->announcement->newQuery();

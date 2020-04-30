@@ -55,7 +55,7 @@ class ApplicationFormRepository extends BaseRepository implements ApplicationFor
 
 
 
-    public function guestfetch($request){
+    public function guestFetch($request){
 
         $key = str_slug($request->fullUrl(), '_');
 
