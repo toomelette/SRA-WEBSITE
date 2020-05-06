@@ -81,6 +81,23 @@ class IndustryStatisticRepository extends BaseRepository implements IndustryStat
 
 
 
+    public function guestFetchForMerge(){
+
+        $industry_statistics = $this->cache->remember('industry_statistics:guestFetchForMerge', 240, function(){
+
+            return $this->industry_statistic->select('title', 'slug', 'created_at')
+                                            ->orderBy('created_at', 'desc')
+                                            ->limit(3)
+                                            ->get();
+        });
+
+        return $industry_statistics;
+
+    }
+
+
+
+
 
     public function store($request, $file_location){
 

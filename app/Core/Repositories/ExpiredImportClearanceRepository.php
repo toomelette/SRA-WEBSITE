@@ -85,6 +85,24 @@ class ExpiredImportClearanceRepository extends BaseRepository implements Expired
 
 
 
+    public function guestFetchForMerge(){
+
+        $expired_import_clearances = $this->cache->remember('expired_import_clearances:guestFetchForMerge', 240, function(){
+
+            return $this->expired_import_clearance->select('title', 'slug', 'created_at')
+                                                  ->orderBy('created_at', 'desc')
+                                                  ->limit(3)
+                                                  ->get();
+        });
+
+        return $expired_import_clearances;
+
+    }
+
+
+
+
+
 
     public function store($request, $file_location){
 

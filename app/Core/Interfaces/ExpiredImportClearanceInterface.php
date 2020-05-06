@@ -10,6 +10,8 @@ interface ExpiredImportClearanceInterface {
 
 	public function guestFetch($request);
 
+	public function guestFetchForMerge();
+
 	public function store($request, $file_location);
 
 	public function update($request, $file_location, $news);

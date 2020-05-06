@@ -125,33 +125,23 @@
           <div class="container-fluid row">
             
             {{-- Logo's --}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
               <div class="single_feature">
-                <div class="col-lg-12" style="text-align: center;">
-                  <a href="">
-                    <img src="{{ asset('images/citizen-charter.png') }}" style="height:170px; margin-bottom:10px;">
-                  </a>
-                </div>
-                <div class="col-lg-12" style="text-align: center;">
-                  <a href="">
-                    <img src="{{ asset('images/transparency-seal.png') }}" style="height:120px; margin-bottom:10px;">
-                  </a>
-                </div>
-                <div class="col-lg-12" style="text-align: center;">
-                  <a href="">
-                    <img src="{{ asset('images/gcg-logo.png') }}" style="height:130px; margin-bottom:10px;">
-                  </a>
-                </div>
-                <div class="col-lg-12" style="text-align: center;">
-                  <a href="">
-                    <img src="{{ asset('images/foi-logo.png') }}" style="height:140px; margin-bottom:10px;">
-                  </a>
-                </div>
-                <div class="col-lg-12" style="text-align: center;">
-                  <a href="">
-                    <img src="{{ asset('images/iso-sra-qr-code.jpg') }}" style="height:80px; margin-bottom:10px;">
-                  </a>
-                </div>
+                <a href="">
+                  <img src="{{ asset('images/citizen-charter.png') }}" style="height:160px; margin-bottom:10px;">
+                </a>
+                <a href="">
+                  <img src="{{ asset('images/transparency-seal.png') }}" style="height:125px; margin-bottom:30px; margin-right:15px;">
+                </a>
+                <a href="">
+                  <img src="{{ asset('images/gcg-logo.png') }}" style="height:130px; margin-bottom:30px; margin-right:10px;">
+                </a>
+                <a href="">
+                  <img src="{{ asset('images/foi-logo.png') }}" style="height:140px; margin-bottom:30px; margin-right:10px;">
+                </a>
+                <a href="">
+                  <img src="{{ asset('images/iso-sra-qr-code.jpg') }}" style="height:80px; margin-bottom:30px; margin-right:10px;">
+                </a>
               </div>
             </div>
 
