@@ -46,9 +46,9 @@ class HomeService extends BaseService{
 
         $updates = $industry_statistics->merge($eic);
 
-        foreach ($updates as $value) {
-            dd($value);
-        }
+        // foreach ($updates as $value) {
+        //     dd($value);
+        // }
 
         return view('guest.home.index', [
         	'news_list'=> $news_list,

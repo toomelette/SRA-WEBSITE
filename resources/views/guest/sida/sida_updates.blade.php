@@ -71,7 +71,7 @@
                     
                   <div class="col-md-12">
                     <div class="input-group input-group-md" style="width: 500px;">
-                      <input name="q" class="form-control pull-right" placeholder="Search ..." type="text">
+                      <input name="q" class="form-control pull-right" placeholder="Search ..." type="text" value="{{ __sanitize::html_attribute_encode(Request::get('q')) }}">
                       <div class="input-group-btn">
                         <button id="table_search_button" type="submit" class="btn btn-default btn-md">Search <i class="fa fa-search"></i></button>
                       </div>

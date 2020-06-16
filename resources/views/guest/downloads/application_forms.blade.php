@@ -15,7 +15,7 @@
               
               <div class="container">
 
-                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.application_forms') }}" value="{{ Request::get('q') }}">
+                <form data-pjax class="form" id="filter_form" method="GET" autocomplete="off" action="{{ route('guest.downloads.application_forms') }}" value="{{ __sanitize::html_attribute_encode(Request::get('q')) }}">
 
                   <div class="row" style="margin-bottom:10px;">
                       

@@ -53,8 +53,14 @@ class EventService extends BaseService{
             $file_location = $dir .'/'. $filename;
 
         }
-            
 
+
+
+
+
+
+
+          
         $event = $this->event_repo->store($request, $file_location);
         
         $this->event->fire('event.store');
@@ -131,11 +137,7 @@ class EventService extends BaseService{
             
             $request->file('doc_file')->storeAs($dir, $new_filename);
             $file_location = $new_file_location;
-
-        // if title has change
-        }elseif($request->title != $event->title && $this->storage->disk('local')->exists($old_file_location)){
-            $this->storage->disk('local')->move($old_file_location, $new_file_location);
-            $file_location = $new_file_location;
+            
         }
 
         $event = $this->event_repo->update($request, $file_location, $event);
